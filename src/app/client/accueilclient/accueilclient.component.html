@@ -1,0 +1,288 @@
+
+    
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+          <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+          <ul>
+            <li>
+              <a href="#" class="active">
+                <span class="fas fa-tachometer-alt"></span>
+                <span>Tableau e board</span>
+              </a>
+            </li>
+            <li>
+              <a  class="switch"  [routerLink]="['/gestioncompte']" routerLinkActive="router-link-active" >
+                <span class="fas fa-users" ></span>
+                <span >Gestion Compte</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/gestiondemande']" routerLinkActive="router-link-active" >
+                <span class="bi bi-truck"></span>
+              <span>Gestion Demande</span>
+              </a>
+            </li>
+         
+            <li>
+              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+                <span class="fas fa-tasks"></span>
+                <span>Liste des devis</span>
+              </a>
+            </li>
+            <div class="logout mt-5">
+              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            </a>
+            </div>
+            <div class="utilsateur">
+              <span>Tableau client</span>
+            </div>
+          </ul>
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+       
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+          <h5>{{userconnect.Nom}}</h5>
+          <small>{{userconnect.role}}</small>
+         </div>
+        </div>
+      </header>
+
+      <main>
+        <div class=" mb-3 container w-100" style="margin-top: -10%;" >
+          <div class="row g-0 contenu">
+            <!-- titre -->
+            <div class="col-md-4 titre">
+              <h2>Trouver votre Demenageur</h2>
+              <h5>Demenagez en toute securité</h5>
+            </div>
+            <!-- image slide -->
+            <div class="col-md-4">
+              <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <!-- 1ere image -->
+                  <div class="carousel-item active">
+                    <img src="/assets/deme-removebg-preview.png" class="d-block w-80 img" alt="...">
+                  </div>
+                  <!-- 2eme image -->
+                  <div class="carousel-item">
+                    <img src="/assets/lient.png" class="d-block w-80 img" alt="...">
+                  </div>
+                  <!-- 3eme image -->
+                  <div class="carousel-item">
+                    <img src="/assets/demee-removebg-preview.png" class="d-block w-80 img" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>       
+         <div class="conten">
+            <button class="btn-17">
+                <span class="text-container">
+                  <span class="text">Diamniadio</span>
+                </span>
+              </button>
+              <button class="btn-17">
+                <span class="text-container">
+                  <span class="text">Pikine</span>
+                </span>
+              </button>
+              <button class="btn-17">
+                <span class="text-container">
+                  <span class="text">Yoff</span>
+                </span>
+              </button>
+              <button class="btn-17">
+                <span class="text-container">
+                  <span  id="text">Malika</span>
+                </span>
+              </button>
+              
+        </div>
+        <div class="cartes" *ngIf="showCard">
+          <div class="row "  >
+            <div class="card col-lg-3" style="width: 18rem;" *ngFor="let info of listinfos">
+                <img src="/assets/emballage.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{info.nom_entreprise}}</h5>
+                  <p class="card-text">{{info.NINEA}}</p>
+                  <a  class="btn btn-primary" id="button" (click)="Showdemenageur(info.user_id)">voir</a>
+                </div>
+              </div>
+             
+          
+            
+          
+        </div>
+        <!-- <div class="row " >
+           
+          <div class="card col-lg-3" style="width: 18rem;">
+            <img src="/assets/emballage.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-primary" id="button">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card col-lg-3" style="width: 18rem;">
+            <img src="/assets/emballage.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" id="button">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card col-lg-3" style="width: 18rem; ">
+            <img src="/assets/emballage.avif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" id="button">Go somewhere</a>
+            </div>
+          </div>
+              <div class="pagination p1">
+                <ul>
+                    <a href="#">
+                        <li><</li>
+                    </a>
+                    <a class="is-active" href="#">
+                        <li>1</li>
+                    </a>
+                    <a href="#">
+                        <li>2</li>
+                    </a>
+                    <a href="#">
+                        <li>3</li>
+                    </a>
+                    <a href="#">
+                        <li>4</li>
+                    </a>
+                   
+                    <a href="#">
+                        <li>></li>
+                    </a>
+                </ul>
+            </div>
+          
+        </div> -->
+        </div>
+        
+        
+        <!-- demenageur -->
+        <div class="blog-demenageur" *ngIf="!showCard">
+          <div class="blog-card col-md-12" >
+            <div class="meta">
+              <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+              
+              <div class="photo1" style="background-image: url(https://https://img.freepik.com/photos-gratuite/benevole-recuperant-boite-dons-aupres-autre-benevole_23-2149230543.jpg?size=626&ext=jpg&ga=GA1.1.48596631.1693317651&semt=ais.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+            </div>
+            <div class="description">
+              <h1 class="demenageur">AGS SENEGAL</h1>
+              <h2>Opening a door to the future</h2>
+              <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+              <p >
+               fyufuyfo
+              </p>
+            </div>
+          </div>
+          <!-- .....................Offres.............................. -->
+          <h2>Offres</h2>
+          <div class="btn">
+            <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+          
+          <div class="first hero">
+            <p>fuyfuyygy</p>
+            <img class="hero-profile-img" src="https://cdn.gamer-network.net/2018/metabomb/leagueoflegendsbestcarrychampions2018pantheon.jpg" alt="">
+            <div class="hero-description-bk"></div>
+            <div class="hero-logo">
+              <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
+            </div>
+            <div class="hero-description">
+              <h3>Formule de Luxe</h3>
+            </div>
+            <div  class="hero-date">
+              <p>10000f</p>
+            </div>
+            <div class="hero-btn">
+              <a href="#">Choisir</a>
+            </div>
+          </div>
+          
+          <div class="second hero">
+            <!-- <img class="hero-profile-img" src="https://i.pinimg.com/originals/9f/b1/ff/9fb1ffb05dd28039d1a06ad8e90cbd75.jpg" alt=""> -->
+            <div class="hero-description-bk"></div>
+            <div class="hero-logo">
+              <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
+            </div>
+            <div class="hero-description">
+              <h3>Formule economique</h3>
+            </div>
+            <div  class="hero-date">
+              <p>75000f</p>
+            </div>
+            <div class="hero-btn">
+              <a href="#">Choisir</a>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  >
+            Demande devis
+          </button>
+          
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div class="modal-dialog">
+              <div class="modal-content" >
+                <div class="modal-header" >
+                  <h1 class="modal-title fs-5" id="exampleModalLabel" >Demande de devis</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <label for="">adresse_actuelle</label><br>
+                  <input type="text" name="adresse_actuelle" class="col-md-4" [(ngModel)]="adresse_actuelle">
+                  <label for="">nouvelle_adresse</label>
+                  <input type="text" name="nouvelle_adresse" class="col-md-4" [(ngModel)]="nouvelle_adresse"><br>
+                  <p>{{nouvelle_adresse}}</p>
+                  <label for="">Date_demenagement</label><br>
+                  <input type="date" name="date_demenagement" class="col-md-4" [(ngModel)]="date_demenagement">
+                  <label for="floatingTextarea">Informations_bagage</label>
+                  <div class="form-floating">
+                    <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagage"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="envoi" (click)="postDemandeDevis()">Envoyer</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="annuler">Annuler</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </main>
+    </div>
+

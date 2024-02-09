@@ -1,0 +1,350 @@
+:root{
+    --main-color: #11101d;
+    --color-dark: #1D2231;
+    --text-grey:  #fff;
+  }
+.sidebar{
+    width: 245px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    /* z-index: 100;  */
+    background: var(--main-color);
+    transition: width 300ms;
+    background: #02273D;
+    border-radius: 10px;
+  
+  }
+  .sidebar img{
+    width: 50%;
+    margin-top: -50%;
+    margin-left: 20%;
+  }
+  .sidebar-brand{
+    height: 90px;
+    padding: 1rem 0rem 1rem 2rem;
+    color: #02273D;
+  }
+  .sidebar-brand span{
+    display: inline-block;
+    padding-right: 1rem;
+  }
+  .sidebar-menu li{
+    width: 100%;
+    margin-bottom: 1.7rem;
+    padding-left: 1rem;
+    list-style: none;
+  
+  }
+  .sidebar-menu{
+    margin-top: 1rem;
+  }
+  
+  .sidebar-menu a{
+    /* padding-left: 2rem; */
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-right: 20%;
+    width: 100%;
+
+  }
+  #nav-toggle:checked + .sidebar {
+    width: 70px ;
+  
+  }
+  #nav-toggle:checked + .sidebar .sidebar-brand,
+  #nav-toggle:checked + .sidebar li 
+  {
+    padding-left: 1rem;
+    text-align: center;
+  }
+  #nav-toggle:checked + .sidebar li a
+  {
+    padding-left: 0rem;
+  }
+  #nav-toggle:checked + .sidebar .sidebar-brand h1 span:last-child,
+  #nav-toggle:checked + .sidebar li a span:last-child{
+    display: none;
+  
+  }
+  .sidebar-menu a span:first-child{
+    font-size: 1.5rem;
+    padding-right: 1rem;
+  }
+  .sidebar-menu a.active{
+    background: #E08D14;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: white;
+    border-radius: 30px 0px 0px 30px;
+  
+  }
+  .sidebar-menu a{
+    text-decoration: none;
+  }
+  #nav-toggle:checked ~ .main-content {
+    margin-left: 70px;
+  
+  }
+  #nav-toggle:checked ~ .main-content  header{
+    width: calc(100% - 70px);
+    left:70px;
+  
+  }
+  .main-content{
+    transition: margin-left 300ms;
+    margin-left: 240px;
+    border: 1px solid black !important;
+  }
+  header{
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+    position: fixed;
+    left: 245px;
+    top:0;
+    z-index: 10; 
+    width: 82%;
+    transition: left 300ms;
+    }
+  
+  #nav-toggle{
+    display: none;
+  }
+  header h2{
+    color: #222;
+  }
+  header label span{
+    font-size: 1.7rem;
+    padding-right: 1rem;
+  }
+  .search-wrapper {
+    border: solid 1px #ccc;
+    border-radius: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    width:45%;
+  }
+  .search-wrapper span{
+    display: inline-block;
+    padding: 0rem 1rem;
+    font-size: 1.5rem;
+  }
+  .search-wrapper input{
+    height: 100%;
+    padding: .5rem;
+    border: none;
+    outline: none;
+  
+  }
+  .user-wrapper{
+    display: flex;
+    align-items: center;
+  }
+  .user-wrapper img{
+    border-radius: 50%;
+    margin-right: .5rem;
+  }
+  
+  .user-wrapper small{
+    display: inline-block;
+    color: var(--text-grey);
+    margin-top: -1px !important;
+  
+  }
+  #truc{
+    color: #E08D14;
+    
+  }
+  main{
+    margin-top: 85px;
+    padding: 2rem 1.5rem;
+    background: #fff;
+    min-height: calc(100vh - 90px);
+  }
+  
+  li a{
+    list-style: none;
+  }
+
+  .row {
+    margin-top: 8%;
+    gap: 5%;
+    margin-left: 3%;
+  }
+  #button{
+    background-color: #02273D;
+  }
+  .pagination ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 45%;
+    margin-top: 5%;
+    margin-left: 50%;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px 18px;
+    color: #02273D;
+    border: 1px solid #02273D;
+    border-radius: 100%;
+    margin: 1%;
+
+
+}
+
+/* ONE */
+
+.p1 a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.p1 a.is-active {
+    background-color: #02273D;
+    border-radius: 100%;
+    color: #fff;
+    
+}
+.p2 a{
+    border-radius: 1px solid black;
+}
+.text li{
+   list-style: none; 
+}
+.text span{
+    margin-left: 10%;
+}
+#modif{
+    color: white;
+    margin-bottom: 5%;
+    margin-left: 15%;
+    width: 100%; 
+    background-color: #02273D;
+    border: none;
+    border-radius: 5px;
+}
+
+.utilsateur{
+  color: white;
+  background-color: #E08D14;
+  width: 60%;
+  text-align: center;
+  margin-top: 20%;
+  margin-left: 10%;
+  font-size: 20px;
+  border-radius: 10px;
+}
+#exampleModalLabel{
+  color: #02273D;
+}
+img{
+    border: 5px solid #02273D;
+    border-radius: 15%;
+}
+#enregistrer{
+  background-color: #02273D;
+  color: white;
+}
+#annuler{
+  background-color: white;
+  color:#02273D;
+  border: 1px solid #02273D;
+  border-radius: 10px;
+}
+.edit{
+    display: flex;
+    border: 1px solid #02273D;
+}
+form {
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+}
+form h1 {
+  font-size: 20px;
+}
+form .separation {
+  width: 100%;
+  height: 1px;
+  background-color: #02273D;
+}
+form .corps-formulaire {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+form .corps-formulaire .groupe {
+  position: relative; /* Pour mettre positionner l’élément dans le flux normal de la page */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+form .corps-formulaire .gauche .groupe input {
+  margin-top: 5px;
+  padding: 10px 5px 10px 30px;
+  border: 1px solid #c9c9c9;
+  outline-color: #02273D;
+  border-radius: 5px;
+  width: 400px;
+}
+form .corps-formulaire .gauche .groupe i {
+  position: absolute; /* positionné par rapport à son parent le plus proche positionné */
+  left: 0;
+  top: 25px;
+  padding: 9px 8px;
+  color: #02273D;
+}
+form .corps-formulaire .droite {
+  margin-left: 40px;
+}
+form .corps-formulaire .droite .groupe {
+  height: 100%;
+  margin-left: 10%;
+
+}
+form .corps-formulaire .droite .groupe textarea {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 2px solid #02273D;
+  outline: none;
+  border-radius: 5px;
+  resize: none;
+  height: 87%;
+  width: 500px;
+}
+form .pied-formulaire button {
+  margin-top: 10px;
+  background-color: #02273D;
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+form .pied-formulaire button:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 920px) {
+  form .corps-formulaire .droite {
+    margin-left: 0px;
+  }
+}

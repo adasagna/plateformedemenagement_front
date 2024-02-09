@@ -1,0 +1,190 @@
+
+    
+    <input type="checkbox" id="nav-toggle">
+    
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+          <a [routerLink]="['/accueildemenageur']"  >
+            <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+          </a>
+          <ul>
+            <li>
+              <a href="#" class="active" [routerLink]="['/accueildemenageur']" routerLinkActive="router-link-active" >
+                <span class="fas fa-tachometer-alt"></span>
+                <span>Tableau de board</span>
+              </a>
+            </li>
+            <li>
+              <a  class="switch" href="#">
+                <span class="fas fa-users" ></span>
+                <span >Gestion Compte</span>
+              </a>
+            </li>
+            <li>
+              <a class="switch" [routerLink]="['/gestiondevis']" >
+                <span class="bi bi-truck"></span>
+              <span>Gestion devis</span>
+              </a>
+            </li>
+         
+            <li>
+              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+                <span class="fas fa-tasks"></span>
+                <span>Liste devis</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+                <span class="fas fa-tasks"></span>
+                <span>Gestion offre</span>
+              </a>
+            </li>
+            <div class="logout mt-5">
+              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            </a>
+            </div>
+            <div class="utilsateur">
+              <span>Tableau Demenageur</span>
+            </div>
+          </ul>
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+       
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+            <h5>Demenageur</h5>
+            <!-- <small>Super Admin</small> -->
+         </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- gestion compte -->
+        <div class="compte" *ngIf="Showinformation" >
+        <div class="card mb-3" style="max-width: 780px;">
+            <div class="row g-0">
+              <div class="col-md-2">
+                <img src="/assets/profil-removebg-preview.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                    <div class="text">
+                        <ul>
+                            <li>Nom complet : &nbsp;<span>Ndeye Fatou Sow</span></li>
+                            <li>Adresse email : &nbsp;<span>sow@gmail.com</span></li>
+                            <li>Telephone : &nbsp;<span>771845208</span></li>
+                            <li>Localité : &nbsp;<span>Mbao</span></li>
+                        </ul>
+                    </div>
+                 
+                </div>
+              </div>
+            </div>
+
+
+  <!-- Button trigger modal -->
+  <div class="bouton d-flex w-50">
+  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="modif">
+    Editer profil
+  </button>
+  <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="modif" (click)="Showinfosup()">
+  info sup
+</button>
+</div>
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img src="/assets/logo.png" alt="" style="width: 20%; margin-top: -3%; margin-left: -3%;" >
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Editer profil</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="modification col-md-2">
+            <label for="">Nomcomplet</label>
+          <input type="text" name="nomcomplet">
+        </div>
+          <div class="modification col-md-2">
+          <label for="">Adresse email</label><br>
+          <input type="email" name="adresse email">
+          <label for="">Telephone</label><br>
+          <input type="text" name="telephone">
+          <label for="">Localité</label><br>
+          <input type="text" name="Localité">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="enregistrer">Enregistre</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="annuler">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>         
+ </div>
+        </div>
+        <form *ngIf="!Showinformation">
+          <h1>Informations suplementaires</h1>
+          <div class="separation"></div>
+          <div class="corps-formulaire">
+            <div class="gauche">
+              <div class="groupe ">
+                <label>Nom_entreprise</label>
+                <input type="text " autocomplete="off" />
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="groupe">
+                <label>NINEA</label>
+                <input type="text" autocomplete="off" />
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="groupe">
+                <label>Forme juridique</label>
+                <input type="text" autocomplete="off" />
+                <i class="fas fa-mobile"></i>
+              </div>
+              <div class="groupe">
+                <label>Année de création</label>
+                <input type="text" autocomplete="off" />
+                <i class="fas fa-mobile"></i>
+              </div>
+            </div>
+    
+            <div class="droite">
+              <div class="groupe ">
+                <label>Presentation</label>
+                <textarea placeholder="Saisissez ici..."></textarea>
+              </div>
+            </div>
+          </div>
+    
+          <div class="pied-formulaire" align="center">
+            <button>Enregistrer</button>
+          </div>
+        </form>
+      </main>
+    </div>
+

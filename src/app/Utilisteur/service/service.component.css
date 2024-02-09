@@ -1,0 +1,150 @@
+*{
+    margin: 0 ;
+}
+
+.banier{
+    /* height: 600px; */
+    /* background-image: url(/assets/service.png);
+    background-position: top; */
+}
+img{
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 6%;
+
+}
+.chiffre{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    font-size: 40px;
+}
+h3{
+    text-align: center;
+    margin-top: 5%;
+    color: #02273D;
+    border-radius: 5px;
+
+}
+.row{
+  margin-left: 10%;
+}
+.iconn{
+  background-color: #E08D14;
+  width: 10%;
+  border-radius: 5px;
+
+}
+.iconne{
+  background-color: #02273D;
+  width: 10%;
+  border-radius: 5px;
+}
+#avantages{
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 60px;
+    border-bottom: 2px solid #02273D;
+    border-right:2px solid #02273D ;
+}
+#col{
+    gap: 3%;
+}
+ 
+  #pres{
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 30%;
+    
+  }
+ #row1{
+  height: 300px;
+  border-radius: 20px;
+  width: 50%;
+  border-left: 5px solid #02273D;
+  border-toP: 3px solid #02273D;
+  border-right: 1px solid #02273D;
+  border-bottom: 1px solid #02273D;
+
+
+ }
+ #row2,#row3{
+  height: 110px;
+  border-radius: 20px;
+  width: 40%;
+  border-top: 3px solid #02273D;
+ }
+ #row2{
+  margin-left: 40%;
+  border-left: 1px solid #02273D;
+  border-bottom: 1px solid #02273D;
+  border-right: 1px solid #02273D ;
+ }
+ #row3{
+  margin-left: 10%;
+  border-left: 1px solid #02273D;
+  border-bottom: 1px solid #02273D;
+  border-right: 1px solid #02273D ;
+ }
+ .stat{
+  background-color: #E08D14;
+  color: #fff;
+  padding: 10px;
+  margin-right: 10%;
+  border-radius: 10px;
+
+ }
+ .bleu{
+  background-color: #02273D;
+  color: #fff;
+  padding: 10px;
+  margin-right: 10%;
+  /* margin-top: 30%; */
+  border-radius: 10px;
+ }
+ .dscr{
+  text-align: justify;
+  font-size: 20px;
+ }
+ .type{
+  justify-content: space-around;
+ }
+ .type p{
+  font-size: 30px;
+ }
+ .paragraph :first-child{
+  color: #E08D14;
+ }
+ .card {
+  position: relative;
+  width: 280px;
+  height: 350px;
+  box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 120ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 0.5em;
+  padding-bottom: 3.4em;
+}
+.text {
+  max-width: 55px;
+}
+.card{
+  border: 3px solid #02273D;
+}
+.image {
+  background: rgb(241, 241, 241);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background-image: url(/assets/deme.PNG);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  color: #02273D;
+}

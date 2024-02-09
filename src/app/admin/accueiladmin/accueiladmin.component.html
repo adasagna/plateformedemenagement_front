@@ -1,0 +1,342 @@
+
+    
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+          <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+
+          <ul class="ul mt-3">
+            <li>
+              <a [routerLink]="['/accueiladmin']"   class="active">
+                <span class="fas fa-tachometer-alt" style="color: white;"></span>
+                <span style="color: white;">Tableau de board</span>
+              </a>
+            </li>
+            <li>
+              <a class="switch" [routerLink]="['/gestionutilisateur']"  >
+                <span class="fas fa-users" ></span>
+                <span>Gestion Utilisateur</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/gestionarticle']"  >
+                <span class="fas fa-user-circle"></span>
+                <span>Gestion Article</span>
+              </a>
+            </li>
+            <div class="logout mt-5">
+              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            </a>
+            </div>
+            <div class="utilsateur">
+              <span>Tableau Admin</span>
+            </div>
+          </ul>
+
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+        <!-- <h2>
+          <label for="nav-toggle">
+            <span class="fas fa-bars"></span>
+          </label>
+          Dashboard
+        </h2> -->
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+          
+        </div>
+        <div class="fa-bell">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+            <h5>Admin</h5>
+         </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1>50</h1>
+              <span>utilisateurs</span>
+            </div>
+            <div>
+              <span class="bi bi-person-fill"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>12</h1>
+              <span>Demenageurs</span>
+            </div>
+            <div>
+              <span class="bi bi-truck" id="truc"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>15</h1>
+              <span>Particuliers</span>
+            </div>
+            <div>
+              <span class="bi bi-person-fill"></span>
+            </div>
+          </div>
+          <div class="card-single" id="card-single">
+            <div>
+              <h1>$50K</h1>
+              <span>Prestations</span>
+            </div>
+            <div>
+              <span class="bi bi-check-square-fill"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="recent-grid">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h2>Liste des utilisateurs</h2>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="w-100 text-left">
+                    <thead>
+                      <tr class="text-gray-400">
+                        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Profil</th>
+                        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Nomcomplet</th>
+                        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">Email</th>
+                        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Telephone</th>
+                        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Rôle</th>
+                        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-gray-600 dark:text-gray-100">
+                      <tr>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                          <div class="flex items-center">
+                         <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
+                          <div class="flex items-center">
+                        
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500"><button  class="actif">Actif</button></td>
+                     
+                      </tr>
+                      <tr>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                          <div class="flex items-center">
+                         <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
+                          <div class="flex items-center">
+                        
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500" ><button class="inactif">Inactif</button></td>
+                     
+                      </tr>
+                      <tr>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                          <div class="flex items-center">
+                         <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
+                          <div class="flex items-center">
+                        
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500" ><button class="inactif">Inactif</button></td>
+                     
+                      </tr>
+                      <tr>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+                          <div class="flex items-center">
+                         <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
+                          <div class="flex items-center">
+                        
+                          </div>
+                        </td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
+                        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500"><button  class="actif">Actif</button></td>
+                     
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="customers">
+            <div class="card">
+              <div class="card-header">
+                  <h2>New Customers</h2>
+                  <button>See all <span class="fas fa-arrow-right"></span> </button>
+              </div>
+              <!-- <div class="card-body">
+                <div class="customer">
+                  <div class="info">
+                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Malik Abushabab</h4>
+                      <small>CEO</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Malik Abushabab</h4>
+                      <small>CEO</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Malik Abushabab</h4>
+                      <small>CEO</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Malik Abushabab</h4>
+                      <small>CEO</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Malik Abushabab</h4>
+                      <small>CEO</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Malik Abushabab</h4>
+                      <small>CEO</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+                <div class="customer">
+                  <div class="info">
+                    <img src="https://bit.ly/3bvT89p" height="40px" width="40px" alt="customer">
+                    <div>
+                      <h4>Malik Abushabab</h4>
+                      <small>CEO</small>
+                    </div>
+                  </div>
+                  <div class="contact">
+                      <span class="fas fa-user-circle"></span>
+                      <span class="fas fa-comment"></span>
+                      <span class="fas fa-phone-alt"></span>
+                    </div>
+                </div>
+              </div> -->
+            </div>
+
+          </div>
+          
+        </div>  
+        <div class="card-group">
+            <div class="card">
+              <img src="/assets/image.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+            <div class="card">
+              <img src="/assets/image.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            </div>
+            <div class="card">
+              <img src="/assets/image.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+              </div>
+            
+            </div>
+          </div>
+      </main>
+    </div>
+

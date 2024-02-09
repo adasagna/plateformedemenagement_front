@@ -1,0 +1,153 @@
+    <input type="checkbox" id="nav-toggle">
+    
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+          <a   >
+            <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+          </a>
+          <ul>
+            <li>
+              <a href="#" class="active"  >
+                <span class="fas fa-tachometer-alt"></span>
+                <span>Tableau e board</span>
+              </a>
+            </li>
+            <li>
+              <a  class="switch" href="#">
+                <span class="fas fa-users" ></span>
+                <span >Gestion Compte</span>
+              </a>
+            </li>
+            <li>
+              <a class="switch"  >
+                <span class="bi bi-truck"></span>
+              <span>Gestion Demande</span>
+              </a>
+            </li>
+         
+            <li>
+              <a  >
+                <span class="fas fa-tasks"></span>
+                <span>Liste devis</span>
+              </a>
+            </li>
+            <div class="logout mt-5">
+              <a   class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            </a>
+            </div>
+            <div class="utilsateur">
+              <span>Tableau client</span>
+            </div>
+          </ul>
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+       
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+            <h5>Client</h5>
+            <!-- <small>Super Admin</small> -->
+         </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- gestion offre -->
+       <div class="list">
+        <div><h1>Liste des offres</h1></div>
+        <div><!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="button">
+              Ajout offre
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                  </div>
+                </div>
+              </div>
+            </div></div>
+       </div>
+       <div class="container">
+        <div class="row">
+          
+          <div class="col-md-10">
+            <div class="card card-3">
+              <h3>Formule de luxe</h3>
+              <span class="prix">100000f</span>
+              <p>Le demenageur emballe les bagages</p>
+              <p>Le demenageur se charge de la monutention et du transport</p>
+                <div class="action "><button type="button" class="btn btn-primary btn-sm" id="modif">Modifier</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="Sup">Suprimer</button></div>
+            </div>
+          </div>
+          <div class="col-md-10" id="row">
+            <div class="card card-3">
+              <h3>Formule economique</h3>
+              <span class="prix">75000f</span>
+              <p>Le client emballe ses bagages</p>
+              <p>Le demenageur se chargent du transport</p>
+                <div class="action"><button type="button" class="btn btn-primary btn-sm" id="modif">Modifier</button>
+                    <button type="button" class="btn btn-secondary btn-sm" id="Sup" >Suprimer</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pagination p1">
+        <ul>
+            <a href="#">
+                <li><</li>
+            </a>
+            <a class="is-active" href="#">
+                <li>1</li>
+            </a>
+            <a href="#">
+                <li>2</li>
+            </a>
+            <a href="#">
+                <li>3</li>
+            </a>
+            <a href="#">
+                <li>4</li>
+            </a>
+            <a href="#">
+                <li>5</li>
+            </a>
+            <a href="#">
+                <li>6</li>
+            </a>
+            <a href="#">
+                <li>></li>
+            </a>
+        </ul>
+    </div>
+      </main>
+    </div>
+

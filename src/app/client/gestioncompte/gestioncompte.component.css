@@ -1,0 +1,471 @@
+:root{
+    --main-color: #11101d;
+    --color-dark: #1D2231;
+    --text-grey:  #fff;
+  }
+.sidebar{
+    width: 245px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    /* z-index: 100;  */
+    background: var(--main-color);
+    transition: width 300ms;
+    background: #02273D;
+    border-radius: 10px;
+  
+  }
+  .sidebar img{
+    width: 50%;
+    margin-top: -50%;
+    margin-left: 20%;
+  }
+  .sidebar-brand{
+    height: 90px;
+    padding: 1rem 0rem 1rem 2rem;
+    color: #02273D;
+  }
+  .sidebar-brand span{
+    display: inline-block;
+    padding-right: 1rem;
+  }
+  .sidebar-menu li{
+    width: 100%;
+    margin-bottom: 1.7rem;
+    padding-left: 1rem;
+    list-style: none;
+  
+  }
+  .sidebar-menu{
+    margin-top: 1rem;
+  }
+  
+  .sidebar-menu a{
+    /* padding-left: 2rem; */
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-right: 20%;
+    width: 100%;
+
+  }
+  #nav-toggle:checked + .sidebar {
+    width: 70px ;
+  
+  }
+  #nav-toggle:checked + .sidebar .sidebar-brand,
+  #nav-toggle:checked + .sidebar li 
+  {
+    padding-left: 1rem;
+    text-align: center;
+  }
+  #nav-toggle:checked + .sidebar li a
+  {
+    padding-left: 0rem;
+  }
+  #nav-toggle:checked + .sidebar .sidebar-brand h1 span:last-child,
+  #nav-toggle:checked + .sidebar li a span:last-child{
+    display: none;
+  
+  }
+  .sidebar-menu a span:first-child{
+    font-size: 1.5rem;
+    padding-right: 1rem;
+  }
+  .sidebar-menu a.active{
+    background: #E08D14;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: white;
+    border-radius: 30px 0px 0px 30px;
+  
+  }
+  .sidebar-menu a{
+    text-decoration: none;
+  }
+  #nav-toggle:checked ~ .main-content {
+    margin-left: 70px;
+  
+  }
+  #nav-toggle:checked ~ .main-content  header{
+    width: calc(100% - 70px);
+    left:70px;
+  
+  }
+  .main-content{
+    transition: margin-left 300ms;
+    margin-left: 240px;
+    border: 1px solid black !important;
+  }
+  header{
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+    position: fixed;
+    left: 245px;
+    top:0;
+    z-index: 10; 
+    width: 82%;
+    transition: left 300ms;
+    }
+  
+  #nav-toggle{
+    display: none;
+  }
+  header h2{
+    color: #222;
+  }
+  header label span{
+    font-size: 1.7rem;
+    padding-right: 1rem;
+  }
+  .search-wrapper {
+    border: solid 1px #ccc;
+    border-radius: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    width:45%;
+  }
+  .search-wrapper span{
+    display: inline-block;
+    padding: 0rem 1rem;
+    font-size: 1.5rem;
+  }
+  .search-wrapper input{
+    height: 100%;
+    padding: .5rem;
+    border: none;
+    outline: none;
+  
+  }
+  .user-wrapper{
+    display: flex;
+    align-items: center;
+  }
+  .user-wrapper img{
+    border-radius: 50%;
+    margin-right: .5rem;
+  }
+  
+  .user-wrapper small{
+    display: inline-block;
+    color: var(--text-grey);
+    margin-top: -1px !important;
+  
+  }
+  #truc{
+    color: #E08D14;
+    
+  }
+  main{
+    margin-top: 85px;
+    padding: 2rem 1.5rem;
+    background: #fff;
+    min-height: calc(100vh - 90px);
+  }
+  .container{
+    border:  1px solid #000;
+    height: 150px;
+    background-image: url(/assets/emballage.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .conten{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn-17,
+.btn-17 *,
+.btn-17 :after,
+.btn-17 :before,
+.btn-17:after,
+.btn-17:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn-17 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #fff;
+  background-image: none;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#fff, #fff);
+  padding: 0;
+  text-transform: uppercase;
+  border: 1px solid #02273D;
+  color: #02273D;
+}
+
+.btn-17:disabled {
+  cursor: default;
+}
+
+.btn-17:-moz-focusring {
+  outline: auto;
+}
+
+.btn-17 svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.btn-17 [hidden] {
+  display: none;
+}
+
+.btn-17 {
+  border-radius: 99rem;
+  border-width: 2px;
+  padding: 0.8rem 3rem;
+  z-index: 0;
+}
+
+.btn-17,
+.btn-17 .text-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-17 .text-container {
+  display: block;
+  mix-blend-mode: difference;
+}
+
+.btn-17 .text {
+  display: block;
+  position: relative;
+  color: #02273D;
+}
+
+.btn-17:hover .text {
+  -webkit-animation: move-up-alternate 0.3s forwards;
+  animation: move-up-alternate 0.3s forwards;
+}
+
+@-webkit-keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.btn-17:after,
+.btn-17:before {
+  --skew: 0.2;
+  background:#02273D;
+  content: "";
+  display: block;
+  height: 102%;
+  left: calc(-50% - 50% * var(--skew));
+  pointer-events: none;
+  position: absolute;
+  top: -104%;
+  transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+  transition: transform 0.2s ease;
+  width: 100%;
+  color: white;
+}
+
+.btn-17:after {
+  --progress: 0%;
+  left: calc(50% + 50% * var(--skew));
+  top: 102%;
+  z-index: -1;
+}
+
+.btn-17:hover:before {
+  --progress: 100%;
+}
+
+.btn-17:hover:after {
+  --progress: -102%;
+}
+
+  /* .button {
+    padding: 15px 20px;
+    font-size: 16px;
+    background: #02273D;
+    border: none;
+    position: relative;
+    color: #02273D;
+    z-index: 1;
+  }
+  
+  .button::after,
+  .button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -99999;
+    transition: all .4s;
+  }
+  
+  .button::before {
+    transform: translate(0%, 0%);
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+  }
+  
+  .button::after {
+    transform: translate(10px, 10px);
+    width: 35px;
+    height: 35px;
+    background: #02273D;
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+  }
+  
+  .button:hover::before {
+    transform: translate(5%, 20%);
+    width: 110%;
+    height: 110%;
+    
+  }
+  
+  .button:hover::after {
+    border-radius: 10px;
+    transform: translate(0, 0);
+    width: 100%;
+    height: 100%;
+
+  }
+  
+  .button:active::after {
+    transition: 0s;
+    transform: translate(0, 5%);
+  } */
+
+  .row {
+    margin-top: 8%;
+    gap: 5%;
+    margin-left: 3%;
+  }
+  #button{
+    background-color: #02273D;
+  }
+  .pagination ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 45%;
+    margin-top: 5%;
+    margin-left: 50%;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px 18px;
+    color: #02273D;
+    border: 1px solid #02273D;
+    border-radius: 100%;
+    margin: 1%;
+
+
+}
+
+/* ONE */
+
+.p1 a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+.p1 a.is-active {
+    background-color: #02273D;
+    border-radius: 100%;
+    color: #fff;
+    
+}
+.p2 a{
+    border-radius: 1px solid black;
+}
+.text li{
+   list-style: none; 
+}
+.text span{
+    margin-left: 10%;
+}
+#modif{
+    color: white;
+    margin-bottom: 5%;
+    margin-left: 50%;
+    width: 20%; 
+    background-color: #02273D;
+    border: none;
+    border-radius: 5px;
+}
+
+.utilsateur{
+  color: white;
+  background-color: #E08D14;
+  width: 45%;
+  text-align: center;
+  margin-top: 40%;
+  margin-left: 10%;
+  font-size: 20px;
+  border-radius: 10px;
+}
+#exampleModalLabel{
+  color: #02273D;
+}
+#enregistrer{
+  background-color: #02273D;
+  color: white;
+}
+#annuler{
+  background-color: white;
+  color:#02273D;
+  border: 1px solid #02273D;
+  border-radius: 10px;
+}

@@ -1,0 +1,288 @@
+
+    
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a [routerLink]="['/accueilclient']"  >
+                <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+              </a>         
+               <ul>
+            <li>
+              <a href="#" class="active" [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
+                <span class="fas fa-tachometer-alt"></span>
+                <span>Tableau e board</span>
+              </a>
+            </li>
+            <li>
+              <a  class="switch" href="#">
+                <span class="fas fa-users" ></span>
+                <span >Gestion Compte</span>
+              </a>
+            </li>
+            <li>
+              <a class="switch" [routerLink]="['/gestiondemande']" >
+                <span class="bi bi-truck"></span>
+              <span>Gestion Demande</span>
+              </a>
+            </li>
+         
+            <li>
+              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+                <span class="fas fa-tasks"></span>
+                <span>Liste devis</span>
+              </a>
+            </li>
+            <div class="logout mt-5">
+              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            </a>
+            </div>
+            <div class="utilsateur">
+              <span>Tableau client</span>
+            </div>
+          </ul>
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+       
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+            <h5>Client</h5>
+            <!-- <small>Super Admin</small> -->
+         </div>
+        </div>
+      </header>
+
+      <main>
+       
+        <!-- liste devis -->
+        <div class="titre"><h1>Liste de devis</h1></div>
+        <div class="table-responsive mt-5  " >
+            <table >
+              <thead>
+                  <tr>
+                      <th>Profil</th>
+                      <th>Nomcomplet</th>
+                      <th>Adresse mail</th>
+                      <th>Telephone</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><img src="/assets/Capture.PNG" alt="" id="Profil"></td>
+                      <td>Alphabet puzzle</td>
+                      <td>2016/01/15</td>
+                      <td>Done</td>
+                      <td>
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header"><img src="/assets/logo.png" alt="" style="width: 20%; margin-top: -3%; margin-left: -3%;">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Devis</h1>
+                                  <div class="line"><hr></div>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Date de demenagement : <span>21/01/2024</span></p>
+                                  <p> Pris de demenagement: <span>75000f</span></p>
+                                  <p> Nombre de camions:     <span>3</span></p>
+                                  <p> Nombre de main d'oeuvre: <span>2</span></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary btn-sm" id="valider">Valider</button>
+                                    <button type="button" class="btn btn-secondary btn-sm" id="rejet">Rejetter</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Hide this modal and show the first with the button below.
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
+                      </td>
+                  </tr>
+                  <!-- .......................................................... -->
+                  <tr>
+                      <td><img src="/assets/Capture.PNG" alt="" id="Profil"></td>
+                      <td>Layout for poster</td>
+                      <td>2016/01/31</td>
+                      <td>Planned</td>
+                      <td>
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Show a second modal and hide this one with the button below.
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Hide this modal and show the first with the button below.
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
+                      </td>
+                  </tr>
+                  <!-- ............................................................................. -->
+                  <tr>
+                      <td><img src="/assets/Capture.PNG" alt="" id="Profil"></td>
+                      <td>Image creation</td>
+                      <td>2016/01/23</td>
+                      <td>To Do</td>
+                      <td>
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Show a second modal and hide this one with the button below.
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Hide this modal and show the first with the button below.
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
+                      </td>
+                  </tr>
+                  <!-- ................................................................. -->
+                  <tr>
+                      <td><img src="/assets/Capture.PNG" class="rounded-circle" alt="" id="Profil"></td>
+                      <td>Create font</td>
+                      <td>2016/02/26</td>
+                      <td>Done</td>
+                      <td>
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Show a second modal and hide this one with the button below.
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  Hide this modal and show the first with the button below.
+                                </div>
+                                <div class="modal-footer">
+                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
+                      </td>
+  
+          </table>
+          
+          </div>
+          <div class="pagination p1">
+            <ul>
+                <a href="#">
+                    <li><</li>
+                </a>
+                <a class="is-active" href="#">
+                    <li>1</li>
+                </a>
+                <a href="#">
+                    <li>2</li>
+                </a>
+                <a href="#">
+                    <li>3</li>
+                </a>
+                <a href="#">
+                    <li>4</li>
+                </a>
+               
+                <a href="#">
+                    <li>></li>
+                </a>
+            </ul>
+        </div>
+   
+      </main>
+    </div>
+

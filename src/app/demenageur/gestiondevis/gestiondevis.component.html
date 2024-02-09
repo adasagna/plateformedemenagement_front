@@ -1,0 +1,186 @@
+<input type="checkbox" id="nav-toggle">
+    
+<div class="sidebar">
+    <div class="sidebar-brand">
+      <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+      </h1>
+    </div>
+    
+    <div class="sidebar-menu">
+      <a  [routerLink]="['/accueildemenageur']"   >
+        <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+      </a>
+      <ul>
+        <li>
+          <a [routerLink]="['/accueildemenageur']"   class="active"  >
+            <span class="fas fa-tachometer-alt"></span>
+            <span>Tableau de board</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/gestionprofil']"   class="switch" href="#">
+            <span class="fas fa-users" ></span>
+            <span >Gestion Compte</span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/gestiondevis']"  class="switch"  >
+            <span class="bi bi-truck"></span>
+          <span>Gestion devis</span>
+          </a>
+        </li>
+     
+        <li>
+          <a  >
+            <span class="fas fa-tasks"></span>
+            <span>Liste devis</span>
+          </a>
+        </li>
+        <li>
+          <a  >
+            <span class="fas fa-tasks"></span>
+            <span>Gestion offre</span>
+          </a>
+        </li>
+        <div class="logout mt-5">
+          <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+            <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+        </a>
+        </div>
+        <div class="utilsateur">
+          <span>Tableau Demenageur</span>
+        </div>
+      </ul>
+    </div>
+</div>    
+
+<div class="main-content">
+  <header>
+   
+
+    <div class="search-wrapper">
+      <span class="fas fa-search"> </span>
+      <input type="search" placeholder="Search..." />
+
+    </div>
+
+    <div class="user-wrapper">
+     <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+     <div class="">
+        <h5>Demenageur</h5>
+        <!-- <small>Super Admin</small> -->
+     </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- gestion devis -->
+    <div class="table-responsive mt-5" *ngIf="Showdevis">
+      <div class="list mb-5">
+          <h2>Liste des Demandes de devis</h2>
+      </div>
+    <table class="w-100 text-left">
+        <thead>
+          <tr class="text-gray-400">
+            <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Profil</th>
+            <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Nomcomplet</th>
+            <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">Email</th>
+            <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Telephone</th>
+            <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Action</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 dark:text-gray-100">
+          <tr>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+              <div class="flex items-center">
+             <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
+              </div>
+            </td>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
+              <div class="flex items-center">
+            
+              </div>
+            </td>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+              <div class="flex items-center">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" id="voir">
+    Voir demande
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" *ngFor="let demandedevis of listeDemandedevis">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Demande de devis</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+          <label for="">adresse_actuelle</label>
+          <input type="text" name="adresse_actuelle" [(ngModel)]="adresse_actuelle">
+          <label for="">nouvelle_adresse</label>
+          <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse">
+          <label for="">date_demenagement</label>
+          <input type="text" name="nom_entreprise">
+          <label for="floatingTextarea" >information_bagage</label>
+          <div class="form-floating">
+            <textarea class="form-control" name="information_bagage" placeholder="Leave a comment here" id="floatingTextarea" name="information_bagage" [(ngModel)]="information_bagage"></textarea>
+          </div>          
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div> -->
+                    </div>
+                    </div>
+                </div>
+                    <button class="btn " type="button" style="background-color: #E08D14; color: white;"  (click)="GenereDevis()">Generer devis</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination p1">
+        <ul>
+            <a href="#">
+                <li><</li>
+            </a>
+            <a class="is-active" href="#">
+                <li>1</li>
+            </a>
+            <a href="#">
+                <li>2</li>
+            </a>
+            <a href="#">
+                <li>3</li>
+            </a>
+            <a href="#">
+                <li>4</li>
+            </a>
+            <a href="#">
+                <li>></li>
+            </a>
+        </ul>
+      </div>
+      </div>
+      
+  <!-- ...................Formulaire devid................................... -->
+  <form class="form" *ngIf="!Showdevis">
+    <div class="header">Devis</div>
+    <div class="inputs">
+      <label for="">Prix demenagement</label>
+        <input placeholder="Prix demenagement" class="input" type="text">
+        <label for="">Date demenagement</label>
+        <input placeholder="date demenagement" class="input" type="date">
+        <label for="">Description demenagement</label>
+        <textarea name="descrip" id="" cols="30" rows="10"></textarea>
+        <button class="sigin-btn">Envoyer</button>
+    </div>
+</form>
+
+  </main>
+</div>
+

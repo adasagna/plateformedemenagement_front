@@ -1,0 +1,34 @@
+.banier{
+    border: 1px solid #000;
+    background-image: url(/assets/banier.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 550px;
+}
+h1{
+    color: #02273D;
+    margin-left: 40%;
+    margin-top: 5%;
+}
+p{
+    text-align: justify;
+    font-size: 20px;
+}
+.text{
+    display: flex;
+    /* border: 1px solid #000; */
+    justify-content: space-between;
+}
+img{
+    width: 100%;
+}
+.paragraf{
+    /* border: 1px solid #000; */
+    width: 100%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.image{
+ /* border: 1px solid #000; */
+  
+}

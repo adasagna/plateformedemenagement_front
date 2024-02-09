@@ -1,0 +1,216 @@
+
+    
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+          <a [routerLink]="['/accueildemenageur']">
+          <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+        </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/accueildemenageur']"  class="active">
+                <span class="fas fa-tachometer-alt"></span>
+                <span>Tableau de board</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/gestionprofil']">
+                <span class="fas fa-user-circle"></span>
+                <span>Gestion Compte</span>
+              </a>
+            </li>
+            <li>
+              <a class="switch" [routerLink]="['/gestiondevis']"  >
+                <span class="fas fa-users" ></span>
+                <span>Gestion devis</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/gestionde']" routerLinkActive="router-link-active" >
+                <span class="fas fa-user-circle"></span>
+                <span>liste demande devis</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="fas fa-user-circle"></span>
+                <span>Gestion offre</span>
+              </a>
+            </li>
+            <div class="logout mt-5">
+              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            </a>
+            </div>
+            <div class="utilsateur">
+              <span>Tableau Demenageur</span>
+            </div>
+          </ul>
+
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+        <!-- <h2>
+          <label for="nav-toggle">
+            <span class="fas fa-bars"></span>
+          </label>
+          Dashboard
+        </h2> -->
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+          
+        </div>
+        <div class="fa-bell">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+          <h5>{{userconnect.Nom}}</h5>
+          <small>{{userconnect.role}}</small>
+        </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1>50</h1>
+              <span>Nombre de Demandes</span>
+            </div>
+            <div>
+              <span class="bi bi-person-fill"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>12</h1>
+              <span>Nombre de Prestations</span>
+            </div>
+            <div>
+              <span class="bi bi-truck" id="truc"></span>
+            </div>
+          </div>
+          <div class="card-single" id="card-single">
+            <div>
+              <h1>$50K</h1>
+              <span>Nombre de Offres</span>
+            </div>
+            <div>
+              <span class="bi bi-check-square-fill"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="recent-grid">
+          <div class="col-lg-12">
+            <div class="card">
+              <h4> Demande Devis</h4>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table width="100%">
+                    <thead>
+                        <tr>
+                            <th>Profil</th>
+                            <th>Nomcomplet</th>
+                            <th>Adresse mail</th>
+                            <th>Telephone</th>
+                            <!-- <th>Rôle</th>
+                            <th>Statut</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Alphabet puzzle</td>
+                            <td>2016/01/15</td>
+                            <td>Done</td>
+                            <!-- <td>1000</td>
+                            <td>
+                                <span>actif</span>
+                            </td> -->
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Layout for poster</td>
+                            <td>2016/01/31</td>
+                            <td>Planned</td>
+                           
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Image creation</td>
+                            <td>2016/01/23</td>
+                            <td>To Do</td>
+                          
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Create font</td>
+                            <td>2016/02/26</td>
+                            <td>Done</td>
+                            <!-- <td>1200</td>
+                            <td>
+                              <span>actif</span>
+
+                            </td> -->
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Create font</td>
+                            <td>2016/02/26</td>
+                            <td>Done</td>
+                            <!-- <td>1200</td>
+                            <td>
+                              <span>actif</span>
+
+                            </td> -->
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Create font</td>
+                            <td>2016/02/26</td>
+                            <td>Done</td>
+                            <!-- <td>1200</td>
+                            <td>
+                              <span>actif</span>
+
+                            </td> -->
+                        </tr>
+                </table>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="customers">
+            <div class="card">
+              <div class="Prestation"><p><span id="nombre" class="num">30</span> &nbsp;Prestations</p>
+              </div>
+              <div class="Prestation"><p> <span id="nombre">25</span>&nbsp; Prestations faites</p>
+              </div>
+              <div>
+              <p class="Prestation"><span id="nombre">05</span> &nbsp;Prestations non faites</p>
+              </div>
+            </div>
+
+          </div>
+          
+        </div>  
+     
+      </main>
+    </div>
+
