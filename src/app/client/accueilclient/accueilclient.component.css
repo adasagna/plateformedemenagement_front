@@ -8,12 +8,12 @@
     position: fixed;
     left: 0;
     top: 0;
-    height: 100%;
-    /* z-index: 100;  */
+    height: 800px;
+    z-index: 100; 
     background: var(--main-color);
     transition: width 300ms;
     background: #02273D;
-    border-radius: 10px;
+    /* border-radius: 10px; */
   
   }
   .sidebar img{

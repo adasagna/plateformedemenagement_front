@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DemandedevisService } from 'src/app/services/demandedevis.service';
+import { DemanderecuService } from 'src/app/services/demanderecu.service';
 
 @Component({
   selector: 'app-gestiondevis',
@@ -7,8 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestiondevisComponent implements OnInit {
   listeDemandedevis: any[] = [];
-
-
+  listeDemanderecus: any[] = [];
+  userconnect:any
+  demandedevis: any;
+  constructor (private demanderecu: DemanderecuService, demandedevis:DemandedevisService){}
   Showdevis:boolean=true
   
   nom_entreprise: string="";
@@ -18,11 +22,22 @@ export class GestiondevisComponent implements OnInit {
   date_demenagement: string="";
   
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
+    this.getAllDemanderecu(this.userconnect.id)
   }
  
   GenereDevis(){
     this.Showdevis=!this.Showdevis;
+  }
+
+  getAllDemanderecu(id:number) {
+    this.demanderecu.getAllDemanderecu(id).subscribe(
+      (data) => {
+        this.listeDemanderecus = data.data;
+       console.log("liste de la reponse",this.listeDemanderecus)
+      }
+      
+    )
   }
 
 }

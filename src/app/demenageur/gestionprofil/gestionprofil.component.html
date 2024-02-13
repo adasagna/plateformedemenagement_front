@@ -138,7 +138,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="enregistrer">Enregistre</button>
+          <button type="button" class="btn btn-primary" id="enregistrer" >Enregistre</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="annuler">Annuler</button>
         </div>
       </div>
@@ -146,29 +146,30 @@
   </div>         
  </div>
         </div>
-        <form *ngIf="!Showinformation">
+        <div class="container"  *ngIf="!Showinformation">
+        <form >
           <h1>Informations suplementaires</h1>
-          <div class="separation"></div>
+          <!-- <div class="separation"></div> -->
           <div class="corps-formulaire">
             <div class="gauche">
               <div class="groupe ">
                 <label>Nom_entreprise</label>
-                <input type="text " autocomplete="off" />
+                <input type="text " autocomplete="off"  name="nom_entreprise"  [(ngModel)]="nom_entreprise"/>
                 <i class="fas fa-user"></i>
               </div>
               <div class="groupe">
                 <label>NINEA</label>
-                <input type="text" autocomplete="off" />
+                <input type="text" autocomplete="off" name="NINEA"  [(ngModel)]="NINEA"/>
                 <i class="fas fa-envelope"></i>
               </div>
               <div class="groupe">
-                <label>Forme juridique</label>
-                <input type="text" autocomplete="off" />
+                <label>Forme_juridique</label>
+                <input type="text" autocomplete="off" name="forme_juridique" [(ngModel)]="forme_juridique"/>
                 <i class="fas fa-mobile"></i>
               </div>
               <div class="groupe">
                 <label>Année de création</label>
-                <input type="text" autocomplete="off" />
+                <input type="text" autocomplete="off" name="annee_creation"  [(ngModel)]="annee_creation"/>
                 <i class="fas fa-mobile"></i>
               </div>
             </div>
@@ -176,15 +177,16 @@
             <div class="droite">
               <div class="groupe ">
                 <label>Presentation</label>
-                <textarea placeholder="Saisissez ici..."></textarea>
+                <textarea placeholder="Saisissez ici..." name="presentation" [(ngModel)]="presentation"></textarea>
               </div>
             </div>
           </div>
     
           <div class="pied-formulaire" align="center">
-            <button>Enregistrer</button>
+            <button (click)="postInfo()">Enregistrer</button>
           </div>
         </form>
+      </div>
       </main>
     </div>
 

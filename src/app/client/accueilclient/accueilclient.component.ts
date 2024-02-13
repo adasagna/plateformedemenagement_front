@@ -16,7 +16,7 @@ export class AccueilclientComponent implements OnInit {
   showCard: boolean = true;
   adresse_actuelle: string = "";
   nouvelle_adresse: string = "";
-  informations_bagage: string = "";
+  informations_bagages: string = "";
   date_demenagement: string = "";
 
   
@@ -60,11 +60,11 @@ export class AccueilclientComponent implements OnInit {
       alert(this.nouvelle_adresse)
       alert(this.adresse_actuelle)
       alert(this.date_demenagement)
-      alert(this.informations_bagage)
+      alert(this.informations_bagages)
       const tabdemandes={
     adresse_actuelle: this.adresse_actuelle,
     nouvelle_adresse: this.nouvelle_adresse,
-    informations_bagages: this.informations_bagage,
+    informations_bagages: this.informations_bagages ,
     date_demenagement: this.date_demenagement,
       }
     this.demandedevis.postDemandeDevis( this.id_demenageur, tabdemandes).subscribe(

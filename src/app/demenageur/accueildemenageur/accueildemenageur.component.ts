@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { info } from 'src/app/models/informations';
   import { user } from 'src/app/models/user';
+import { DemanderecuService } from 'src/app/services/demanderecu.service';
 import { InfosupService } from 'src/app/services/infosup.service';
 import { UserService } from 'src/app/user.service';
 
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./accueildemenageur.component.css']
 })
 export class AccueildemenageurComponent implements OnInit {
-  
+  listeDemanderecus:any;
   demenageurs: user[] = [];
   listinfo: info[] = [];
   name: string = "";
@@ -23,7 +24,7 @@ export class AccueildemenageurComponent implements OnInit {
   
 informationssup:info[]=[];
   userconnect: any
-  constructor(private userService: UserService, private info:InfosupService) {}
+  constructor(private userService: UserService, private info:InfosupService, private demanderecu:DemanderecuService) {}
 
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
@@ -54,4 +55,7 @@ informationssup:info[]=[];
 }
     )
 }
+
+
+
 }

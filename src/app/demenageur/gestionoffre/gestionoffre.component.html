@@ -7,33 +7,33 @@
         </div>
         
         <div class="sidebar-menu">
-          <a   >
+          <a [routerLink]="['/accueildemenageur']"    >
             <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
           </a>
           <ul>
             <li>
-              <a href="#" class="active"  >
+              <a [routerLink]="['/accueildemenageur']"  class="active"  >
                 <span class="fas fa-tachometer-alt"></span>
                 <span>Tableau e board</span>
               </a>
             </li>
             <li>
-              <a  class="switch" href="#">
+              <a  class="switch" [routerLink]="['/gestionprifil']" routerLinkActive="router-link-active" >
                 <span class="fas fa-users" ></span>
                 <span >Gestion Compte</span>
               </a>
             </li>
             <li>
-              <a class="switch"  >
+              <a class="switch" [routerLink]="['/gestiondevis']"   >
                 <span class="bi bi-truck"></span>
-              <span>Gestion Demande</span>
+              <span>Gestion Devis</span>
               </a>
             </li>
          
             <li>
-              <a  >
+              <a [routerLink]="['/gestionoffre']"  >
                 <span class="fas fa-tasks"></span>
-                <span>Liste devis</span>
+                <span>Gestion Offres</span>
               </a>
             </li>
             <div class="logout mt-5">
@@ -42,7 +42,7 @@
             </a>
             </div>
             <div class="utilsateur">
-              <span>Tableau client</span>
+              <span>Tableau demenageur</span>
             </div>
           </ul>
         </div>
@@ -61,7 +61,7 @@
         <div class="user-wrapper">
          <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
          <div class="">
-            <h5>Client</h5>
+            <h5>Demenageur</h5>
             <!-- <small>Super Admin</small> -->
          </div>
         </div>
@@ -122,28 +122,28 @@
       </div>
       <div class="pagination p1">
         <ul>
-            <a href="#">
+            <a >
                 <li><</li>
             </a>
-            <a class="is-active" href="#">
+            <a class="is-active" >
                 <li>1</li>
             </a>
-            <a href="#">
+            <a >
                 <li>2</li>
             </a>
-            <a href="#">
+            <a >
                 <li>3</li>
             </a>
-            <a href="#">
+            <a >
                 <li>4</li>
             </a>
-            <a href="#">
+            <a >
                 <li>5</li>
             </a>
-            <a href="#">
+            <a >
                 <li>6</li>
             </a>
-            <a href="#">
+            <a >
                 <li>></li>
             </a>
         </ul>

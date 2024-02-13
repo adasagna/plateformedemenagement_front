@@ -12,12 +12,33 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) { }
 
+  // singin(data: any): Observable<any> {
+  //   return this.http.post<any>(`${api}/register`, data);
+  // }
+
   singin(data: any): Observable<any> {
-    return this.http.post<any>(`${api}/register`, data);
+
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.post<any>(`${api}/register`, data ,{
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) :
+      of();
+  
   }
+  // login(data: any): Observable<any> {
+  //   return this.http.post<any>(`${api}/login`, data);
+  // }
 
   login(data: any): Observable<any> {
-    return this.http.post<any>(`${api}/login`, data);
+
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.post<any>(`${api}/login`, data ,{
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) :
+      of();
+  
   }
 
   updateClient(data: any, id: number): Observable<any> {
