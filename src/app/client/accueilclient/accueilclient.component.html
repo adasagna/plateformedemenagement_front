@@ -67,7 +67,7 @@
       </header>
 
       <main>
-        <div class=" mb-3 container w-100" style="margin-top: -10%;" >
+        <div class=" mb-3 container w-100" style="margin-top: -10%;" *ngIf="showCard">
           <div class="row g-0 contenu">
             <!-- titre -->
             <div class="col-md-4 titre">
@@ -98,8 +98,8 @@
               </div>
             </div>
           </div>
-        </div>       
-         <div class="conten">
+             
+         <!-- <div class="conten">
             <button class="btn-17">
                 <span class="text-container">
                   <span class="text">Diamniadio</span>
@@ -121,8 +121,8 @@
                 </span>
               </button>
               
-        </div>
-        <div class="cartes" *ngIf="showCard">
+        </div> -->
+        <div class="cartes" >
           <div class="row "  >
             <div class="card col-lg-3" style="width: 18rem;" *ngFor="let info of listinfos">
                 <img src="/assets/emballage.avif" class="card-img-top" alt="...">
@@ -189,11 +189,11 @@
           
         </div> -->
         </div>
-        
+      </div> 
         
         <!-- demenageur -->
-        <div class="blog-demenageur" *ngIf="!showCard">
-          <div class="blog-card col-md-12" >
+        <div class="blog-demenageur" *ngIf="!showCard" >
+          <!-- <div class="blog-card col-md-12" >
             <div class="meta">
               <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
               
@@ -207,24 +207,100 @@
                fyufuyfo
               </p>
             </div>
+          </div> -->
+          <div class="container-fluid" style="background-color: #FFF; border: 1px solid rgb(215, 215, 215);">
+            <div class="container text-center">
+              <div class="row">
+                <div class="col-md-2">
+                  <img src="/assets/deme-removebg-preview.png" alt="">
+                </div>
+                <div class="col mb-5" style="margin-top: -10%;">
+                  <h1 class="demenageur">AGS SENEGAL</h1>
+                  <p style="margin-top: 5%;"> Nous sommes une entreprise spécialisée dans le déménagement. <br>
+                    Nous sommes une entreprise spécialisée dans le déménagement.une entreprise spécialisée dans le<br>
+                    Nous sommes une entreprise spécialisée dans le déménagement.une entreprise spécialisée dans le<br>
+                    Nous sommes une entreprise spécialisée dans le déménagement.une entreprise spécialisée dans le<br>
+                  </p>
+
+                </div>
+                <div class="col-md-2">
+                  <img src="/assets/camion.PNG" alt="" style="width: 190%;">
+
+                </div>
+              </div>
+            </div>
           </div>
           <!-- .....................Offres.............................. -->
-          <h2>Offres</h2>
-          <div class="btn">
+         <div class="row"  style="box-sizing: border-box;">
+          <h2 class="offre mt-3 mb-5">Prestations</h2>
+          <div class="col-md-6"><img src="/assets/demenageurs.PNG" alt="" class="photo"></div>
+          <div class="col-md-4" style="box-sizing: border-box; height: 5%; padding: 1px;">
+  
+              <div class="scroll-cards" style=" box-sizing: border-box; ">
+                <!-- <h1>Some Sticky-Stacked Cards</h1> -->
+                <article class="scroll-cards__item" aria-label="Wie - 1">
+                  <span>Nice little headline</span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo,</p>
+                </article>
+                <article class="scroll-cards__item" aria-label="Wie - 1">
+                <span>Another Headline here</span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam</p>
+                </article>
+                <article class="scroll-cards__item" aria-label="Wie - 1">
+                <span>Third Card follows</span>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo, odio velit eius sunt architecto ratione iure deserunt magnam aut tenetur sint incidunt, ipsam id. Ab?</p>
+                </article>
+                <!-- <article class="scroll-cards__item" aria-label="Wie - 1">
+                  <h2>Will there be another?</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo, odio velit eius sunt architecto ratione iure deserunt magnam aut tenetur sint incidunt, ipsam id. Ab?</p>
+                </article>
+                <article class="scroll-cards__item" aria-label="Wie - 1">
+                  <h2>Last one</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo, odio velit eius sunt architecto ratione iure deserunt magnam aut tenetur sint incidunt, ipsam id. Ab?</p>
+                </article>   -->
+              </div>
+            <!-- Button trigger modal -->
+            <!-- <button type="button" class="btn btn-primary w-50 mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            voir details
+            </button> -->
+
+<!-- Modal -->
+            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+         </div>
+        </div>
+          <h2 class="offre mt-5">Offres</h2>
+          <!-- <div class="btn">
             <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
               <i class="fab fa-linkedin"></i>
             </a>
-          </div>
+          </div> -->
           
-          <div class="first hero">
-            <p>fuyfuyygy</p>
-            <img class="hero-profile-img" src="https://cdn.gamer-network.net/2018/metabomb/leagueoflegendsbestcarrychampions2018pantheon.jpg" alt="">
+          <div class="first hero" style="margin-left: 5%;">
+            <!-- <p class="desc mt-3 ms-5">Le demenageur prepare et embaler </p>
+            <p class="desc mt-2 ms-5">Le demenageur s’occupe de la manutention </p> -->
+            <img class="hero-profile-img" src="/assets/demenageurs.PNG" alt="">
             <div class="hero-description-bk"></div>
             <div class="hero-logo">
               <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
             </div>
             <div class="hero-description">
-              <h3>Formule de Luxe</h3>
+              <h5>Formule de Luxe</h5>
             </div>
             <div  class="hero-date">
               <p>10000f</p>
@@ -234,14 +310,17 @@
             </div>
           </div>
           
-          <div class="second hero">
+          <div class="second hero" style="margin-left: 20%;">
+            <img src="/assets/demenageurs.PNG" alt="" style="width: 100%;">
+            <!-- <p class="desc mt-3 ms-5" >Le client prepare et embale</p>
+              <p class="desc mt-2 ms-5">Le demenageur s’occupe de la manutention</p> -->
             <!-- <img class="hero-profile-img" src="https://i.pinimg.com/originals/9f/b1/ff/9fb1ffb05dd28039d1a06ad8e90cbd75.jpg" alt=""> -->
             <div class="hero-description-bk"></div>
             <div class="hero-logo">
               <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
             </div>
             <div class="hero-description">
-              <h3>Formule economique</h3>
+              <h5>Formule economique</h5>
             </div>
             <div  class="hero-date">
               <p>75000f</p>
@@ -258,21 +337,33 @@
             <div class="modal-dialog">
               <div class="modal-content" >
                 <div class="modal-header" >
+                  <img src="/assets/logo.png" alt="" style="width: 15%;">
                   <h1 class="modal-title fs-5" id="exampleModalLabel" >Demande de devis</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <label for="">adresse_actuelle</label><br>
-                  <input type="text" name="adresse_actuelle" class="col-md-4" [(ngModel)]="adresse_actuelle">
-                  <label for="">nouvelle_adresse</label>
-                  <input type="text" name="nouvelle_adresse" class="col-md-4" [(ngModel)]="nouvelle_adresse"><br>
+                  <div class="row">
+                    <div class="form-group col-md-5">
+                  <label for="">adresse_actuelle</label>
+                  <input type="text" name="adresse_actuelle"  [(ngModel)]="adresse_actuelle">
+                </div>
+                <div class="form-group col-md-5">
+                  <label for="" >nouvelle_adresse</label>
+                  <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse"><br>
                   <p>{{nouvelle_adresse}}</p>
-                  <label for="">Date_demenagement</label><br>
-                  <input type="date" name="date_demenagement" class="col-md-4" [(ngModel)]="date_demenagement">
+                </div>
+              </div>
+              <div class="row">
+              <div class="form-group col-md-5">
+                  <label for="">Date_demenagement</label>
+                  <input type="date" name="date_demenagement"  [(ngModel)]="date_demenagement">
+                </div>
+                <div class="form-group col-md-5">
                   <label for="floatingTextarea">Informations_bagage</label>
-                  <div class="form-floating">
-                    <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages"></textarea>
-                  </div>
+                  <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages"></textarea>
+                  <input style="margin-left:-8%;margin-top: 7%;" type="file" (change)="getFile($event)" accept="image/*">
+                </div>
+                </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" id="envoi" (click)="postDemandeDevis()">Envoyer</button>

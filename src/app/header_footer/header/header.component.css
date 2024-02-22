@@ -40,15 +40,11 @@ img{
     border: #E08D14;
 }
 
-/* .cards {
-    position: relative;
-    width: 250%;
-    height: 250px;
-    color: #2e2d31;
-    background: #131313;
-    overflow: hidden;
-    border-radius: 20px;
-  } */
+@media screen and (max-width: 768px){
+    
+    .navbar-toggler{
+    }
+}
  
 
   

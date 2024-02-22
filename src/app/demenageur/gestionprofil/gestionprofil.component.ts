@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InfosupService } from 'src/app/services/infosup.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { InfosupService } from 'src/app/services/infosup.service';
   templateUrl: './gestionprofil.component.html',
   styleUrls: ['./gestionprofil.component.css']
 })
-export class GestionprofilComponent {
+export class GestionprofilComponent implements OnInit {
   listinfos: any[] = [];
 
   user_id:number = 0;
@@ -17,12 +17,15 @@ export class GestionprofilComponent {
   forme_juridique: string = "";
 
   constructor(private info:InfosupService){}
+  ngOnInit(): void {
+    this.postInfo();
+  }
   Showinformation:boolean=true
   
   Showinfosup(){
     this.Showinformation=!this.Showinformation
   }
-  
+  /**iajout information suplementaire d'un demenageur */
   postInfo(){
     
     alert(this.nom_entreprise)
@@ -34,7 +37,7 @@ export class GestionprofilComponent {
     forme_juridique:this.forme_juridique,
     }
     this.info.postInfo(tabinfo).subscribe((data) => {
-      console.log('Informations suplementaires d un déménageur:', data.infosupstore); 
+      console.log('Informations suplementaires d un déménageur:', data); 
 
   }
     )

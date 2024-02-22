@@ -6,6 +6,7 @@ import { DemandedevisService } from 'src/app/services/demandedevis.service';
 import { DemenageurService } from 'src/app/services/demenageur.service';
 import { InfosupService } from 'src/app/services/infosup.service';
 import { info } from 'src/app/models/informations';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-accueilclient',
@@ -18,8 +19,7 @@ export class AccueilclientComponent implements OnInit {
   nouvelle_adresse: string = "";
   informations_bagages: string = "";
   date_demenagement: string = "";
-
-  
+  image: any=[];  
   nom_entreprise: string="";
   annee_creation: string="";
   NINEA: string ="";
@@ -54,45 +54,44 @@ export class AccueilclientComponent implements OnInit {
     // }
     this.showCard = !this.showCard;
   }
-// envoie de demande de devis à un demenageur///
- 
-    postDemandeDevis(){
-      alert(this.nouvelle_adresse)
-      alert(this.adresse_actuelle)
-      alert(this.date_demenagement)
-      alert(this.informations_bagages)
-      const tabdemandes={
-    adresse_actuelle: this.adresse_actuelle,
-    nouvelle_adresse: this.nouvelle_adresse,
-    informations_bagages: this.informations_bagages ,
-    date_demenagement: this.date_demenagement,
-      }
+
+  
+
+
+  
+  
+  
+  // envoie de demande de devis à un demenageur///
+  
+  postDemandeDevis(){
+    const tabdemandes = new FormData();
+    tabdemandes.append('images[]', this.image);      
+    tabdemandes.append('adresse_actuelle' ,this.adresse_actuelle);
+    tabdemandes.append('nouvelle_adresse',this.nouvelle_adresse);
+    tabdemandes.append('informations_bagages',this. informations_bagages);
+    tabdemandes.append('date_demenagement',this. date_demenagement);
+    
     this.demandedevis.postDemandeDevis( this.id_demenageur, tabdemandes).subscribe(
       (data) => {
         console.log('Demande de devis envoyée avec succès au déménageur:', data); 
       }
-    )
-    // this.envoiDemandeDevis=this.postDemandeDevis
-  }
+      )
+      Swal.fire({
+        icon: 'success',
+        title: 'Demande devis envoyée',
+        text: 'La demande de devis a été modifiée avec succès.',
+        timer: 2000, // Ferme l'alerte après 2 secondes (2000 ms)
+      });
+    }
 
 
-    // Vous pouvez appeler la méthode postDemandeDevis() du demandedevisService ici
-    // // this.demandedevisService.postDemandeDevis(this.selectedDemenageurId).subscribe(
-    // //   (response) => {
-    // //     console.log('Demande de devis envoyée avec succès au déménageur:', response);
-    // //     // Réinitialisez les valeurs du formulaire après l'envoi de la demande
-    // //     this.nom_entreprise = "";
-    // //     this.adresse_actuelle = "";
-    // //     this.nouvelle_adresse = "";
-    // //     this.informations_bagage = "";
-    // //     this.date_demenagement = "";
-    // //     // Réinitialisez également l'ID du déménageur sélectionné
-    // //     this.selectedDemenageurId = 0;
-    // //   },
-    // //   (error) => {
-    // //     console.error("Erreur lors de l'envoi de la demande de devis:", error);
-    // //   }
-    // // );
+    getFile(event: any) {
+      console.warn(event.target.files[0]);
+      this.image = event.target.files[0] as File;
+    }
+
+
+    
 
     getAllDemenageur() {
       this.demenageur.getAllDemenageur().subscribe(
@@ -106,9 +105,9 @@ export class AccueilclientComponent implements OnInit {
     getInfo(){
       this.info.getInfo().subscribe((data)=> {
         this.listinfos = data.data;
-        console.warn(this.listinfos )
-        this.listinfos = data.informationsSuppOfMovers
-        console.warn( 'tous les informations' ,data.informationsSuppOfMovers)
+        console.warn(data )
+        this.listinfos = data.data,
+        console.warn( 'tous les informations' ,data.allinformationsuppofallmover)
       
     }
       )

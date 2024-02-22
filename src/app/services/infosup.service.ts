@@ -16,7 +16,7 @@ export class InfosupService {
 
   const accessToken = localStorage.getItem('access_token');
   return accessToken ?
-  this.http.get<any>(`${api}/allinformationsSuppOfMovers`, {
+  this.http.get<any>(`${api}/allinformationsuppofallmover`, {
       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) :
     of(null);
@@ -37,6 +37,6 @@ postInfo(info:any): Observable<any> {
 
 
 
-  // getInfo(id:number): Observable<any> {
-  //   return this.http.get<any>(`${api}/allinfosuppofonemover/${id}`);
+  // getInfo(): Observable<any> {
+  //   return this.http.get<any>(`${api}/allinformationsuppofallmover/`);
   // }}

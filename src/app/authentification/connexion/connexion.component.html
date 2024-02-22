@@ -1,7 +1,7 @@
 <!-- connexion.component.html -->
 
 <div class="container">
-    <section id="formHolder">
+  <section id="formHolder">
       <div class="row">
   
         <!-- Brand Box -->
@@ -26,19 +26,26 @@
         <div class="col-sm-6 form">
   
           <!-- Login Form -->
+          
           <div class="login form-peice" *ngIf="showLoginForm">
+            <h2 class="text-center ">Connexion</h2>
             <form class="login-form" action="#" method="post">
                 <div class="form-group">
-                    <!-- <label for="loginemail">Adresse email</label> -->
-                    <input type="email" name="loginemail" id="loginemail" required placeholder="Adresse email*" [(ngModel)]="email">
+                    <label for="loginemail" class="label mb-4">Adresse email</label>
+                   
+                    <input type="email" name="loginemail" id="loginemail" required  [(ngModel)]="email" (input)="verifEmailConFonction()">
+                    <p class="text-danger" *ngIf="!exactemailCon">{{verifemailCon}}</p>
+                    <i class="bi bi-check2-all" *ngIf="exactemailCon"></i> 
                  </div>
 
                  <div class="form-group">
-                    <!-- <label for="loginPassword">Mot de passe</label> -->
-                    <input type="password" name="loginPassword" id="loginPassword" required placeholder="Mot de passe*" [(ngModel)]="pass">
-                 </div>
+                    <label for="loginPassword" class="label mb-4">Mot de passe</label>
+                    <input type="password" name="loginPassword" id="loginPassword" required  [(ngModel)]="pass" (input)=" verifPasswordConFonction()">
+                    <p class="text-danger" *ngIf="!exactpasswordCon">{{verifpasswordCon}}</p>
+                    <i class="bi bi-check2-all" *ngIf="exactpasswordCon"></i>
+                  </div>
               <div class="CTA">
-                <button (click)="connexion()">Connecter a</button>
+                <button (click)="connexion()" class="seconnecter">Connecter </button>
                 <input type="submit" value="Login">
                 <a  class="switch" (click)="showLogin()">Nouveau compte</a>
               </div>
@@ -46,70 +53,80 @@
           </div><!-- End Login Form -->
   
           <!-- Signup Form -->
-          <div class="signup form-peice" *ngIf="!showLoginForm && !isDemenageur">
+          <div class="inscription" *ngIf="!showLoginForm && !isDemenageur">
+            <div class="signup form-peice" >
+            <h2 class="text-center" id="inscr">Création de Compte</h2>
             <form class="signup-form" action="#" method="post">
-                <div class="form-group">
-                    <!-- <label for="name">Nom complet<span>*</span></label> -->
-                    <input type="text" name="name" id="name" class="name" placeholder="Nom complet* " [(ngModel)]="name" >
-                    <span class="error"></span>
+              <div class="row ">
+              <div class="form-group col-lg-6">
+                    <label for="" class="label mb-4 mt-5">Nom_Complet*</label>
+                    <input type="text" name="name" id="name" class="name  mt-1" [(ngModel)]="name" (input)=" verifnomcompletFonction()">
+                    <p class="text-danger" *ngIf="!exactname">{{verifname}}</p>
+                    <i class="bi bi-check2-all" *ngIf="exactname"></i>
+                    <!-- <span class="error"></span> -->
                  </div>
-
-                 <div class="form-group">
-                    <!-- <label for="email">Adress email<span>*</span></label> -->
-                    <input type="email" name="email" id="email" class="email" placeholder=" email*" [(ngModel)]="email">
-                    <span class="error"></span>
+                 <div class="form-group col-lg-6">
+                    <label for="email" class="label mb-4 mt-5">Adress email*</label>
+                    <input type="email" name="email" id="email" class="email mt-1 "  [(ngModel)]="email" (input)="verifEmailFonction()">
+                    <p class="text-danger" *ngIf="!exactemail">{{verifemail}}</p>
+                <i class="bi bi-check2-all" *ngIf="exactemail"></i>
+                    <!-- <span class="error"></span> -->
                  </div>
-                 <div class="form-group">
-                  <!-- <label for="email">Adress email<span>*</span></label> -->
-                  <input type="text" name="localite" id="" class="" placeholder="localite*" [(ngModel)]="localite">
-                  <span class="error"></span>
+                </div>
+                 <div class="row ">
+                 <div class="form-group col-lg-6">
+                  <label for="localite" class="label mb-4">Localité*</label>
+                  <input type="text" name="localite" id="" class="localite mt-1"  [(ngModel)]="localite" (input)="veriflocalieFonction()">
+                  <p class="text-danger" *ngIf="!exactlocalite">{{veriflocalite}}</p>
+                  <i class="bi bi-check2-all" *ngIf="exactlocalite"></i>
+                </div>
+                <div class="form-group col-lg-6">
+                  <label for="phone" class="label mb-4">Telephone*</label>
+                  <input type="text" name="telephone" id="phone"  class="telephone mt-1" [(ngModel)]="telephone" (input)="veriftelephoneFonction()">
+                  <p class="text-danger" *ngIf="!exacttelephone">{{veriftelephone}}</p>
+                  <i class="bi bi-check2-all" *ngIf="exacttelephone"></i>
+                </div>
+                  <!-- <span class="error"></span> -->
                </div>
-                 <div class="form-group">
-                    <!-- <label for="phone">Telephone<span>*</span></label> -->
-                    <input type="text" name="telephone" id="phone" placeholder="telephone*" [(ngModel)]="telephone">
-                 </div>
-
-                 <div class="form-group">
-                    <!-- <label for="password">Mot de passes <span>*</span></label> -->
-                    <input type="password" name="password" id="password" class="pass" placeholder="Mot de passe*" [(ngModel)]="password">
-                    <span class="error"></span>
+               <div class="row ">
+                 <div class="form-group col-lg-6">
+                    <label for="password" class="label mb-4">Mot de passes <span>*</span></label>
+                    <input type="password" name="password" id="password" class="pass mt-1"  [(ngModel)]="password" (input)=" verifPasswordFonction()">
+                    <p class="text-danger" *ngIf="!exactpassword">{{verifpassword}}</p>
+                    <i class="bi bi-check2-all" *ngIf="exactpassword"></i>
+                    <!-- <span class="error"></span> -->
     
                  </div>
-
-                 <div class="form-group">
-                    <!-- <label for="passwordCon">Confirmer votre mot de passe<span>*</span></label> -->
-                    <input type="password" name="passwordconfirm" id="passwordCon" class="passConfirm" placeholder=" Confimation mot de passe*" [(ngModel)]="passwordconfirm">
-                    <span class="error"></span>
+                 <div class="form-group col-lg-6">
+                    <label for="passwordCon" class="label mb-4">Confirmer mot de passe*</label>
+                    <input type="password" name="passwordconfirm" id="passwordCon" class="passConfirm mt-1"  [(ngModel)]="passwordconfirm" (input)="verifPasswordConfFonction()">
+                    <p class="text-danger" *ngIf="!exactPasswordconfirm">{{verifpasswordconfirm}}</p>
+                    <i class="bi bi-check2-all" *ngIf="exactPasswordconfirm"></i>
+                    <!-- <span class="error"></span> -->
                  </div>
-                 <!-- <button class="input-file">image
-                  <input type="file" id="file-input"/>
-                  <label for="file-input">UPLOAD</label>
-                </button> -->
-                <label for="" class="mb-4">role: </label>
-                <select class="form-select" aria-label="Default select example"  name="role" [(ngModel)]="role">
+                </div>
+                
+                <label for="" class="role" >Role: </label>
+                <select class="form-select mb-5 mt-5" aria-label="Default select example"  name="role" [(ngModel)]="role" (change)="verifroleFonction()">
                   <option selected >Selectionner un rôle</option>
                   <option value="Demenageur" >Demenageur</option>
                   <option value="Client"  >Client</option>
-                </select>
-                 <!-- <div  class="form-group" style="margin-top: -10%;" >
-                    <label for="f-option" class="l-radio">
-                      <input type="radio" id="f-option" name="selector" tabindex="1"  [(ngModel)]="role">&nbsp;
-                      <span>Particulier</span>
-                    </label>
-                    <label for="s-option" class="l-radio" style="margin-left: 30%;">
-                      <input type="radio" id="s-option" name="selector" tabindex="2" [(ngModel)]="role">&nbsp;
-                      <span>Demenageur</span>
-                    </label>
-                  </div> -->
-              <div class="CTA" style="margin-top: 20%;">
-                <button (click)=" singin(); showLogin">Enregistrer</button>
+              </select>
+              <p class="text-danger" *ngIf="!exactrole">{{verifrole}}</p>
+              <i class="bi bi-check2-all" *ngIf="exactrole"></i>
+              
+                <div class="form-group col-lg-6">
+                </div>
+                 
+              <div class="CTA" style="margin-top: -5%; margin-bottom: 5%;">
+    <button (click)=" singin(); validerInscription(); showLogin" class="enregistrer">Enregistrer</button>
                 <input type="submit" value="Signup Now" id="submit">
-                <a  class="switch" (click)="showLogin()">J'ai déja un compte</a>
+                <a  class="switch" (click)="showLogin()">Retour</a>
               </div>
             </form>
             <p>{{password}}</p>
-          </div><!-- End Signup Form -->
-        
+          </div>
+        </div>
         </div>
       </div>
     </section>

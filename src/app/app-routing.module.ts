@@ -13,12 +13,13 @@ import { AproposComponent } from './Utilisteur/apropos/apropos.component';
 import { ConditionutilisationComponent } from './Utilisteur/conditionutilisation/conditionutilisation.component';
 import { PolitiqueconfidentialiteComponent } from './Utilisteur/politiqueconfidentialite/politiqueconfidentialite.component';
 import { ContactComponent } from './Utilisteur/contact/contact.component';
+import { ListedevisComponent } from './client/listedevis/listedevis.component';
 import { ServiceComponent } from './Utilisteur/service/service.component';
 import { AccueilclientComponent } from './client/accueilclient/accueilclient.component';
 import { GestioncompteComponent } from './client/gestioncompte/gestioncompte.component';
 import { GestiondemandeComponent } from './client/gestiondemande/gestiondemande.component';
-import { ListedevisComponent } from './demenageur/listedevis/listedevis.component';
 import { GestionprofilComponent } from './demenageur/gestionprofil/gestionprofil.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'accueilutilisateur', pathMatch: 'full' },
@@ -32,7 +33,7 @@ const routes: Routes = [
   {path: 'gestionoffre', component: GestionoffreComponent},
   {path: 'gestionutilisateur', component: GestionutilisateurComponent},
   {path: 'gestiondevis', component: GestiondevisComponent},
-  {path: 'accueiladmin', component: AccueiladminComponent},
+  {path: 'accueiladmin', component: AccueiladminComponent, canActivate: [ authGuard]},
   {path: 'politiqueconfidentialite', component: PolitiqueconfidentialiteComponent},
   {path: 'accueilutilisateur', component: AccueilutilisateurComponent},
   {path: 'inscription', component: InscriptionComponent},
@@ -40,8 +41,8 @@ const routes: Routes = [
   {path: 'accueilclient', component: AccueilclientComponent},
   {path: 'gestioncompte', component: GestioncompteComponent},
   {path: 'gestiondemande', component: GestiondemandeComponent},
-  {path: 'listedevis', component:ListedevisComponent},
   {path: 'gestionprofil', component: GestionprofilComponent},
+  {path: 'listedevis', component:ListedevisComponent},
 ];
 
 @NgModule({

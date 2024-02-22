@@ -106,7 +106,7 @@
             <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
               <div class="flex items-center">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" id="voir">
+<button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" id="voir" (click)="getAllDetails(demandedevis.id)">
     Voir demande
   </button>
   
@@ -119,26 +119,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" >
-          <label for="">adresse_actuelle</label>
-          <span>{{demandedevis.adresse_actuelle}}</span>
-          <!-- <input type="text" name="adresse_actuelle" [(ngModel)]="adresse_actuelle"> -->
-          <label for="">nouvelle_adresse</label>
-          <!-- <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse"> -->
-          <label for="">date_demenagement</label>
-          <!-- <input type="text" name="nom_entreprise"> -->
-          <label for="floatingTextarea" >information_bagage</label>
-          <!-- <div class="form-floating">
-            <textarea class="form-control" name="information_bagage" placeholder="Leave a comment here" id="floatingTextarea" name="information_bagage" [(ngModel)]="information_bagage"></textarea>
-          </div>           -->
+          <span>adresse_actuelle: {{annocesfound?.adresse_actuelle}}</span><br>
+          <span>nouvelle_adresse: {{annocesfound?.nouvelle_adresse}}</span><br>
+          <span>date_demenagement: {{annocesfound?.date_demenagement}}</span><br>
+          <span>information_bagage: {{annocesfound?.informations_bagages}}</span>
+
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div> -->
+      
                     </div>
                     </div>
                 </div>
-                    <button class="btn " type="button" style="background-color: #E08D14; color: white;"  (click)="GenereDevis()">Generer devis</button>
+                    <button class="btn " type="button" style="background-color: #E08D14; color: white;"  (click)="GenereDevis(demandedevis.id)">Generer devis</button>
               </div>
             </td>
           </tr>
@@ -173,12 +164,12 @@
     <div class="header">Devis</div>
     <div class="inputs">
       <label for="">Prix demenagement</label>
-        <input placeholder="Prix demenagement" class="input" type="text">
+        <input placeholder="Prix demenagement" class="input" type="text" name="prix_tal" [(ngModel)]="prix_total">
         <label for="">Date demenagement</label>
-        <input placeholder="date demenagement" class="input" type="date">
+        <input placeholder="date_demenagement" class="input" type="date"  name="date_demenagement"  [(ngModel)]="date_demenagement">
         <label for="">Description demenagement</label>
-        <textarea name="descrip" id="" cols="30" rows="10"></textarea>
-        <button class="sigin-btn">Envoyer</button>
+        <textarea name="descrip" id="" cols="30" rows="10"  name="description"  [(ngModel)]="description"></textarea>
+        <button class="sigin-btn" (click)="postDevis()">Envoyer</button>
     </div>
 </form>
 

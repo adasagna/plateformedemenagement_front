@@ -4,14 +4,18 @@ body {
 	line-height: 1.8;
 	font-weight: normal;
 }
-
+#row{
+	border: 1px solid #fffefc;
+}
+#icon{
+	border-radius: 20px;
+	font-size: 40px;
+}
 i {
 	color: white;
 }
 
-.text {
-	border: 1px solid white;
-}
+
 
 a {
 	text-decoration: none;
@@ -31,8 +35,9 @@ h1, h2, h3, h4, h5,
 }
 
 button {
-	background-color: #02273D;
-	color: white;
+	background-color: #02273D !important;
+	color: white ;
+	border: 1px solid #fff !important;
 }
 
 .img,
@@ -116,6 +121,7 @@ footer {
 		font-size: 18px;
 		color: white;
 		margin-bottom: 30px;
+		
 	}
 
 	p {

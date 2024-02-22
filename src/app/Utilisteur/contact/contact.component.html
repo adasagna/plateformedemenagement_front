@@ -1,2 +1,71 @@
 <app-header></app-header>
     <h1 class="text-center">Contactez-nous</h1>
+    <section class="formulaire">
+        <div class="container">
+          <div class="contact_box">
+            <h3>Informations</h3>
+            <div class="content_box">
+              <ul>
+                <li> <i class="fab fa-linkedin"></i>
+                  <p>Linkedin</p>
+                </li>
+                <li><i class="fas fa-phone-square"></i>
+                  <p>06 07 05 08 06</p>
+                </li>
+                <li><i class="fas fa-envelope-square"></i>
+                  <p>contact@domain.com</p>
+                </li>
+                <li><i class="fas fa-map-marker-alt"></i>
+                  <p>21 rue des devs <br> Albert, 03151</p>
+                </li>
+                <div class="icon">
+                    <div class="reseaux">
+                        <i class="fa-brands fa-square-whatsapp" style="color: #FFD43B;"></i>
+                        <i class="fa-brands fa-square-instagram" style="color: #FFF;"></i>
+                        <i class="fa-brands fa-facebook" style="color: #FFD43B;"></i>
+                    </div>
+                    <div><img src="/assets/form.png" alt=""></div>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <form id="form">
+            <h3>Nous Contacter</h3>
+            <div class="form_container">
+              <div class="input_container">
+                <div class="input_bloc">
+                  <div class="input_box" style="margin-right: 50%;">
+                    <input type="text" placeholder="Nom" required>
+                  </div>
+                  <!-- <div class="input_box">
+                    <input type="text" placeholder="Prénom" required>
+                  </div> -->
+                </div>
+                <div class="input_bloc">
+                  <div class="input_box"style="margin-right: 50%;">
+                    <input type="text" placeholder="Pays">
+                  </div>
+                  <!-- <div class="input_box">
+                    <input type="text" placeholder="Ville">
+                  </div> -->
+                </div>
+                <div class="input_bloc">
+                  <div class="input_box "style="margin-right: 50%;">
+                    <input type="email" placeholder="Email" required>
+                  </div>
+                  <!-- <div class="input_box">
+                    <input type="text" placeholder="Téléphone">
+                  </div> -->
+                </div>
+              </div>
+              <div class="text_area">
+                <textarea placeholder="Message" required></textarea>
+              </div>
+              <div class="button">
+                <input type="submit" value="Envoyer">
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <app-footer></app-footer>

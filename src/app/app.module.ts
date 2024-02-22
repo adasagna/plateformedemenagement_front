@@ -18,13 +18,13 @@ import { AccueildemenageurComponent } from './demenageur/accueildemenageur/accue
 import { AccueiladminComponent } from './admin/accueiladmin/accueiladmin.component';
 import { InscriptionComponent } from './authentification/inscription/inscription.component';
 import { ConnexionComponent } from './authentification/connexion/connexion.component';
+import { ListedevisComponent } from './client/listedevis/listedevis.component';
 import { AccueilclientComponent } from './client/accueilclient/accueilclient.component';
 import { AuthServiceService } from './services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { GestioncompteComponent } from './client/gestioncompte/gestioncompte.component';
 import { GestiondemandeComponent } from './client/gestiondemande/gestiondemande.component';
-import { ListedevisComponent } from './demenageur/listedevis/listedevis.component';
 import { GestionoffreComponent } from './demenageur/gestionoffre/gestionoffre.component';
 import { GestiondevisComponent } from './demenageur/gestiondevis/gestiondevis.component';
 import { GestionprofilComponent } from './demenageur/gestionprofil/gestionprofil.component';
@@ -48,11 +48,11 @@ import { TokenInterceptorProvider } from './intercepteur/token.interceptor';
     AccueildemenageurComponent,
     AccueiladminComponent,
     InscriptionComponent,
+    ListedevisComponent,
     ConnexionComponent,
     AccueilclientComponent,
     GestioncompteComponent,
     GestiondemandeComponent,
-    ListedevisComponent,
     GestionoffreComponent,
     GestionprofilComponent,
   ],

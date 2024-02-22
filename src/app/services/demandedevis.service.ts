@@ -21,6 +21,16 @@ export class DemandedevisService {
   of(null);
   }
 
+  /**modifier une demande de devis */
+  putDemandeDevis(id:number, demandeclient:any): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.put<any>(`${apiUrl}/demandedevisupdate/${id}`,demandeclient,{
+    headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+  }) :
+  of(null);
+  }
+
   // Obtenir la liste de toutes les demandes de devis actives du client
   getAllDemandeDevis(id:number): Observable<any> {
 
@@ -34,5 +44,14 @@ export class DemandedevisService {
 
   }
 
-  // Ajoutez d'autres méthodes au besoin
+/**supression d'une demande de devis */
+putDemande(id:number, demandevis:any): Observable<any> {
+  const accessToken = localStorage.getItem('access_token');
+  return accessToken ?
+  this.http.put<any>(`${apiUrl}/demandedevisdesactivate/${id}`,demandevis,{
+  headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+}) :
+of(null);
+}
+
 }
