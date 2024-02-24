@@ -12,7 +12,7 @@
       </a>
       <ul>
         <li>
-          <a [routerLink]="['/accueildemenageur']"   class="active"  >
+          <a [routerLink]="['/accueildemenageur']"     >
             <span class="fas fa-tachometer-alt"></span>
             <span>Tableau de board</span>
           </a>
@@ -24,7 +24,7 @@
           </a>
         </li>
         <li>
-          <a [routerLink]="['/gestiondevis']"  class="switch"  >
+          <a class="active" [routerLink]="['/gestiondevis']"  >
             <span class="bi bi-truck"></span>
           <span>Gestion devis</span>
           </a>
@@ -43,13 +43,13 @@
           </a>
         </li>
         <div class="logout mt-5">
-          <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+          <a [routerLink]="['/connexion']"   class="logout">
             <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
         </a>
         </div>
-        <div class="utilsateur">
+        <!-- <div class="utilsateur">
           <span>Tableau Demenageur</span>
-        </div>
+        </div> -->
       </ul>
     </div>
 </div>    

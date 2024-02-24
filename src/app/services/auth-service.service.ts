@@ -20,7 +20,7 @@ export class AuthServiceService {
 
     const accessToken = localStorage.getItem('access_token');
     return accessToken ?
-    this.http.post<any>(`${api}/register`, data ,{
+    this.http.post<any>(`${api}/register `, data ,{
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) :
       of();
@@ -30,44 +30,29 @@ export class AuthServiceService {
   //   return this.http.post<any>(`${api}/login`, data);
   // }
 
-  login(data: any): Observable<any> {
+  // login(data: any): Observable<any> {
 
-    const accessToken = localStorage.getItem('access_token');
-    return accessToken ?
-    this.http.post<any>(`${api}/login`, data ,{
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-      }) :
-      of();
+  //   const accessToken = localStorage.getItem('access_token');
+  //   return accessToken ?
+  //   this.http.post<any>(`${api}/login`, data ,{
+  //       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+  //     }) :
+  //     of();
   
-  }
+  // }
 
-  updateClient(data: any, id: number): Observable<any> {
-    return this.http.put<any>(`${api}/client/edit/${id}`, data);
-  }
-
-  getAllClient(): Observable<any[]> {
-    return this.http.get<any[]>(`${api}/client/lister`);
-  }
-
-  getClientId(id: number): Observable<any> {
-    return this.http.get<any>(`${api}/client/detail/${id}`);
-  }
-
-  activeDeactiveEmploye(id: number): Observable<any> {
+  connexion(data:any):Observable<any> {
     const accessToken = localStorage.getItem('access_token');
-    return accessToken ? this.http.put<any>(
-      `${api}/client/archive/${id}`,
-      {},
-      {
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-      }
-    ) : of(null);
-  }
+    return this.http.post<any>(`${api}/login`, data,{
+      headers: new HttpHeaders({'Authorization': `BearerToken ${accessToken}`})
+    })
+    of();
+    }
 
-  logout(): Observable<any> {
-    // Implement your logout logic here
-    // For example, clearing the access token from localStorage
-    localStorage.removeItem('access_token');
-    return of(null);
-  }
+ 
+
+  // logout(): Observable<any> {
+  //   localStorage.removeItem('access_token');
+  //   return this.http.post<any>(`${api}/logout`, {});
+  // }
 }

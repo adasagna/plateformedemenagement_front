@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="loginemail" class="label mb-4">Adresse email</label>
                    
-                    <input type="email" name="loginemail" id="loginemail" required  [(ngModel)]="email" (input)="verifEmailConFonction()">
+                    <input type="email" name="loginemail" id="loginemail" required  [(ngModel)]="email" (input)="verifEmailConFonction()" >
                     <p class="text-danger" *ngIf="!exactemailCon">{{verifemailCon}}</p>
                     <i class="bi bi-check2-all" *ngIf="exactemailCon"></i> 
                  </div>
@@ -45,7 +45,7 @@
                     <i class="bi bi-check2-all" *ngIf="exactpasswordCon"></i>
                   </div>
               <div class="CTA">
-                <button (click)="connexion()" class="seconnecter">Connecter </button>
+                <button class="seconnecter" (click)="connexion()">Connecter </button>
                 <input type="submit" value="Login">
                 <a  class="switch" (click)="showLogin()">Nouveau compte</a>
               </div>
@@ -107,7 +107,7 @@
                 </div>
                 
                 <label for="" class="role" >Role: </label>
-                <select class="form-select mb-5 mt-5" aria-label="Default select example"  name="role" [(ngModel)]="role" (change)="verifroleFonction()">
+                <select class="form-select mb-5 mt-5" aria-label="Default select example"  name="role" [(ngModel)]="role" (change)="verifroleFonction()" >
                   <option selected >Selectionner un rôle</option>
                   <option value="Demenageur" >Demenageur</option>
                   <option value="Client"  >Client</option>
@@ -119,7 +119,7 @@
                 </div>
                  
               <div class="CTA" style="margin-top: -5%; margin-bottom: 5%;">
-    <button (click)=" singin(); validerInscription(); showLogin" class="enregistrer">Enregistrer</button>
+    <button (click)=" singin();  showLogin" class="enregistrer">Enregistrer</button>
                 <input type="submit" value="Signup Now" id="submit">
                 <a  class="switch" (click)="showLogin()">Retour</a>
               </div>

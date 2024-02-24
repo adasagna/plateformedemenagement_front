@@ -13,7 +13,7 @@
               </a>         
                <ul>
             <li>
-              <a href="#" class="active" [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
+              <a href="#"  [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
                 <span class="fas fa-tachometer-alt"></span>
                 <span>Tableau e board</span>
               </a>
@@ -32,7 +32,7 @@
             </li>
          
             <li>
-              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+              <a class="active" [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
                 <span class="fas fa-tasks"></span>
                 <span>Liste devis</span>
               </a>
@@ -42,9 +42,9 @@
                 <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
             </a>
             </div>
-            <div class="utilsateur">
+            <!-- <div class="utilsateur">
               <span>Tableau client</span>
-            </div>
+            </div> -->
           </ul>
         </div>
     </div>    
@@ -84,11 +84,11 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr >
+                  <tr *ngFor="let devis of listedevis">
                       <td><img src="/assets/Capture.PNG" alt="" id="Profil"></td>
-                      <td>Alphabet puzzle</td>
-                      <td>2016/01/15</td>
-                      <td>Done</td>
+                      <td>{{devis.user.informationssupp.nom_entreprise}}</td>
+                      <td>{{devis.user.email}}</td>
+                      <td>{{devis.user.telephone}}</td>
                       <td>
                         <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
@@ -99,163 +99,22 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                  <p>Date de demenagement : <span>21/01/2024</span></p>
-                                  <p> Pris de demenagement: <span>75000f</span></p>
-                                  <p> Nombre de camions:     <span>3</span></p>
-                                  <p> Nombre de main d'oeuvre: <span>2</span></p>
+                                  <p>Prix_total : <span>{{devis.prix_total}}</span></p>
+                                  <!-- <p> Dtate_Demenagement: <span>{{devis.date_demenagement}}</span></p> -->
+                                  <p> Descriptions:     <span>{{devis.description}}</span></p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary btn-sm" id="valider">Valider</button>
+                                    <button type="button" class="btn btn-primary btn-sm" id="valider" (click)="putValiderDevis(devis.id)">Valider</button>
                                     <button type="button" class="btn btn-secondary btn-sm" id="rejet">Rejetter</button>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Hide this modal and show the first with the button below.
-                                </div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
+                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir" (click)="getDetailsdevis(devis.id)">Voir devis</button>
                       </td>
                   </tr>
-                  <!-- .......................................................... -->
-                  <tr>
-                      <td><img src="/assets/Capture.PNG" alt="" id="Profil"></td>
-                      <td>Layout for poster</td>
-                      <td>2016/01/31</td>
-                      <td>Planned</td>
-                      <td>
-                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Show a second modal and hide this one with the button below.
-                                </div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Hide this modal and show the first with the button below.
-                                </div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
-                      </td>
-                  </tr>
-                  <!-- ............................................................................. -->
-                  <tr>
-                      <td><img src="/assets/Capture.PNG" alt="" id="Profil"></td>
-                      <td>Image creation</td>
-                      <td>2016/01/23</td>
-                      <td>To Do</td>
-                      <td>
-                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Show a second modal and hide this one with the button below.
-                                </div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Hide this modal and show the first with the button below.
-                                </div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
-                      </td>
-                  </tr>
-                  <!-- ................................................................. -->
-                  <tr>
-                      <td><img src="/assets/Capture.PNG" class="rounded-circle" alt="" id="Profil"></td>
-                      <td>Create font</td>
-                      <td>2016/02/26</td>
-                      <td>Done</td>
-                      <td>
-                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Show a second modal and hide this one with the button below.
-                                </div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                  Hide this modal and show the first with the button below.
-                                </div>
-                                <div class="modal-footer">
-                                  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" id="voir">Voir devis</button>
-                      </td>
-  
+                  
+                  
           </table>
           
           </div>

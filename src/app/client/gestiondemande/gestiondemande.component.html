@@ -10,9 +10,10 @@
         <div class="sidebar-menu">
           <a [routerLink]="['/accueilclient']"  >
             <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
-          </a>          <ul>
+          </a>          
+          <ul>
             <li>
-              <a  class="active" [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
+              <a   [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
                 <span class="fas fa-tachometer-alt"></span>
                 <span>Tableau e board</span>
               </a>
@@ -24,7 +25,7 @@
               </a>
             </li>
             <li>
-              <a [routerLink]="['/gestiondemande']">
+              <a class="active" [routerLink]="['/gestiondemande']">
                 <span class="bi bi-truck"></span>
               <span>Gestion Demande</span>
               </a>
@@ -37,13 +38,11 @@
               </a>
             </li>
             <div class="logout mt-5">
-              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
+              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout" >
                 <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
             </a>
             </div>
-            <div class="utilsateur">
-              <span>Tableau client</span>
-            </div>
+            
           </ul>
         </div>
     </div>    

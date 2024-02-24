@@ -28,7 +28,7 @@ export class GestionprofilComponent implements OnInit {
   /**iajout information suplementaire d'un demenageur */
   postInfo(){
     
-    alert(this.nom_entreprise)
+    // alert(this.nom_entreprise)
     const tabinfo={
     nom_entreprise: this.nom_entreprise,
     presentation: this.presentation,

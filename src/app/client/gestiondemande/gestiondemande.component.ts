@@ -127,10 +127,14 @@ export class GestiondemandeComponent implements OnInit {
       }
     });
   }
+
+ 
   getFile(event: any) {
     console.warn(event.target.files[0]);
     this.image = event.target.files[0] as File;
   }
+
+  
 }
 
 

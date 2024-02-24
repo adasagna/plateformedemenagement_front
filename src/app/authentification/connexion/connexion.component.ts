@@ -12,10 +12,11 @@ import Swal from 'sweetalert2';
 })
 export class ConnexionComponent implements OnInit {
   
-  login: any;
+  // login: any;
   Signup: any;
   userOnline: any;
   role: any;
+  
 
     // Variables pour faire la vérifications
     verifname : String  =  "";
@@ -44,11 +45,11 @@ export class ConnexionComponent implements OnInit {
    // Pour vérifier les champs pour la connexion 
    verifemailCon : String = "";
    verifpasswordCon: String = "";
- 
+  
    // Variables Si les valeurs sont exactes
    exactemailCon : boolean = false;
    exactpasswordCon : boolean = false; 
-  tabUsers: any;
+  tabUsers!: any  ;
   userFound: any;
   idLastUser: any;
 
@@ -59,7 +60,6 @@ export class ConnexionComponent implements OnInit {
     if(!localStorage.getItem("infoUserConnect")){
       localStorage.setItem("infoUserConnect", JSON.stringify("token"));
     }
-    
   }
   showLoginForm: boolean = true;
   isDemenageur: boolean = false;
@@ -78,16 +78,15 @@ export class ConnexionComponent implements OnInit {
   localite:string="";
   user:any;
 
- // Méthode pour afficher un sweetalert2 apres vérification 
  
  
- connexion() {
+  connexion() {
    const data ={
      email: this.email,
      password: this.pass,
-     id: this.id
+    //  id: this.id
     }
-    this.authservice.login(data).subscribe(
+    this.authservice.connexion(data).subscribe(
       (response) =>{
         console.log("affichage du data",response);
         console.log("affichage du user",response.user.role);
@@ -101,14 +100,15 @@ export class ConnexionComponent implements OnInit {
         }else{
           this.route.navigate(['/accueildemenageur']);
         }
-        
+      
       });
       
       
       if(this.tabUsers.length == 0){
         this.verifierChamps("Oups!", "Le compte n'exite pas", "error"); 
       }
-      else{
+      else
+      {
         this.userFound = this.user.find((element:any) => element.email == this.emailCon && element.password == this.passwordCon);
         
         if(this.userFound){
@@ -258,8 +258,8 @@ export class ConnexionComponent implements OnInit {
     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
     this.exactemailCon = false;
     
-    if(!this.emailCon){
-      this.verifemailCon = "Adresse email invalide!";
+    if(this.emailCon == ""){
+      this.verifemailCon = "Veuillez renseigner votre email";
     }
     else if (!this.emailCon.match(emailPattern) ){
       this.verifemailCon = "Veuillez donner un email valide";
@@ -267,9 +267,6 @@ export class ConnexionComponent implements OnInit {
     else {
       this.verifemailCon = "";
       this.exactemailCon = true;
-    }
-    if (this.emailCon == "") {
-      this.verifemailCon = "";
     }
   }
 
@@ -365,12 +362,7 @@ export class ConnexionComponent implements OnInit {
         this.verifierChamps('Felicitation!', 'Inscription reuissie', 'success');
         this.viderChamps();
       }
-      Swal.fire({
-        icon: 'success',
-        title: 'Modification réussie',
-        text: 'La demande de devis a été modifiée avec succès.',
-        timer: 2000, // Ferme l'alerte après 2 secondes (2000 ms)
-      });
+      
     }
   }
 }

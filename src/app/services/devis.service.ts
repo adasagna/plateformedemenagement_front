@@ -40,4 +40,23 @@ export class DevisService {
   of(null);
   }
 
+  /******************details devus d'un client ********************/
+  getDetailsdevis(id:number): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.get<any>(`${apiUrl}/onedevisactifofonecustomer/${id}`,{
+    headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+  }) :
+  of(null);
+  }
+
+  // putValiderDevis(id:number,detailsdevis:any): Observable<any> {
+  //   const accessToken = localStorage.getItem('access_token');
+  //   return accessToken ?
+  //   this.http.put<any>(`${apiUrl}/devisvalidate/${id}`,detailsdevis,{
+  //   headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+  // }) :
+  // of(null);
+  // }
+
 }
