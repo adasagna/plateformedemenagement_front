@@ -18,7 +18,7 @@ export class GestiondevisComponent implements OnInit {
   userconnect:any
   demandedevis: any;
   demandedevis_id: any;
-  constructor (private demanderecu: DemanderecuService, demandedevis:DemandedevisService, private details:DetaildemandeService, private devis:DevisService){}
+  constructor (private demanderecu: DemanderecuService, demandedevis:DemandedevisService, private details:DetaildemandeService, private devisservice:DevisService){}
   Showdevis:boolean=true
   
   nom_entreprise: string="";
@@ -73,7 +73,7 @@ export class GestiondevisComponent implements OnInit {
       date_demenagement: this.date_demenagement,
       description: this.description ,
     }
-    this.devis.postDevis(this.demandedevis, tabdevis).subscribe(
+    this.devisservice.postDevis(this.demandedevis, tabdevis).subscribe(
       (data)=>{ 
       console.log(' devis envoyé avec succès au client:', data); 
       alert('devis envoyé')
@@ -84,7 +84,7 @@ export class GestiondevisComponent implements OnInit {
 }
 
 getAllDevis(id:number){
-  this.devis.getAllDevis(id).subscribe((data) => {
+  this.devisservice.getAllDevis(id).subscribe((data) => {
     this.listedevis=data.data;
     console.log('gysgygcydogcy',this.listedevis);
   }

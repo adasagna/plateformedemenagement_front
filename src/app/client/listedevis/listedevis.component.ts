@@ -13,7 +13,7 @@ export class ListedevisComponent implements OnInit {
   tabdevis:any
   detailsdevis:any
   dvis:any
-  constructor(private devis: DevisService, private valider :ValiderService){}
+  constructor(private devisservice: DevisService, private valider :ValiderService){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
     this.getDevis(this.userconnect.id)
@@ -23,16 +23,18 @@ export class ListedevisComponent implements OnInit {
 
 /**liste des devis d'un client */
   getDevis(id:number){
-    this.devis.getDevis(id).subscribe((data) => {
+    this.devisservice.getDevis(id).subscribe((data) => {
       this.listedevis=data.data;
       console.log('listedevis',data);
     }
       )
   }
 /**Details devis d'un client */
-  getDetailsdevis(id:number){
+  getDetailsdevis(paramdetails:any){
+    alert(paramdetails)
+    this.detailsdevis=paramdetails
     alert('voir devis')
-    this.devis.getDetailsdevis(id).subscribe((reponse:any)=>{
+    this.devisservice.getDetailsdevis(this.detailsdevis).subscribe((reponse:any)=>{
       console.log('details du devis',reponse); 
       this.listedevis=reponse.data;
     });

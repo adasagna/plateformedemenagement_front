@@ -1,0 +1,226 @@
+
+    
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+          <a [routerLink]="['/accueildemenageur']">
+          <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+        </a>
+          <ul>
+            <li>
+              <a [routerLink]="['/accueildemenageur']"  class="active">
+                <span class="fas fa-tachometer-alt"></span>
+                <span>Tableau de board</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/gestionprofil']">
+                <span class="fas fa-user-circle"></span>
+                <span>Gestion Compte</span>
+              </a>
+            </li>
+            <li>
+              <a class="switch" [routerLink]="['/gestiondevis']"  >
+                <span class="fas fa-users" ></span>
+                <span>Gestion devis</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/devisdemenageur']" routerLinkActive="router-link-active" >
+                <span class="fas fa-user-circle"></span>
+                <span>Liste devis</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/gestionoffre']"  >
+                <span class="fas fa-user-circle"></span>
+                <span>Gestion offre</span>
+              </a>
+            </li>
+            <div class="logout mt-5">
+              <a [routerLink]="['/connexion']"  class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            </a>
+            </div>
+            <!-- <div class="utilsateur">
+              <span>Tableau Demenageur</span>
+            </div> -->
+          </ul>
+
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+        <!-- <h2>
+          <label for="nav-toggle">
+            <span class="fas fa-bars"></span>
+          </label>
+          Dashboard
+        </h2> -->
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+          
+        </div>
+        <div class="fa-bell">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+          <h5>IHGFHG</h5>
+          <small>IJIFJ</small>
+        </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="cards">
+          <div class="card-single">
+            <div>
+              <h1>50</h1>
+              <span>Nombre de Demandes</span>
+            </div>
+            <div>
+              <span class="bi bi-person-fill"></span>
+            </div>
+          </div>
+          <div class="card-single">
+            <div>
+              <h1>12</h1>
+              <span>Nombre de Prestations</span>
+            </div>
+            <div>
+              <span class="bi bi-truck" id="truc"></span>
+            </div>
+          </div>
+          <div class="card-single" id="card-single">
+            <div>
+              <h1>$50K</h1>
+              <span>Nombre de Offres</span>
+            </div>
+            <div>
+              <span class="bi bi-check-square-fill"></span>
+            </div>
+          </div>
+
+        </div>
+        <div class="text-center mt-5" style="background-color: white;color: #02273D; padding: 5px; border: 2px solid #02273D; border-radius: 15px;"><h3>Liste des Devis</h3></div>
+            <div class="row gap-5 mt-5 ms-4">
+              <div class="plan" *ngFor="let devis of listedevis">
+                <div class="inner">
+                    <span class="pricing">
+                        <span>
+                        {{devis.prix_total}}
+                        </span>
+                    </span>
+                    <p class="title">{{devis.nom_client}}</p>
+                    <p class="info">{{devis.description}}.</p>
+                    <ul class="features">
+                        <li>
+                            <span class="icon">
+                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                                </svg>
+                            </span>
+                            <span> {{devis.adresse_actuelle}}</span>
+                        </li>
+                        <li>
+                            <span class="icon">
+                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                                </svg>
+                            </span>
+                            <span>Plan <strong>{{devis.nouvelle_adresse}}</strong></span>
+                        </li>
+                        <li>
+                            <span class="icon">
+                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
+                                </svg>
+                            </span>
+                            <span>{{devis.date_demenagement}}</span>
+                        </li>
+                    </ul>
+                    <div class="action gap-2">
+                    <!-- <a class="button" href="#">
+                       Modifer
+                    </a> -->
+                    <button type="button" class="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="ChangerDevis(devis)" >
+                        Modifer
+                      </button>
+                    <!-- <a class="button" href="#">
+                        Supprimer
+                    </a> -->
+                    <button type="button"class="button" >
+                    Supprimer
+            </button>
+                </div>
+                </div>
+            </div>  
+
+            <!-- ****** Modal pour Modifier un devis ******** -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Devis</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group " >
+              <label for="">Prix demenagement</label><br>
+              <input type="text" name="prix_total"  [(ngModel)]="prix_total">
+            </div>
+            <div class="form-group ">
+              <label for="" >Description</label><br>
+              <textarea name="description" id="" cols="30" rows="10" [(ngModel)]="description"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary"  (click)=" putDevis()">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+            <div class="pagination p1">
+                <ul>
+                    <a href="#">
+                        <li><</li>
+                    </a>
+                    <a class="is-active" href="#">
+                        <li>1</li>
+                    </a>
+                    <a href="#">
+                        <li>2</li>
+                    </a>
+                    <a href="#">
+                        <li>3</li>
+                    </a>
+                    <a href="#">
+                        <li>4</li>
+                    </a>
+                   
+                    <a href="#">
+                        <li>></li>
+                    </a>
+                </ul>
+            </div>        
+        </div>  
+      </main>
+    </div>
+

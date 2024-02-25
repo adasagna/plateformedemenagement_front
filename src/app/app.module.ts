@@ -29,6 +29,7 @@ import { GestionoffreComponent } from './demenageur/gestionoffre/gestionoffre.co
 import { GestiondevisComponent } from './demenageur/gestiondevis/gestiondevis.component';
 import { GestionprofilComponent } from './demenageur/gestionprofil/gestionprofil.component';
 import { TokenInterceptorProvider } from './intercepteur/token.interceptor';
+import { DevisdemenageurComponent } from './demenageur/devisdemenageur/devisdemenageur.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { TokenInterceptorProvider } from './intercepteur/token.interceptor';
     GestiondemandeComponent,
     GestionoffreComponent,
     GestionprofilComponent,
+    DevisdemenageurComponent,
   ],
   imports: [
     BrowserModule,

@@ -104,24 +104,7 @@ export class ConnexionComponent implements OnInit {
       });
       
       
-      if(this.tabUsers.length == 0){
-        this.verifierChamps("Oups!", "Le compte n'exite pas", "error"); 
-      }
-      else
-      {
-        this.userFound = this.user.find((element:any) => element.email == this.emailCon && element.password == this.passwordCon);
-        
-        if(this.userFound){
-          // Le compte existe 
-          this.verifierChamps("Félicitation!", "Authentifié avec succes", "success"); 
-          this.viderChampsCon(); 
-          // this.route.navigate()
-          // this.route.navigate(['contact', this.userFound.id]);
-        }
-        else{
-          this.verifierChamps("Oups!", "Le compte n'exite pas", "error");  
-        }
-      }
+     
     }
     
     viderChampsCon(){
@@ -129,6 +112,38 @@ export class ConnexionComponent implements OnInit {
     }
     
     viderChamps(){}
+
+    // Fonction de Verification de l'email pour la fonctionnalité connexion
+  verifEmailConFonction(){
+    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
+    this.exactemailCon = false;
+    
+    if(this.emailCon == ""){
+      this.verifemailCon = "Veuillez renseigner votre email";
+    }
+    else if (!this.emailCon.match(emailPattern) ){
+      this.verifemailCon = "Veuillez donner un email valide";
+    }
+    else {
+      this.verifemailCon = "";
+      this.exactemailCon = true;
+    }
+  }
+
+  // Fonction de Verification du mot de passe de la connexion
+  verifPasswordConFonction(){
+    this.exactpasswordCon = false;
+    if(this.passwordCon == ""){
+      this.verifpasswordCon = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.passwordCon.length < 5 ){
+      this.verifpasswordCon = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else{
+      this.verifpasswordCon = "";
+      this.exactpasswordCon = true;
+    }
+  }
     singin(){
       const data ={
         email: this.email,
@@ -234,9 +249,6 @@ export class ConnexionComponent implements OnInit {
     }
   }
   
-  
-
-
   veriftelephoneFonction(){
 
     this.exacttelephone = false;
@@ -252,24 +264,6 @@ export class ConnexionComponent implements OnInit {
       this.exacttelephone = true;
     }
   }
-
-  // Fonction de Verification de l'email pour la fonctionnalité connexion
-  verifEmailConFonction(){
-    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
-    this.exactemailCon = false;
-    
-    if(this.emailCon == ""){
-      this.verifemailCon = "Veuillez renseigner votre email";
-    }
-    else if (!this.emailCon.match(emailPattern) ){
-      this.verifemailCon = "Veuillez donner un email valide";
-    }
-    else {
-      this.verifemailCon = "";
-      this.exactemailCon = true;
-    }
-  }
-
   
   // Verification du mot de passe pour l'inscription
   verifPasswordFonction(){
@@ -301,20 +295,7 @@ export class ConnexionComponent implements OnInit {
     }
   }
 
-   // Fonction de Verification du mot de passe de la connexion
-   verifPasswordConFonction(){
-    this.exactpasswordCon = false;
-    if(this.passwordCon == ""){
-      this.verifpasswordCon = "Veuillez renseigner votre mot de passe";
-    }
-    else if (this.passwordCon.length < 5 ){
-      this.verifpasswordCon = "Mot de passe doit être supérieur ou égal à 5";
-    }
-    else{
-      this.verifpasswordCon = "";
-      this.exactpasswordCon = true;
-    }
-  }
+   
   validerInscription(){
     this.verifEmailFonction();
     this.verifnomcompletFonction();

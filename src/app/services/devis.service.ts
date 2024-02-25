@@ -49,7 +49,24 @@ export class DevisService {
   }) :
   of(null);
   }
-
+/**les deivis d'un demenageur */
+  getDevisdemenageur(id:number, ): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.get<any>(`${apiUrl}/alldevisofonemover/${id}`,{
+    headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+  }) :
+  of(null);
+  }
+/*************************Modification d'un devis*********************/
+  putDevis(id:number, devisdemenageur:any): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.put<any>(`${apiUrl}/devisupdate/${id}`,devisdemenageur, {
+    headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+  }) :
+  of(null);
+  }  
   // putValiderDevis(id:number,detailsdevis:any): Observable<any> {
   //   const accessToken = localStorage.getItem('access_token');
   //   return accessToken ?

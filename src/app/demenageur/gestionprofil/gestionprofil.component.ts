@@ -8,7 +8,7 @@ import { InfosupService } from 'src/app/services/infosup.service';
 })
 export class GestionprofilComponent implements OnInit {
   listinfos: any[] = [];
-
+  userconnect:any
   user_id:number = 0;
   nom_entreprise: string = "";
   presentation: string = "";
@@ -25,7 +25,7 @@ export class GestionprofilComponent implements OnInit {
   Showinfosup(){
     this.Showinformation=!this.Showinformation
   }
-  /**iajout information suplementaire d'un demenageur */
+  /**ajout information suplementaire d'un demenageur */
   postInfo(){
     
     // alert(this.nom_entreprise)
