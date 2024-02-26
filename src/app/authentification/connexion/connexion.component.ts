@@ -201,21 +201,33 @@ export class ConnexionComponent implements OnInit {
      });
    }
   // .....................verification des champs de saisies..................//
+
+  // VFNOM(){
+  //   const valide = /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ-']*$/;
+  //   // const sansChiffres = /^\D*$/;
+
+  //   if (/^\s/.test(this.nom)) {
+  //     this.colorNom = "rgb(249, 67, 67)";
+  //     this.messageNom = "Le nom ne peut pas commencer par un espace.";
+  //   }
+  // }
   verifnomcompletFonction(){
-    this.exactname = false;
-    if(this.name == ""){
-      this.verifname = "Veuillez renseigner votre nomcomplet";
-    }
-    else if (this.name.length < 3 ){
-      this.verifname = "Le nom est trop court";
-      
-    }
-    else{
-      this.verifname = "";
+    const valide = /^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ-']*$/;
+    if (/^\s/.test(this.name)) {
+      this.verifname = "Le nom ne peut pas commencer par des un espace."
+    } else if (!valide.test(this.name)) {
+      this.verifname = "Format invalide!"
+    } else if (this.name.length < 3) {
+      this.verifname = "Le nom est trop court.";
+    }  else {
+      this.verifname = "Format valide!";
       this.exactname = true;
     }
+      
+    if (this.name == '') {
+      this.verifname = '';
+    }
   }
-
   veriflocalieFonction(){
 
     this.exactlocalite = false;
@@ -266,20 +278,35 @@ export class ConnexionComponent implements OnInit {
     }
   }
   
+
   veriftelephoneFonction(){
     const telRegex = /^(77|78|70|76)[0-9]{7}/;
     const val = this.telephone.length == 9 && telRegex.test(this.telephone);
+    const tel = Number(this.telephone.slice(0, 2)) == 77 || Number(this.telephone.slice(0, 2)) == 78 || Number(this.telephone.slice(0, 2)) == 70 || Number(this.telephone.slice(0, 2)) == 76;
     this.exacttelephone = false;
+    if (val) {
+      this.veriftelephone = "Format valide!";
+      this.exacttelephone = true;
+    }
+    if (!val) {
+      this.veriftelephone = "Format de téléphone invalide";
+    }
+    if (!tel) {
+      this.veriftelephone = "Commencez par 70 ou 76 ou 77 ou 78";
+    } else if (tel) {
+      this.veriftelephone = "";
+    }
+    if (!Number(this.telephone)) {
+      this.veriftelephone = "Caracteres inacceptable";
+    }
+    if (this.telephone == '') {
+      this.veriftelephone = "";
+    }
     if(this.telephone == ""){
       this.veriftelephone = "Veuillez renseigner votre telephone"
     }
-    else if (this.telephone.length < 7 ){
+    else if (this.telephone.length < 9 ){
       this.veriftelephone = "Le numero est trop court";
-      
-    }
-    else{
-      this.veriftelephone = "";
-      this.exacttelephone = true;
     }
   }
   

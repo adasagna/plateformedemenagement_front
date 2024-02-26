@@ -48,6 +48,14 @@ export class AuthServiceService {
         }) :
         of(null);
     }
-  
+  /**********Modifier profil*********/
+  putProfil(id:number, utilisateur:any): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.put<any>(`${api}/editprofil/${id}`,utilisateur,{
+    headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+  }) :
+  of(null);
+  }
   }
 

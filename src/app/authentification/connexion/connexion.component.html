@@ -49,9 +49,9 @@
                     </span>
                   </div>
               <div class="CTA mt-5">
-                <button class="seconnecter mt-5" (click)="connexion()" (click)="validerChamps()">Connecter </button>
-                <input type="submit" value="Login">
                 <a  class="switch mt-5" (click)="showLogin()">Nouveau compte</a>
+                <input type="submit" value="Login">
+                <button class="seconnecter mt-5" (click)="connexion()" (click)="validerChamps()">Connecter </button>
               </div>
             </form>
           </div><!-- End Login Form -->
@@ -123,9 +123,9 @@
                 </div>
                  
               <div class="CTA" style="margin-top: -5%; margin-bottom: 5%;">
-    <button (click)=" singin();  showLogin" class="enregistrer">Enregistrer</button>
+                <a  class="switch" (click)="showLogin()"><i class="fa-solid fa-left-long"></i>Retour</a>
                 <input type="submit" value="Signup Now" id="submit">
-                <a  class="switch" (click)="showLogin()">Retour</a>
+                <button (click)=" singin();  showLogin" class="enregistrer">Enregistrer</button>
               </div>
             </form>
             <p>{{password}}</p>

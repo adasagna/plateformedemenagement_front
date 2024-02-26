@@ -46,7 +46,12 @@ putDevis(){
   }
   )
 }
+/****************desactiver un devis*********/
 
-
-
+putDesactiverdevis(id:number){
+  this.devisservice.putDesactiverdevis(id, this.devis).subscribe((data)=>{
+    console.log( 'devis desactiver',data);
+  }
+  )
+}
 }

@@ -24,11 +24,10 @@ export class InfosupService {
 }
 
 postInfo(info:any): Observable<any> {
-
   const accessToken = localStorage.getItem('access_token');
   return accessToken ?
-  this.http.post<any>(`${api}/infosupstore`, {
-      headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}`,info })
+  this.http.post<any>(`${api}/infosupstore`,info, {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) :
     of(null);
 

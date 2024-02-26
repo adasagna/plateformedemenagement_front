@@ -18,6 +18,9 @@ export class GestionprofilComponent implements OnInit {
 
   constructor(private info:InfosupService){}
   ngOnInit(): void {
+    this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
+    console.log (this.userconnect.id, 'demenageur')
+
     this.postInfo();
   }
   Showinformation:boolean=true
@@ -42,4 +45,5 @@ export class GestionprofilComponent implements OnInit {
   }
     )
 }
+
 }

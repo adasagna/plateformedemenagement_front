@@ -1,6 +1,6 @@
 <app-header></app-header>
-
-<div class="banier">
+<div class="cntain" *ngIf="Showservice">
+<div class="banier" >
 </div>
 <div style="position: absolute; margin-top: -25%; margin-left: 5%;" id="titre"><p class="titre">Touver votre demenageur parfait</p>
   <span class="span">Demenager en un click</span>
@@ -61,7 +61,7 @@
             <div class="card">
               <!-- Contenu de la carte 1 -->
               <div class="card-image" id="Illustration"></div>
-              <div class="category"> Illustration </div>
+              <div class="category"> Illustration jjjjjjjj</div>
               <div class="heading">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Maiores laborum reprehenderit facilis ipsam voluptas libero aut atque, 
@@ -70,7 +70,7 @@
                     sunt minus quas rerum ab delectus blanditiis est nemo optio magni accusantium repellat!
                     sunt minus quas rerum ab delectus blanditiis est nemo optio magni accusantium repellat!</p>
               </div>
-              <button type="button" class="btn btn-secondary mb-2 ms-4" style="background: #02273D; width: 85%;">Consulter</button>
+              <button type="button" class="btn btn-secondary mb-2 ms-4" style="background: #02273D; width: 85%;" (click)="Showaccueil()">Consulter</button>
           </div>
           </div>
           <!-- end card1 -->
@@ -357,5 +357,137 @@
    
 </div>
 </div>
-
+</div>
+<div class="accueil" *ngIf="!Showservice"></div>
+<h1>Presentation</h1>
+<div class="container-fluid " style="border: 1px solid red; display: grid; grid-template-columns: auto auto; ">
+  <div class="contain mt-5 ms-5 " style="background-color: #02273D;">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="220px" height="220px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
+      <g>
+        <path class="path-one" d="M99.764,24.652c-4.583,0-9.428-3.692-13.793-2.928c-4.488,0.786-7.783,5.924-11.968,7.449   c-4.261,1.551-10.084-0.255-13.958,1.987c-3.91,2.262-5.246,8.218-8.684,11.107c-3.449,2.896-9.545,3.185-12.44,6.633   c-2.888,3.439-2.122,9.49-4.384,13.4c-2.24,3.873-7.875,6.222-9.426,10.483c-1.525,4.186,1.269,9.601,0.483,14.089   c-0.765,4.365-5.253,8.499-5.253,13.083c0,4.582,4.489,8.718,5.253,13.082c0.786,4.489-2.007,9.904-0.483,14.091   c1.551,4.26,7.186,6.609,9.427,10.482c2.262,3.911,1.496,9.96,4.383,13.4c2.897,3.448,8.992,3.737,12.44,6.634   c3.439,2.888,4.775,8.843,8.684,11.105c3.874,2.241,9.697,0.437,13.958,1.988c4.186,1.524,7.48,6.663,11.968,7.449   c4.365,0.764,9.21-2.928,13.793-2.928c4.583,0,9.429,3.691,13.792,2.928c4.489-0.786,7.784-5.925,11.97-7.449   c4.261-1.552,10.083,0.254,13.957-1.988c3.91-2.262,5.246-8.218,8.685-11.106c3.449-2.897,9.543-3.186,12.44-6.634   c2.887-3.438,2.12-9.489,4.382-13.399c2.241-3.874,7.877-6.223,9.427-10.483c1.524-4.187-1.269-9.602-0.483-14.09   c0.765-4.365,5.253-8.499,5.253-13.082c0-4.583-4.489-8.718-5.253-13.083c-0.786-4.488,2.007-9.904,0.483-14.089   c-1.551-4.261-7.186-6.61-9.427-10.484c-2.262-3.91-1.495-9.96-4.383-13.399c-2.897-3.449-8.992-3.738-12.44-6.634   c-3.438-2.888-4.775-8.844-8.685-11.106c-3.873-2.241-9.696-0.436-13.957-1.987c-4.185-1.525-7.481-6.664-11.969-7.449   C109.193,20.96,104.347,24.652,99.764,24.652z" />
+      </g>
+      <g>
+        <path fill="none" stroke="#FFFFFF" stroke-width="2" d="M99.764,20.254c-4.851,0-9.979-3.908-14.599-3.099   c-4.75,0.832-8.238,6.27-12.667,7.884c-4.51,1.642-10.673-0.269-14.773,2.103c-4.138,2.395-5.552,8.698-9.191,11.755   c-3.65,3.066-10.102,3.371-13.167,7.021c-3.057,3.64-2.246,10.044-4.64,14.182c-2.371,4.1-8.335,6.585-9.976,11.095   c-1.614,4.431,1.344,10.162,0.511,14.912c-0.809,4.62-5.56,8.996-5.56,13.847c0,4.85,4.751,9.227,5.56,13.846   c0.832,4.751-2.124,10.482-0.511,14.914c1.642,4.509,7.606,6.995,9.977,11.094c2.394,4.139,1.584,10.542,4.639,14.182   c3.066,3.65,9.517,3.955,13.167,7.021c3.64,3.057,5.054,9.36,9.191,11.754c4.101,2.372,10.263,0.462,14.773,2.104   c4.431,1.613,7.917,7.052,12.667,7.884c4.62,0.808,9.748-3.099,14.599-3.099c4.851,0,9.98,3.907,14.598,3.099   c4.751-0.832,8.238-6.271,12.669-7.884c4.51-1.643,10.672,0.269,14.772-2.104c4.138-2.395,5.552-8.698,9.192-11.755   c3.65-3.066,10.1-3.372,13.167-7.021c3.056-3.639,2.244-10.043,4.638-14.181c2.372-4.1,8.337-6.586,9.977-11.095   c1.613-4.431-1.343-10.163-0.511-14.913c0.809-4.62,5.56-8.996,5.56-13.846c0-4.851-4.751-9.227-5.56-13.847   c-0.831-4.75,2.124-10.482,0.511-14.912c-1.642-4.51-7.606-6.997-9.977-11.096c-2.395-4.138-1.583-10.542-4.639-14.181   c-3.066-3.65-9.517-3.956-13.167-7.022c-3.639-3.057-5.054-9.361-9.192-11.755c-4.099-2.372-10.262-0.461-14.772-2.103   c-4.43-1.614-7.918-7.053-12.668-7.884C109.744,16.346,104.615,20.254,99.764,20.254z" />
+      </g>
+    </svg>
+    <span>Tastes so good!</span>
+   
+  </div>
+  <div class="texte mt-5 ms-4"  > <h1>AGS SENEGAL</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
+     deserunt unde vel velit quasi
+    consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
+       deserunt unde vel velit quasi
+      consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
+         deserunt unde vel velit quasi
+        consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
+  </div>
+  </div>
+  
+    <h1>Avis des Clients</h1>
+    <div class="containe mt-4 " id="prestation">
+      <div class="col">
+      <div class="notification ms-5 ">
+        <div class="notiglow"></div>
+        <div class="notiborderglow"></div>
+        <div class="notititle">Welcome To Uiverse</div>
+        <div class="notibody">Contribute to Open Source UI Elements</div>
+      </div> 
+      <div class="notification ms-5 mt-2 ">
+        <div class="notiglow"></div>
+        <div class="notiborderglow"></div>
+        <div class="notititle">Welcome To Uiverse</div>
+        <div class="notibody">Contribute to Open Source UI Elements</div>
+      </div> 
+      <div class="notification ms-5 mt-2">
+        <div class="notiglow"></div>
+        <div class="notiborderglow"></div>
+        <div class="notititle">Welcome To Uiverse</div>
+        <div class="notibody">Contribute to Open Source UI Elements</div>
+      </div> 
+    </div>
+      <div class="prestation me-4 mb-5"><img src="/assets/deme.PNG" alt="">
+  </div>
+  <h1>Nos Offres</h1>
+  <div class="btn">
+    <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+  
+  <div class="first hero">
+    <img class="hero-profile-img" src="https://cdn.gamer-network.net/2018/metabomb/leagueoflegendsbestcarrychampions2018pantheon.jpg" alt="">
+    <div class="hero-description-bk"></div>
+    <div class="hero-logo">
+      <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
+    </div>
+    <div class="hero-description">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div  class="hero-date">
+      <p>20.02.2019</p>
+    </div>
+    <div class="hero-btn">
+      <a href="#">Learn More</a>
+    </div>
+  </div>
+  
+  <div class="second hero">
+    <img class="hero-profile-img" src="https://i.pinimg.com/originals/9f/b1/ff/9fb1ffb05dd28039d1a06ad8e90cbd75.jpg" alt="">
+    <div class="hero-description-bk"></div>
+    <div class="hero-logo">
+      <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
+    </div>
+    <div class="hero-description">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div  class="hero-date">
+      <p>20.02.2019</p>
+    </div>
+    <div class="hero-btn">
+      <a href="#">Learn More</a>
+    </div>
+  </div>
+</div>
+  <!-- <div class="row mt-5 border gap-5 ">
+    <div class="col-8 w-50">
+      <ul class="grid">
+        <li >
+          <div class="phot">
+            <a >1</a>
+          </div>
+        </li>
+        <li>
+          <div class="phot2">
+            <a href="#">2</a>
+          </div>
+        </li>
+        <li>
+          <div class="phot3 mt-2">
+            <a href="#">3</a>
+          </div>
+        </li>
+        <li>
+          <div class="phot4 mt-2">
+            <a href="#">4</a>
+          </div>
+        </li>
+      
+        
+      </ul>
+    </div>
+    <div class="col-4 border"><p >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi libero illum, <br>
+      autem placeat exercitationem tempora laborum quam doloribus modi quo voluptate <br>
+       error enim possimus quibusdam. Dolore in hic dicta harum!
+    </p></div>
+  </div> -->
 <app-footer></app-footer>

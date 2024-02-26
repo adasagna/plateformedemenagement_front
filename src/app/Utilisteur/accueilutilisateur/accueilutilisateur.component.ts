@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./accueilutilisateur.component.css'],
 })
 export class AccueilutilisateurComponent {
+  Showservice:boolean=true
+  Showaccueil(){
+    this.Showservice =!this.Showservice
+  }
 
 }
