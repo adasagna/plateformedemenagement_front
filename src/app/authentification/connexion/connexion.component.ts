@@ -80,8 +80,8 @@ export class ConnexionComponent implements OnInit {
  
   connexion() {
    const data ={
-     email: this.email,
-     password: this.pass,
+     email: this.emailCon,
+     password: this.passwordCon,
     //  id: this.id
     }
     this.authservice.connexion(data).subscribe(
@@ -115,16 +115,23 @@ export class ConnexionComponent implements OnInit {
   verifEmailConFonction(){
     const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
     this.exactemailCon = false;
+
+    if (emailPattern.test(this.email)) {
+    } 
     
     if(this.emailCon == ""){
       this.verifemailCon = "Veuillez renseigner votre email";
     }
     else if (!this.emailCon.match(emailPattern) ){
       this.verifemailCon = "Veuillez donner un email valide";
-    }
-    else {
-      this.verifemailCon = "";
+    } else {
       this.exactemailCon = true;
+    }
+    if (this.emailCon == '') {
+      this.verifemailCon = "";
+    }
+    if (!this.emailCon || this.emailCon.trim().length) {
+      this.verifemailCon = "Ce champs est requis."
     }
   }
 
@@ -141,8 +148,17 @@ export class ConnexionComponent implements OnInit {
       this.verifpasswordCon = "";
       this.exactpasswordCon = true;
     }
+    if (!this.passwordCon || this.password.trim.length) {
+      this.verifpassword = "Ce champs est requis."
+    }
+  }
+
+  validerChamps() {
+    this.verifEmailConFonction();
+    this.verifPasswordConFonction();
   }
     singin(){
+
       const data ={
         email: this.email,
         password: this.password,
@@ -231,6 +247,9 @@ export class ConnexionComponent implements OnInit {
       this.verifemail = "";
       this.exactemail = true;
     }
+    if (!this.email || this.email.trim().length) {
+      this.verifemail = "Ce champs est requis."
+    }
   }
 
   verifroleFonction() {
@@ -248,7 +267,8 @@ export class ConnexionComponent implements OnInit {
   }
   
   veriftelephoneFonction(){
-
+    const telRegex = /^(77|78|70|76)[0-9]{7}/;
+    const val = this.telephone.length == 9 && telRegex.test(this.telephone);
     this.exacttelephone = false;
     if(this.telephone == ""){
       this.veriftelephone = "Veuillez renseigner votre telephone"
@@ -304,45 +324,6 @@ export class ConnexionComponent implements OnInit {
     this.verifroleFonction();
 
 
-    if(this.tabUsers.length){
-      console.warn("taille du tab");
-      this.idLastUser = this.tabUsers[this.tabUsers.length -1].idUser;
-      console.log(this.idLastUser)
-    }
-    else {
-      this.idLastUser = 0;
-      console.warn("idLastUser = 0")
-    }
-
-    // Si les champs sont exacts, on ajoute le compte dans le tableau localStorage
-    if(this.exactname && this.exactlocalite && this.exacttelephone && this.exactemail && this.exactpassword && this.exactPasswordconfirm && this.exactrole){
-      let user = {
-        idUser:  this.idLastUser + 1,
-        name: this.name,
-        localite: this.localite,
-        email: this.email,
-        password:  this.password,
-        telephone:  this.telephone,
-        role:  this.role,
-        user: []
-      }
-
-      console.log(this.idLastUser);
-      let userExist = this.tabUsers.find((elemt:any)=> elemt.email == this.email);
-
-      if (userExist){
-        // Est executé que si l'on trouve un compte avce le meme email que celui qui a été renseigné
-        this.verifierChamps('Erreur!', 'Cet email est déjà utilisé', 'error');
-      }
-      else {
-        // On crée le compte 
-        this.tabUsers.push(user);
-        // localStorage.setItem("Users", JSON.stringify(this.tabUsers));
-        this.verifierChamps('Felicitation!', 'Inscription reuissie', 'success');
-        this.viderChamps();
-      }
-      
-    }
-  }
+}
 }
 

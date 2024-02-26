@@ -33,19 +33,23 @@
                 <div class="form-group">
                     <label for="loginemail" class="label mb-4">Adresse email</label>
                    
-                    <input type="email" name="loginemail" id="loginemail" required  [(ngModel)]="email" (input)="verifEmailConFonction()" >
+                    <input type="email" name="loginemail" id="loginemail" required  [(ngModel)]="emailCon" (input)="verifEmailConFonction()" >
                     <p class="text-danger" *ngIf="!exactemailCon">{{verifemailCon}}</p>
-                    <i class="bi bi-check2-all" *ngIf="exactemailCon"></i> 
+                    <span *ngIf="exactemailCon">
+                      <i class="bi bi-check2-all"></i>&nbsp;<span>exact!</span>
+                    </span>
                  </div>
 
                  <div class="form-group">
                     <label for="loginPassword" class="label mb-4">Mot de passe</label>
-                    <input type="password" name="loginPassword" id="loginPassword" required  [(ngModel)]="pass" (input)=" verifPasswordConFonction()">
+                    <input type="password" name="loginPassword" id="loginPassword" required  [(ngModel)]="passwordCon" (input)=" verifPasswordConFonction()">
                     <p class="text-danger" *ngIf="!exactpasswordCon">{{verifpasswordCon}}</p>
-                    <i class="bi bi-check2-all" *ngIf="exactpasswordCon"></i>
+                    <span *ngIf="exactpasswordCon">
+                      <i class="bi bi-check2-all"></i>&nbsp;<span>exact!</span>
+                    </span>
                   </div>
               <div class="CTA mt-5">
-                <button class="seconnecter mt-5" (click)="connexion()">Connecter </button>
+                <button class="seconnecter mt-5" (click)="connexion()" (click)="validerChamps()">Connecter </button>
                 <input type="submit" value="Login">
                 <a  class="switch mt-5" (click)="showLogin()">Nouveau compte</a>
               </div>
