@@ -7,6 +7,8 @@ import { DemenageurService } from 'src/app/services/demenageur.service';
 import { InfosupService } from 'src/app/services/infosup.service';
 import { info } from 'src/app/models/informations';
 import Swal from 'sweetalert2';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accueilclient',
@@ -30,13 +32,24 @@ export class AccueilclientComponent implements OnInit {
   userconnect: any;
   listinfos: info[] = [];
   selectedDemenageurId: number = 1;
+
+  email: string ="";
+  name: string="";
+  password: string="";
+  telephone: string="";
+  localite: string="";
+  passwordconfirm: string="";
+  role: string="";
+  id:number=0
+
   constructor(
     private userService: UserService,
     private demandedevis: DemandedevisService,
     private demenageur: DemenageurService,
-    private info: InfosupService
+    private info: InfosupService,
+    private authservice: AuthServiceService,
+    private route:Router
   ) {}
-
 
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
@@ -54,12 +67,6 @@ export class AccueilclientComponent implements OnInit {
     // }
     this.showCard = !this.showCard;
   }
-
-  
-
-
-  
-  
   
   // envoie de demande de devis à un demenageur///
   
@@ -90,9 +97,6 @@ export class AccueilclientComponent implements OnInit {
       this.image = event.target.files[0] as File;
     }
 
-
-    
-
     getAllDemenageur() {
       this.demenageur.getAllDemenageur().subscribe(
         (response) => {
@@ -112,4 +116,12 @@ export class AccueilclientComponent implements OnInit {
     }
       )
 };
+/*********Deconnexion*********/
+logout(){
+this.authservice.logout().subscribe((response) => {
+  console.log('utilisateur deconnecté', response);
+  this.route.navigate(['/connexion']);
+
+})
+}
 }

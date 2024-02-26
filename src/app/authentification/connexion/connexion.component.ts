@@ -1,5 +1,3 @@
-// connexion.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
@@ -76,7 +74,7 @@ export class ConnexionComponent implements OnInit {
   passwordconfirm: string = "";
   telephone :string="";
   localite:string="";
-  user:any;
+  // user:any;
 
  
  

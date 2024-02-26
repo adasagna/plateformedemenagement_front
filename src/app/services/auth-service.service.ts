@@ -23,36 +23,31 @@ export class AuthServiceService {
     this.http.post<any>(`${api}/register `, data ,{
         headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
       }) :
-      of();
+      of(null);
   
   }
-  // login(data: any): Observable<any> {
-  //   return this.http.post<any>(`${api}/login`, data);
-  // }
-
-  // login(data: any): Observable<any> {
-
-  //   const accessToken = localStorage.getItem('access_token');
-  //   return accessToken ?
-  //   this.http.post<any>(`${api}/login`, data ,{
-  //       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
-  //     }) :
-  //     of();
   
-  // }
 
   connexion(data:any):Observable<any> {
     const accessToken = localStorage.getItem('access_token');
-    return this.http.post<any>(`${api}/login`, data,{
-      headers: new HttpHeaders({'Authorization': `BearerToken ${accessToken}`})
+    return   this.http.post<any>(`${api}/login`, data,{
+      headers: new HttpHeaders({'Authorization': `Bearer ${accessToken}`})
     })
     of();
     }
 
  
+/********************Deconnexion*****************************/
 
-  // logout(): Observable<any> {
-  //   localStorage.removeItem('access_token');
-  //   return this.http.post<any>(`${api}/logout`, {});
-  // }
-}
+    logout(): Observable<any> {
+      const accessToken = localStorage.getItem('access_token');
+      localStorage.removeItem('access_token');
+      return accessToken ?
+        this.http.post<any>(`${api}/logout`, {}, {
+          headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+        }) :
+        of(null);
+    }
+  
+  }
+

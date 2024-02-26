@@ -6,33 +6,42 @@
   left: 0;
   width: 100%;
   z-index: 10;
+  height: 90px;
 }
 .nav-link:hover{
     color: #E08D14;
 }
+/* nav ul li a .nav-link:active{
+    color: #E08D14;
+ 
+} */
+:active{
+    color: #E08D14;
+}
 .container{
     
-    background-color: #02273D;
+    background-color: #fd4a03;
     margin: 0;
     height: 60px;
 }
-.nav-item{
+.nav-item {
     margin-left: 25%;
 }
-.navbar-nav{
+.navbar-nav {
     margin-left: 10%;
-  
+
 }
-a{
+a {
     color: white;
-    font-size: 20px;
+    font-size: 25px;
+    text-decoration: none;
 }
 button{
     background-color: #E08D14;
    
 }
 img{
-    width: 20%;
+    width: 34%;
 }
 #connecter{
     background: #E08D14;

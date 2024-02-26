@@ -408,8 +408,9 @@ h4{
     border-radius: 20px;
   }
   
- #card{
+ .card{
     margin-top: 5%;
+    border:  2px solid #02273D;
  }
   .cards_title {
     font-weight: bold;
@@ -477,8 +478,89 @@ h4{
     .cards{
       width: 95%;
     }
+
+    
+  }
+  .card1 {
+    max-width: 320px;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 2px solid #02273D;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: #fff;
   }
   
+  .header {
+    display: flex;
+    justify-content: space-between;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.125rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    color: #02273D;
+    text-decoration: none;
+  }
+  
+  .title:hover {
+    text-decoration: underline #02273D;
+  }
+  
+  .name {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    color: rgba(75, 85, 99, 1);
+  }
+  
+  .image {
+    display: block;
+    flex-shrink: 0;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    background-color: #02273D;
+    color: white;
+  }
+  
+  .description {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba(107, 114, 128, 1);
+  }
+  
+  .post-info {
+    margin-top: 1.5rem;
+    display: flex;
+    grid-gap: 1rem;
+    gap: 1rem;
+  }
+  
+  .cr {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .dt {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    color: #02273D;
+  }
+  
+  .dd {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(107, 114, 128,1);
+  }
   
   
   
