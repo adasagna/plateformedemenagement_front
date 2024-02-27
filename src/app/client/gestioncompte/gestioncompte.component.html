@@ -63,8 +63,8 @@
         <div class="user-wrapper">
          <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
          <div class="">
-            <h5>Client</h5>
-            <!-- <small>Super Admin</small> -->
+            <h5>{{userconnect.Nom}}</h5>
+            <small>{{userconnect.role}}</small>
          </div>
         </div>
       </header>
@@ -81,10 +81,10 @@
                 <div class="card-body">
                     <div class="text mt-5">
                         <ul>
-                            <li>Nom complet : &nbsp;<span>Ndeye Fatou Sow</span></li>
-                            <li>Adresse email : &nbsp;<span>sow@gmail.com</span></li>
-                            <li>Telephone : &nbsp;<span>771845208</span></li>
-                            <li>Localité : &nbsp;<span>Mbao</span></li>
+                            <li>Nom complet : &nbsp;<span>{{userconnect.Nom}}</span></li>
+                            <li>Adresse email : &nbsp;<span>{{userconnect.Email}}</span></li>
+                            <li>Telephone : &nbsp;<span>{{userconnect.Telephone}}</span></li>
+                            <li>Localité : &nbsp;<span>{{userconnect.Localite}}</span></li>
                         </ul>
                     </div>
                  
@@ -110,15 +110,15 @@
         <div class="modal-body">
           <div class="modification col-md-2">
             <label for="">Nomcomplet</label>
-          <input type="text" name="nomcomplet">
+          <input type="text" name="name" [(ngModel)]="name">
         </div>
           <div class="modification col-md-2">
           <label for="">Adresse email</label><br>
-          <input type="email" name="adresse email">
+          <input type="email" name="email" [(ngModel)]="email">
           <label for="">Telephone</label><br>
-          <input type="text" name="telephone">
+          <input type="text" name="telephone" [(ngModel)]="telephone">
           <label for="">Localité</label><br>
-          <input type="text" name="Localité">
+          <input type="text" name="localite" [(ngModel)]="localite">
           </div>
         </div>
         <div class="modal-footer">

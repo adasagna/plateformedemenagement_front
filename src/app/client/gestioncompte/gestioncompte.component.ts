@@ -10,13 +10,12 @@ export class GestioncompteComponent implements OnInit  {
 userconnect:any;
 user:any;
 Current_profile:any;
-name: string = "";
+  name: string = "";
   email: string = "";
   password: string = "";
-  localité:string="";
+  localite:string="";
   passwordconfirm: string = "";
   telephone :string="";
-  localite:string="";
   constructor(private authservice:AuthServiceService){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
@@ -27,18 +26,24 @@ name: string = "";
 
 
   /*************Modifier profil************/
-chargerinfo(paramid:any){
-  this.user=paramid;
-  this.Current_profile=paramid;
-  this.name = this.Current_profile.name;
-  this.email =this.Current_profile.email; 
-  this.localité =this.Current_profile.localité; 
-  this.telephone =this.Current_profile.telephone; 
+chargerinfo(paramuser:any){
+  this.user=paramuser;
+  this.Current_profile=paramuser;
+
+  this.name=paramuser.name;
+  this.email=paramuser.email;
+  this.localite=paramuser.localite;
+  this.telephone=paramuser.telephone;
   // this.email =this.Current_profile.email; 
   // this.email =this.Current_profile.email; 
 }
 putProfil(id:number){
-this.authservice.putProfil(id, this.Current_profile).subscribe((data)=>{
+  this.Current_profile.name=this.name,
+  this.Current_profile.email=this.email,
+  this.Current_profile.localité=this.localite,
+  this.Current_profile.telephone=this.telephone
+  this.authservice.putProfil(id, this.Current_profile).subscribe((data)=>{
+    console.log(data);
 
 })
 }
