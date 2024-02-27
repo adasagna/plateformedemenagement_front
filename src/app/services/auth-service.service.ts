@@ -9,6 +9,8 @@ const api = 'http://127.0.0.1:8000/api';
 })
 export class AuthServiceService {
   Signup: any;
+  user: any;
+  estConnecte: any;
 
   constructor(private http: HttpClient) { }
 

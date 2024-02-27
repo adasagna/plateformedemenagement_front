@@ -9,12 +9,12 @@
         
         <div class="sidebar-menu">
             <a [routerLink]="['/accueilclient']"  >
-                <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
-              </a>         
+              <div class="image mt-5"><img src="/assets/camio-removebg-preview.png" alt=""></div>
+            </a>         
                <ul>
             <li>
               <a href="#"  [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
-                <span class="fas fa-tachometer-alt"></span>
+                <span class="fas fa-tachometer-alt mt-3" ></span>
                 <span>Tableau e board</span>
               </a>
             </li>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-primary btn-sm" id="valider" (click)="putValiderDevis(devis.id)">Valider</button>
-                                    <button type="button" class="btn btn-secondary btn-sm" id="rejet">Rejetter</button>
+                                    <button type="button" class="btn btn-secondary btn-sm" id="rejet" (click)=" postrefuDevis(devis.id)">Rejetter</button>
                                 </div>
                               </div>
                             </div>

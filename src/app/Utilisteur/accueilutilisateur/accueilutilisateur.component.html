@@ -360,7 +360,7 @@
 </div>
 <div class="accueil" *ngIf="!Showservice"></div>
 <h1>Presentation</h1>
-<div class="container-fluid " style="border: 1px solid red; display: grid; grid-template-columns: auto auto; ">
+<div class="container-fluid " style=" display: grid; grid-template-columns: auto auto; ">
   <div class="contain mt-5 ms-5 " style="background-color: #02273D;">
     <div></div>
     <div></div>
@@ -374,22 +374,35 @@
         <path fill="none" stroke="#FFFFFF" stroke-width="2" d="M99.764,20.254c-4.851,0-9.979-3.908-14.599-3.099   c-4.75,0.832-8.238,6.27-12.667,7.884c-4.51,1.642-10.673-0.269-14.773,2.103c-4.138,2.395-5.552,8.698-9.191,11.755   c-3.65,3.066-10.102,3.371-13.167,7.021c-3.057,3.64-2.246,10.044-4.64,14.182c-2.371,4.1-8.335,6.585-9.976,11.095   c-1.614,4.431,1.344,10.162,0.511,14.912c-0.809,4.62-5.56,8.996-5.56,13.847c0,4.85,4.751,9.227,5.56,13.846   c0.832,4.751-2.124,10.482-0.511,14.914c1.642,4.509,7.606,6.995,9.977,11.094c2.394,4.139,1.584,10.542,4.639,14.182   c3.066,3.65,9.517,3.955,13.167,7.021c3.64,3.057,5.054,9.36,9.191,11.754c4.101,2.372,10.263,0.462,14.773,2.104   c4.431,1.613,7.917,7.052,12.667,7.884c4.62,0.808,9.748-3.099,14.599-3.099c4.851,0,9.98,3.907,14.598,3.099   c4.751-0.832,8.238-6.271,12.669-7.884c4.51-1.643,10.672,0.269,14.772-2.104c4.138-2.395,5.552-8.698,9.192-11.755   c3.65-3.066,10.1-3.372,13.167-7.021c3.056-3.639,2.244-10.043,4.638-14.181c2.372-4.1,8.337-6.586,9.977-11.095   c1.613-4.431-1.343-10.163-0.511-14.913c0.809-4.62,5.56-8.996,5.56-13.846c0-4.851-4.751-9.227-5.56-13.847   c-0.831-4.75,2.124-10.482,0.511-14.912c-1.642-4.51-7.606-6.997-9.977-11.096c-2.395-4.138-1.583-10.542-4.639-14.181   c-3.066-3.65-9.517-3.956-13.167-7.022c-3.639-3.057-5.054-9.361-9.192-11.755c-4.099-2.372-10.262-0.461-14.772-2.103   c-4.43-1.614-7.918-7.053-12.668-7.884C109.744,16.346,104.615,20.254,99.764,20.254z" />
       </g>
     </svg>
-    <span>Tastes so good!</span>
+    <span>meilleurs pretataires!</span>
    
   </div>
-  <div class="texte mt-5 ms-4"  > <h1>AGS SENEGAL</h1><p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  <div class="texte mt-5 ms-4"  > <h1>AGS SENEGAL</h1><p style="font-size: 19px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
     Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
      deserunt unde vel velit quasi
     consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <p style="font-size: 19px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
        deserunt unde vel velit quasi
       consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <p style="font-size: 19px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
          deserunt unde vel velit quasi
         consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
+        <button class="btn ms-5" type="button" id="demande" (click)="demande()">
+          <strong>Faite une demande devis</strong>
+          <div id="container-stars">
+            <div id="stars"></div>
+          </div>
+        
+          <div id="glow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </button>
   </div>
+  
+  
   </div>
   
     <h1>Avis des Clients</h1>
@@ -417,14 +430,14 @@
       <div class="prestation me-4 mb-5"><img src="/assets/deme.PNG" alt="">
   </div>
   <h1>Nos Offres</h1>
-  <div class="btn">
+  <!-- <div class="btn border">
     <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
       <i class="fab fa-linkedin"></i>
     </a>
-  </div>
+  </div> -->
   
   <div class="first hero">
-    <img class="hero-profile-img" src="https://cdn.gamer-network.net/2018/metabomb/leagueoflegendsbestcarrychampions2018pantheon.jpg" alt="">
+    <img class="hero-profile-img" src="/assets/demenageurs.PNG" alt="">
     <div class="hero-description-bk"></div>
     <div class="hero-logo">
       <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
@@ -441,7 +454,7 @@
   </div>
   
   <div class="second hero">
-    <img class="hero-profile-img" src="https://i.pinimg.com/originals/9f/b1/ff/9fb1ffb05dd28039d1a06ad8e90cbd75.jpg" alt="">
+    <img class="hero-profile-img" src="/assets/demenageurs.PNG" alt="">
     <div class="hero-description-bk"></div>
     <div class="hero-logo">
       <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">

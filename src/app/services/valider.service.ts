@@ -14,8 +14,11 @@ export class ValiderService {
 
   putValiderDevis(id:number): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
+
+    console.log(accessToken);
+    
     return accessToken ?
-    this.http.put<any>(`${apiUrl}/devisvalidate/${id}`,{
+    this.http.put<any>(`${apiUrl}/devisvalidate/${id}`, {},{
     headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
   }) :
   of(null);
