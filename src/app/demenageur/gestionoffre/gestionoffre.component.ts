@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OffreService } from 'src/app/services/offre.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestionoffre',
@@ -12,16 +13,17 @@ export class GestionoffreComponent implements OnInit {
   description_offre:string="";
   userconnect:any
   listoffre:any
-  current_offre:any
+  currentoffre:any
   offres:any
-constructor(private offre:OffreService){}
+  current_id:any
+constructor(private offreservice:OffreService){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
     this.getOffre()
 
   }
 getOffre(){
-this.offre.getOffre().subscribe((data) => {
+this.offreservice.getOffre().subscribe((data) => {
   this.listoffre=data.data;
   console.log('liste des offres', data);
 }
@@ -34,7 +36,7 @@ postOffre(){
     prix_offre: this.prix_offre, 
     description_offre: this.description_offre ,
   }
-  this.offre.postOffre(taboffres).subscribe((data) => {
+  this.offreservice.postOffre(taboffres).subscribe((data) => {
     this.listoffre=data.data;
     console.log('liste des offres', data);
   }
@@ -42,20 +44,30 @@ postOffre(){
   }
   /************Modifier une offre*********/
   chargerinfoffre(paramoffre:any){
-    this.offre=paramoffre;
-    this.current_offre=paramoffre.id;
+    this.offres=paramoffre;
+    this.current_id=paramoffre.id;
+    this.currentoffre=paramoffre;
 
     this.nom_offre=paramoffre.nom_offre;
     this.prix_offre=paramoffre.prix_offre;
     this.description_offre=paramoffre.description_offre;
   }
-  putOffre(id:number){
-    this.current_offre.nom_offre=this.nom_offre;
-    this.current_offre.prix_offre=this.prix_offre;
-    this.current_offre.description_offre=this.description_offre;
+  modifierOffre(){
+    this.currentoffre.nom_offre=this.nom_offre;
+    this.currentoffre.prix_offre=this.prix_offre;
+    this.currentoffre.description_offre=this.description_offre;
     
-    this.offre.putOffre(id,this.current_offre).subscribe((data)=>{
+    this.offreservice.putOffre(this.current_id, this.currentoffre).subscribe((data)=>{
       console.log('offre modifier',data);
     })
+
+    Swal.fire({
+      title: 'Modification offre',
+      text:'Offre Modifiée',
+      icon: 'success',
+      timer: 3000, // Auto-fermeture après 3 secondes
+      timerProgressBar: true,
+      showConfirmButton: false
+    });
   }
 }

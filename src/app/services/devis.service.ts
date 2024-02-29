@@ -67,7 +67,7 @@ export class DevisService {
   }) :
   of(null);
   }  
-
+/******************Desactiver un devis***********************/
   putDesactiverdevis(id:number, devisdemenageur:any): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
     return accessToken ?

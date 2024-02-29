@@ -33,7 +33,8 @@ ChangerDevis(paramDevis:any){
   alert(paramDevis)
  this.devis=paramDevis;
  this.current_id=paramDevis.id;
-  this.currentDevis = paramDevis;
+ this.currentDevis = paramDevis;
+
   this.prix_total = paramDevis.prix_total;
   this.description = paramDevis.description;  
 }

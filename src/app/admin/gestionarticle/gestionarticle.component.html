@@ -69,8 +69,8 @@
         <div class="text d-flex ">
             <div><h1>Liste des articles</h1></div>
             <div><!-- Button trigger modal -->
-                <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-                  Ajouter
+                <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" id="ajouter">
+                  Ajouter article
                 </button>
                 
                 <!-- Modal -->
@@ -82,58 +82,93 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        ...
+                        <div class="row">
+                          <div class="form-group col-md-5">
+                        <label for="">Titre</label>
+                        <input type="text" name="titre"  [(ngModel)]="titre">
+                      </div>
+                      <div class="form-group col-md-5">
+                        <label for="" >Contenu</label>
+                        <textarea  id="" cols="30" rows="10" name="contenu" [(ngModel)]="contenu"></textarea>
+                        <!-- <input type="text" ><br> -->
+                      </div>
+                    </div>
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" id="ajout">Ajouter</button>
+                          <button type="button" class="btn btn-primary" id="ajout" (click)="AjoutArticle()">Ajouter</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  id="annuler">Annuler</button>
                       </div>
                     </div>
                   </div>
-                </div></div>
-        </div>
-        <div class="container">
-            <div class="row">
-              <div class="col-md-10">
-                <div class="card card-3">
-                  <h3>Comment choisir son demenageur</h3><div class="line"></div>
-
-                  <p>Learn how to easily customize and modify your app’s design to fit your
-                    brand across all mobile platform styles.</p>
                 </div>
-              </div>
-              <div class="col-md-10 mt-5">
-                <div class="card card-3">
-                  <h3>Comment choisir son demenageur</h3><div class="line"></div>
-
-                  <p>Learn how to easily customize and modify your app’s design to fit your
-                    brand across all mobile platform styles.</p>
                 </div>
-              </div>
-            </div>
-            <div class="pagination p1">
-                <ul>
-                    <a >
-                        <li><</li>
-                    </a>
-                    <a class="is-active" >
-                        <li>1</li>
-                    </a>
-                    <a >
-                        <li>2</li>
-                    </a>
-                    <a >
-                        <li>3</li>
-                    </a>
-                    <a >
-                        <li>4</li>
-                    </a>
-                    <a >
-                        <li>></li>
-                    </a>
-                </ul>
-            </div>
-          </div>
-      </main>
-    </div>
+               </div>
+                    <div class="container">
+                        <div class="row ">
+                          <div class="col-md-10 ">
+                            <div class="card card-3 mt-5" *ngFor="let articles of listarticle">
+                              <h3>{{articles.titre}}</h3><div class="line"></div>
+                              <p>{{articles.contenu}}</p>
+                              <div class="action ms-5 ">
+                                <button type="button" class="btn btn ms-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="ChargeinfoArticle(articles)">
+                                  Modifier
+                                </button>
+                                <button type="button" class="btn btn ms-5" (click)="DesactiverArticle(articles.id)">Supprimer</button>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Modal pour modifier un article -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modification Article</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="row">
+                                      <div class="form-group col-md-5">
+                                    <label for="">Titre</label>
+                                    <input type="text" name="titre"  [(ngModel)]="titre">
+                                  </div>
+                                  <div class="form-group col-md-5">
+                                    <label for="" >Contenu</label>
+                                    <textarea  id="" cols="30" rows="10" name="contenu" [(ngModel)]="contenu"></textarea>
+                                    <!-- <input type="text" ><br> -->
+                                  </div>
+                                </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" (click)="ModifierArticle()">Understood</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="pagination p1">
+                            <ul>
+                                <a >
+                                    <li><</li>
+                                </a>
+                                <a class="is-active" >
+                                    <li>1</li>
+                                </a>
+                                <a >
+                                    <li>2</li>
+                                </a>
+                                <a >
+                                    <li>3</li>
+                                </a>
+                                <a >
+                                    <li>4</li>
+                                </a>
+                                <a >
+                                    <li>></li>
+                                </a>
+                            </ul>
+                          </div>
+                         </div>
+                      </main>
+                      </div>
 

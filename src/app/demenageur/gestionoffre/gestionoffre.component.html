@@ -8,7 +8,7 @@
         
         <div class="sidebar-menu">
           <a [routerLink]="['/accueildemenageur']"    >
-            <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
+            <div class="image"><img src="/assets/camio-removebg-preview.png" alt=""></div>
           </a>
           <ul>
             <li>
@@ -29,7 +29,12 @@
               <span>Gestion Devis</span>
               </a>
             </li>
-         
+            <li>
+              <a [routerLink]="['/devisdemenageur']"  >
+                <span class="fas fa-user-circle"></span>
+                <span>Liste devis</span>
+              </a>
+            </li>
             <li>
               <a  class="active" [routerLink]="['/gestionoffre']"  >
                 <span class="fas fa-tasks"></span>
@@ -116,8 +121,7 @@
             <div class="card card-3" *ngFor="let offre of listoffre">
               <h3>{{offre.nom_offre}}</h3>
               <span class="prix">{{offre.prix_offre}}</span>
-              <p>{{offre.description}}</p>
-              <p>Le demenageur se charge de la monutention et du transport</p>
+               <p>{{offre.description_offre}}</p>
                 <div class="action "><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="modif" (click)="chargerinfoffre(offre)">
                       Modifier
                     </button>
@@ -151,7 +155,7 @@
       </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="putOffre(offres.id)">Save changes</button>
+        <button type="button" class="btn btn-primary" (click)="modifierOffre()">Save changes</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>

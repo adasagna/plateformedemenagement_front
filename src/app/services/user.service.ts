@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
-const apiUrl = 'http://127.0.0.1:8000/api';
+const api = 'http://127.0.0.1:8000/api';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,13 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getCurrentUser(): Observable<any> {
-    // Vous devrez ajuster l'URL et le format de la réponse en fonction de votre API
-    return this.http.get<any>(`${apiUrl}//alluseractif`);
+  getAlluser(): Observable<any> {
+    const accessToken = localStorage.getItem('access_token');
+    return accessToken ?
+    this.http.get<any>(`${api}/alluseractif/`, {
+        headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+      }) :
+      of(null);
+  
   }
 }

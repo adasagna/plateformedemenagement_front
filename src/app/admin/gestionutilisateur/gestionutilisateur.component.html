@@ -117,74 +117,21 @@
               </tr>
             </thead>
             <tbody class="text-gray-600 dark:text-gray-100">
-              <tr>
+              <tr *ngFor="let users of listuser">
                 <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
                   <div class="flex items-center">
                  <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
                   </div>
                 </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">{{users.name}}
                   <div class="flex items-center">
                 
                   </div>
                 </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">{{users.email}}</td>
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">{{users.telephone}}</td>
+                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">{{users.role}}</td>
                 <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500"><button>Desactiver</button></td>
-             
-              </tr>
-              <tr>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                  <div class="flex items-center">
-                 <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
-                  <div class="flex items-center">
-                
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500"><button>Desactiver</button></td>
-             
-              </tr>
-              <tr>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                  <div class="flex items-center">
-                 <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
-                  <div class="flex items-center">
-                
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500"><button>Desactiver</button></td>
-             
-              </tr>
-              <tr>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-                  <div class="flex items-center">
-                 <img src="/assets/deme.PNG" style="width: 40px; height: 40px; border-radius: 100%;">
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">Adama sagna
-                  <div class="flex items-center">
-                
-                  </div>
-                </td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 md:table-cell hidden">adama@gmail.com</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">771458758</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500">Demenageur</td>
-                <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800 text-red-500"><button>Desactiver</button></td>
-             
-              </tr>
             </tbody>
           </table>
         </div>

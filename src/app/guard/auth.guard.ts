@@ -12,10 +12,10 @@ export const authGuard: CanActivateFn = (route, state) => {
     router.navigate(['login']);
     return false;
   }
-  const userConnect = JSON.parse(localStorage.getItem('userOnline') || '');
-  if (userConnect.role_id == 1) {
+  const userConnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
+  if (userConnect.role == "Admin") {
     return true;
-  }
+  } 
   else {
     router.navigate(['login']);
     return false;

@@ -9,11 +9,11 @@
         
         <div class="sidebar-menu">
           <a [routerLink]="['/accueildemenageur']">
-          <div class="image"><img src="/assets/DEM-removebg-preview.png" alt=""></div>
-        </a>
+            <div class="image"><img src="/assets/camio-removebg-preview.png" alt=""></div>
+          </a>
           <ul>
             <li>
-              <a [routerLink]="['/accueildemenageur']"  class="active">
+              <a [routerLink]="['/accueildemenageur']"  >
                 <span class="fas fa-tachometer-alt"></span>
                 <span>Tableau de board</span>
               </a>
@@ -31,7 +31,7 @@
               </a>
             </li>
             <li>
-              <a [routerLink]="['/devisdemenageur']" routerLinkActive="router-link-active" >
+              <a class="active" [routerLink]="['/devisdemenageur']" routerLinkActive="router-link-active" >
                 <span class="fas fa-user-circle"></span>
                 <span>Liste devis</span>
               </a>

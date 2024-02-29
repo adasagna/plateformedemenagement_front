@@ -37,7 +37,7 @@ putOffre(id:number,offre:any): Observable<any> {
 
   const accessToken = localStorage.getItem('access_token');
   return accessToken ?
-  this.http.put<any>(`${api}/offrestore/ ${id}`, offre,{
+  this.http.put<any>(`${api}/offreupdate/ ${id}`, offre,{
       headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
     }) :
     of(null);
