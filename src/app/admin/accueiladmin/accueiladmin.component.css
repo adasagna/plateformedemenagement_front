@@ -485,5 +485,9 @@
     font-size: 20px;
     border-radius: 10px;
   }
-
+  #chart{
+    margin-top: 25%;
+    height: 220px;
+    
+  }
   
