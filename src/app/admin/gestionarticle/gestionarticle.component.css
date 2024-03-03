@@ -159,7 +159,16 @@
     margin-top: -1px !important;
   
   }
- 
+  .logout{
+    background-color: #FFF;
+    width: 70%;
+    padding: 5px;
+    border-radius: 10px;
+  }
+   .logout a{
+    color: #02273D;
+
+  }
   main{
     margin-top: 85px;
     padding: 2rem 1.5rem;

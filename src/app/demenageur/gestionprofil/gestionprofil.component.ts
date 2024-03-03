@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InfosupService } from 'src/app/services/infosup.service';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-gestionprofil',
@@ -9,6 +11,7 @@ import { InfosupService } from 'src/app/services/infosup.service';
 export class GestionprofilComponent implements OnInit {
   listinfos: any[] = [];
   userconnect:any
+  user:any
   user_id:number = 0;
   nom_entreprise: string = "";
   presentation: string = "";
@@ -16,7 +19,14 @@ export class GestionprofilComponent implements OnInit {
   NINEA: string = "";
   forme_juridique: string = "";
 
-  constructor(private info:InfosupService){}
+  name: string = "";
+  email: string = "";
+  password: string = "";
+  localite:string="";
+  passwordconfirm: string = "";
+  telephone :string="";
+
+  constructor(private info:InfosupService,private authservice:AuthServiceService, private route:Router){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
     console.log (this.userconnect.id, 'demenageur')
@@ -45,5 +55,34 @@ export class GestionprofilComponent implements OnInit {
   }
     )
 }
+/**********Modifier Profile***********/
+chargerinfo(paramuser:any){
 
+  this.name=this.userconnect.Nom;
+  this.email=this.userconnect.Email;
+  this.localite=this.userconnect.Localite;
+  this.telephone=this.userconnect.Telephone;
+  // this.email =this.Current_profile.email; 
+  // this.email =this.Current_profile.email; 
+}
+putProfil(id:number){
+  const profil={
+    email:this.userconnect.Email,
+    telephone:this.userconnect.Telephone,
+    name:this.userconnect.Nom,
+    localite:this.userconnect.Telephone,
+  }
+  this.authservice.putProfil(id, profil).subscribe((data)=>{
+    console.log(data);
+
+})
+}
+/*************Deconnexion**************/
+logout(){
+  this.authservice.logout().subscribe((response) => {
+    console.log('utilisateur deconnecté', response);
+    this.route.navigate(['/connexion']);
+  
+  })
+  }
 }

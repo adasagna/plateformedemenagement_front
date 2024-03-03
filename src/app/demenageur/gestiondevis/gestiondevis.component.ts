@@ -3,6 +3,8 @@ import { DemandedevisService } from 'src/app/services/demandedevis.service';
 import { DemanderecuService } from 'src/app/services/demanderecu.service';
 import { DetaildemandeService } from 'src/app/services/detaildemande.service';
 import { DevisService } from 'src/app/services/devis.service';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-gestiondevis',
@@ -18,7 +20,8 @@ export class GestiondevisComponent implements OnInit {
   userconnect:any
   demandedevis: any;
   demandedevis_id: any;
-  constructor (private demanderecu: DemanderecuService, demandedevis:DemandedevisService, private details:DetaildemandeService, private devisservice:DevisService){}
+  constructor (private demanderecu: DemanderecuService, demandedevis:DemandedevisService, private details:DetaildemandeService, private devisservice:DevisService,
+    private authservice:AuthServiceService, private route:Router){}
   Showdevis:boolean=true
   
   nom_entreprise: string="";
@@ -90,4 +93,11 @@ getAllDevis(id:number){
   }
     )
 }
+logout(){
+  this.authservice.logout().subscribe((response) => {
+    console.log('utilisateur deconnecté', response);
+    this.route.navigate(['/connexion']);
+  
+  })
+  }
 }

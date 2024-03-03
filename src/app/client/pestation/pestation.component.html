@@ -1,0 +1,179 @@
+
+    
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+          <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+          </h1>
+        </div>
+        
+        <div class="sidebar-menu">
+          <div class="image"><img src="/assets/camio-removebg-preview.png" alt=""></div>
+
+          <ul class="ul mt-3">
+            <li>
+              <a [routerLink]="['/accueilclient']"   class="active">
+                <span class="fas fa-tachometer-alt" style="color: white;"></span>
+                <span style="color: white;">Tableau de board</span>
+              </a>
+            </li>
+            <li>
+              <a class="switch" [routerLink]="['/gestioncompte']"  >
+                <span class="fas fa-users" ></span>
+                <span>Gestion Compte</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/gestiondemande']"  >
+                <span class="fas fa-user-circle"></span>
+                <span>Gestion Demande</span>
+              </a>
+            </li>
+            <li>
+                <a [routerLink]="['/listedevis']"  >
+                  <span class="fas fa-user-circle"></span>
+                  <span>Liste des Devis</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/prestation']"  >
+                  <span class="fas fa-user-circle"></span>
+                  <span>Prestations</span>
+                </a>
+              </li>
+              <div class="logout  ms-3" style="margin-top: 50%;">
+                <a [routerLink]="['/connexion']"   class="logout">
+                  <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
+              </a>
+              </div>
+            <div class="utilsateur">
+              <span>Tableau Admin</span>
+            </div>
+          </ul>
+
+        </div>
+    </div>    
+
+    <div class="main-content">
+      <header>
+          <label for="nav-toggle">
+            <span class="fas fa-bars"></span>
+          </label>
+
+        <div class="search-wrapper">
+          <span class="fas fa-search"> </span>
+          <input type="search" placeholder="Search..." />
+          
+        </div>
+        <div class="fa-bell">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <div class="user-wrapper">
+         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+         <div class="">
+            <h5>Admin</h5>
+         </div>
+        </div>
+      </header>
+
+      <main>
+            <div class="container-fluid" id="fluid">
+               <div class="text mt-3 ms-3" style="color: white;"><h3>Prestations parfaites</h3></div>
+              <div class="deme  " ><img src="/assets/demee.PNG" alt="" style="width: 100%; height: 225px;border-radius: 50px 0% 0% 50px;"></div>
+                
+            </div>
+          <div class="col-lg-12 mt-5 border" >
+            <div class="card ">
+              <div class="card-header">
+                <h2 >Prestation</h2>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                    <div class="row gap-3">
+                    <article class="job-card col-md-4 mt-4 ms-1" *ngFor="let prestation of listprestations" >
+                        <div>
+                          <p class="text-title">{{prestation.nom_entreprise}}</p>
+                          <p class="post-date">{{prestation.date_demenagement}}</p>
+                        </div>
+                      
+                        <div class="budget-exp">
+                          <div>
+                            <p class="value">{{prestation.prix_total}}</p>
+                            <p class="label">Budget</p>
+                          </div>
+                          <div>
+                            <p class="value">{{prestation.adresse_actuelle}}</p>
+                            <p class="label">{{prestation.nouvelle_adresse}}</p>
+                          </div>
+                        </div>
+                      
+                        <p class="text-body">
+                         {{prestation.description}}
+                        </p>
+                      
+                        <div class="tags">
+                          <article>
+                            <p>marketing</p>
+                            <p>seo</p>
+                            <p>content writing</p>
+                          </article>
+                        </div>
+                      
+                        <div>
+                          <a >
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="comment(prestation.id)">
+                            commentez
+                              </button>
+                            <button class="card-btn">See More</button>
+                          </a>
+                        </div>
+                        <!-- ****************Modal pour commenter une prestation -->
+                        <!-- Button trigger modal -->
+
+  
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                      <img src="/assets/camio.PNG" alt="" style="width: 20%; margin-top: -3%; margin-left: -3%;" >
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Commentaire</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <textarea name="contenu " id="" placeholder="commenter ici... " class="col-lg-12" [(ngModel)]="contenu"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" (click)="putprestation(prestation)">Commenter</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                      </article>
+
+                      
+                    </div>
+                 
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+         
+          
+       
+<!-- ..................................................... -->
+
+      
+      
+     
+      
+     
+     
+  
+
+      </main>
+    </div>
+

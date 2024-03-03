@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DevisService } from 'src/app/services/devis.service';
 import { ValiderService } from 'src/app/services/valider.service';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+
+
 
 @Component({
   selector: 'app-listedevis',
@@ -14,7 +18,7 @@ export class ListedevisComponent implements OnInit {
   detailsdevis:any
   dvis:any
   details_id:any
-  constructor(private devisservice: DevisService, private valider :ValiderService){}
+  constructor(private devisservice: DevisService, private valider :ValiderService,private authservice:AuthServiceService, private route:Router,){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
     this.getDevis(this.userconnect.id)
@@ -60,4 +64,11 @@ export class ListedevisComponent implements OnInit {
     }
     )
   }
+  logout(){
+    this.authservice.logout().subscribe((response) => {
+      console.log('utilisateur deconnecté', response);
+      this.route.navigate(['/connexion']);
+    
+    })
+    }
 }

@@ -35,5 +35,25 @@ export class AccueilutilisateurComponent {
       this.demande();
     }
   }
+  Souscrire(){
+    if (!this.authservice.estConnecte) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Créer un compte',
+        text: 'Créer un compte pour souscrire à ce formule.',
+        showCancelButton: true,
+        confirmButtonText: 'Créer un compte',
+        cancelButtonText: 'Annuler',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Redirection vers la page de création de compte
+          this.route.navigate(['/connexion']);
+        }
+      });
+    } else {
+      // Traiter la demande de devis
+      this.Souscrire();
+    }
+  }
 
 }

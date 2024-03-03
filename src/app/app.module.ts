@@ -30,6 +30,7 @@ import { GestiondevisComponent } from './demenageur/gestiondevis/gestiondevis.co
 import { GestionprofilComponent } from './demenageur/gestionprofil/gestionprofil.component';
 import { TokenInterceptorProvider } from './intercepteur/token.interceptor';
 import { DevisdemenageurComponent } from './demenageur/devisdemenageur/devisdemenageur.component';
+import { PestationComponent } from './client/pestation/pestation.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { DevisdemenageurComponent } from './demenageur/devisdemenageur/devisdeme
     GestionoffreComponent,
     GestionprofilComponent,
     DevisdemenageurComponent,
+    PestationComponent,
   ],
   imports: [
     BrowserModule,

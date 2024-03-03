@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DevisService } from 'src/app/services/devis.service';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-devisdemenageur',
@@ -7,7 +9,7 @@ import { DevisService } from 'src/app/services/devis.service';
   styleUrls: ['./devisdemenageur.component.css']
 })
 export class DevisdemenageurComponent implements OnInit {
-constructor(private devisservice:DevisService){}
+constructor(private devisservice:DevisService, private authservice:AuthServiceService, private route:Router){}
 prix_total: string = "";
 description: string = "";
 
@@ -55,4 +57,12 @@ putDesactiverdevis(id:number){
   }
   )
 }
+/********Deconnesion*************/
+logout(){
+  this.authservice.logout().subscribe((response) => {
+    console.log('utilisateur deconnecté', response);
+    this.route.navigate(['/connexion']);
+  
+  })
+  }
 }

@@ -6,6 +6,8 @@ import { Demande } from 'src/app/models/demande.model';
 import { UserService } from 'src/app/services/user.service';
 import { DetailsdemandeclientService } from 'src/app/services/detailsdemandeclient.service';
 import Swal from 'sweetalert2';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +26,8 @@ export class GestiondemandeComponent implements OnInit {
   currentDemande: any;
 
   Url = "http://127.0.0.1:8000/api";
-  constructor(private demandedevis: DemandedevisService, private userservice: UserService, private detailsdemande:DetailsdemandeclientService) { }
+  constructor(private demandedevis: DemandedevisService, private userservice: UserService, private detailsdemande:DetailsdemandeclientService,
+    private authservice:AuthServiceService, private route:Router, ) { }
   listeDemandedevis: any[] = [];
   userconnect:any
   demande:any
@@ -134,7 +137,14 @@ export class GestiondemandeComponent implements OnInit {
     this.image = event.target.files[0] as File;
   }
 
-  
+  /********Deconnexion**********/
+  logout(){
+    this.authservice.logout().subscribe((response) => {
+      console.log('utilisateur deconnecté', response);
+      this.route.navigate(['/connexion']);
+    
+    })
+    }
 }
 
 

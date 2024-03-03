@@ -94,6 +94,16 @@
     left:70px;
   
   }
+  .logout{
+    background-color: #FFF;
+    width: 70%;
+    padding: 5px;
+    border-radius: 10px;
+  }
+   .logout a{
+    color: #02273D;
+
+  }
   .main-content{
     transition: margin-left 300ms;
     margin-left: 240px;

@@ -9,6 +9,8 @@ import { info } from 'src/app/models/informations';
 import Swal from 'sweetalert2';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Router } from '@angular/router';
+import { OffreService } from 'src/app/services/offre.service';
+import { SouscriptionService } from 'src/app/services/souscription.service';
 
 @Component({
   selector: 'app-accueilclient',
@@ -16,6 +18,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./accueilclient.component.css']
 })
 export class AccueilclientComponent implements OnInit {
+  OffreService: any
+  Listoffre:any
   showCard: boolean = true;
   adresse_actuelle: string = "";
   nouvelle_adresse: string = "";
@@ -48,7 +52,9 @@ export class AccueilclientComponent implements OnInit {
     private demenageur: DemenageurService,
     private info: InfosupService,
     private authservice: AuthServiceService,
-    private route:Router
+    private route:Router,
+    private offreservice: OffreService,
+    private souscriptionservice: SouscriptionService
   ) {}
 
   ngOnInit(): void {
@@ -116,6 +122,29 @@ export class AccueilclientComponent implements OnInit {
     }
       )
 };
+
+/**********Souscrire à une offre****************/
+Souscriptione(){
+  const tabsouscription = new FormData();
+  tabsouscription.append('images[]', this.image);      
+  tabsouscription.append('adresse_actuelle' ,this.adresse_actuelle);
+  tabsouscription.append('nouvelle_adresse',this.nouvelle_adresse);
+  tabsouscription.append('informations_bagages',this. informations_bagages);
+  tabsouscription.append('date_demenagement',this. date_demenagement);
+  
+  this.souscriptionservice.Souscriptione( this.id_demenageur, tabsouscription).subscribe(
+    (data) => {
+      console.log('Souscription envoyée:', data); 
+    }
+    )
+    Swal.fire({
+      icon: 'success',
+      title: 'Souscription reussi',
+      text: 'Votr souscription a été envoyée.',
+      timer: 2000, // Ferme l'alerte après 2 secondes (2000 ms)
+    });
+  }
+
 /*********Deconnexion*********/
 logout(){
 this.authservice.logout().subscribe((response) => {

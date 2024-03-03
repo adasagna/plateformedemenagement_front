@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/services/article.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-gestionarticle',
@@ -15,7 +17,7 @@ export class GestionarticleComponent implements OnInit{
   articles:any
   Currentarticle:any
   current_id:any
-  constructor(private articleservice:ArticleService){}
+  constructor(private articleservice:ArticleService,private authservice:AuthServiceService, private route:Router){}
   ngOnInit(): void {
     if(!localStorage.getItem("infoUserConnect")){
       localStorage.setItem("infoUserConnect", JSON.stringify("token"));
@@ -96,5 +98,13 @@ export class GestionarticleComponent implements OnInit{
       }
     });
   }
+  /************Deconnexion**************/
+  logout(){
+    this.authservice.logout().subscribe((response) => {
+      console.log('utilisateur deconnecté', response);
+      this.route.navigate(['/connexion']);
+    
+    })
+    }
   }
 

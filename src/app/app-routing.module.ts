@@ -20,6 +20,8 @@ import { GestioncompteComponent } from './client/gestioncompte/gestioncompte.com
 import { GestiondemandeComponent } from './client/gestiondemande/gestiondemande.component';
 import { GestionprofilComponent } from './demenageur/gestionprofil/gestionprofil.component';
 import { DevisdemenageurComponent } from './demenageur/devisdemenageur/devisdemenageur.component';
+import { ArticlesComponent } from './Utilisteur/articles/articles.component';
+import { PestationComponent } from './client/pestation/pestation.component';
 import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
@@ -44,7 +46,9 @@ const routes: Routes = [
   {path: 'gestiondemande', component: GestiondemandeComponent},
   {path: 'gestionprofil', component: GestionprofilComponent},
   {path: 'listedevis', component:ListedevisComponent},
-  {path: 'devisdemenageur', component:DevisdemenageurComponent}
+  {path: 'devisdemenageur', component:DevisdemenageurComponent},
+  {path: 'prestation', component:PestationComponent},
+  {path: 'articles', component:ArticlesComponent},
 ];
 
 @NgModule({

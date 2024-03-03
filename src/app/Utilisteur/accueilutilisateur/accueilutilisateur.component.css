@@ -1048,6 +1048,7 @@ strong {
   
   .hero-btn a {
     color: #fff;
+    cursor: pointer;
   }
   
   .hero-date {

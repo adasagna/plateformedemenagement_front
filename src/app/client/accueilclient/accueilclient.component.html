@@ -35,9 +35,15 @@
                 <span>Liste des devis</span>
               </a>
             </li>
-            <div class="logout mt-5">
-              <a    class="logout" (click)="logout()">
-                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            <li>
+              <a [routerLink]="['/prestation']" routerLinkActive="router-link-active" >
+                <span class="fas fa-tasks"></span>
+                <span>Prestation</span>
+              </a>
+            </li>
+            <div class="logout  ms-3" style="margin-top: 50%;">
+              <a [routerLink]="['/connexion']"   class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
             </a>
             </div>
             <!-- <div class="utilsateur">
@@ -123,12 +129,14 @@
               
         </div> -->
         <div class="cartes" >
-          <div class="row "  >
-            <div class="card col-lg-3" style="width: 18rem;" *ngFor="let info of listinfos">
+          <div class="row gap-5"  >
+            <div class="card col-lg-3 mb-5 " style="width: 18rem;" *ngFor="let info of listinfos">
                 <img src="/assets/emballage.avif" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{info.nom_entreprise}}</h5>
                   <p class="card-text">{{info.NINEA}}</p>
+                  <p class="card-text">{{info.presentation}}</p>
+                  <p class="card-text">{{info.annee_creation}}</p>
                   <a  class="btn btn-primary" id="button" (click)="Showdemenageur(info.user_id)">voir</a>
                 </div>
               </div>
@@ -231,34 +239,17 @@
             </div>
           </div>
           <!-- .....................Offres.............................. -->
-         <div class="row"  style="box-sizing: border-box;">
-          <h2 class="offre mt-3 mb-5">Prestations</h2>
-          <div class="col-md-6"><img src="/assets/demenageurs.PNG" alt="" class="photo"></div>
-          <div class="col-md-4" style="box-sizing: border-box; height: 5%; padding: 1px;">
+          <h1 class="offre mt-5 text-center">Prestations</h1>
+         <div class="row">
+          <div class="col-md-6"  id="dem"></div>
+          <div class="col-md-6 border" style="box-sizing: border-box; height: 5%;">
   
-              <div class="scroll-cards" style=" box-sizing: border-box; ">
-                <!-- <h1>Some Sticky-Stacked Cards</h1> -->
-                <article class="scroll-cards__item" aria-label="Wie - 1">
-                  <span>Nice little headline</span>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo,</p>
-                </article>
-                <article class="scroll-cards__item" aria-label="Wie - 1">
-                <span>Another Headline here</span>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam</p>
-                </article>
-                <article class="scroll-cards__item" aria-label="Wie - 1">
-                <span>Third Card follows</span>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo, odio velit eius sunt architecto ratione iure deserunt magnam aut tenetur sint incidunt, ipsam id. Ab?</p>
-                </article>
-                <!-- <article class="scroll-cards__item" aria-label="Wie - 1">
-                  <h2>Will there be another?</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo, odio velit eius sunt architecto ratione iure deserunt magnam aut tenetur sint incidunt, ipsam id. Ab?</p>
-                </article>
-                <article class="scroll-cards__item" aria-label="Wie - 1">
-                  <h2>Last one</h2>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet rem repudiandae quam illo, odio velit eius sunt architecto ratione iure deserunt magnam aut tenetur sint incidunt, ipsam id. Ab?</p>
-                </article>   -->
-              </div>
+              <p style="font-size: 18px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero repellendus non,
+               quam vitae minima quae perspiciatis ratione optio temporibus maxime! Illum debitis
+                odio quisquam nihil accusantium aliquam fugit repudiandae sint?</p>
+                <button type="button" class="btn btn-primary mt-5  " data-bs-toggle="modal" data-bs-target="#exampleModal" id="devi" >
+                  Demande devis
+                </button>
             <!-- Button trigger modal -->
             <!-- <button type="button" class="btn btn-primary w-50 mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
             voir details
@@ -284,14 +275,16 @@
             </div> -->
          </div>
         </div>
-          <h2 class="offre mt-5">Offres</h2>
+          <h1 class="offre mt-5 text-center">Offres</h1>
           <!-- <div class="btn">
             <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
               <i class="fab fa-linkedin"></i>
             </a>
           </div> -->
-          
-          <div class="first hero" style="margin-left: 5%;">
+          <div class="container-hero">
+          <div class="row border " *ngFor="let offre of Listoffre">
+            <div class="col-md-6">
+          <div class="first hero"  >
             <!-- <p class="desc mt-3 ms-5">Le demenageur prepare et embaler </p>
             <p class="desc mt-2 ms-5">Le demenageur s’occupe de la manutention </p> -->
             <img class="hero-profile-img" src="/assets/demenageurs.PNG" alt="">
@@ -300,21 +293,37 @@
               <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
             </div>
             <div class="hero-description">
-              <h5>Formule de Luxe</h5>
+              <h5>{{offre.nom_offre}}</h5>
             </div>
             <div  class="hero-date">
-              <p>10000f</p>
+              <p>{{offre.prix_offre}}</p>
             </div>
-            <div class="hero-btn">
-              <a href="#">Choisir</a>
+            <div class="hero-btn mt-5">
+              <!-- <a href="#">Choisir</a> -->
+              <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="souscrire" style="color: white; background: none; border: none;" >
+                Souscrire
+              </button>
             </div>
           </div>
-          
-          <div class="second hero" style="margin-left: 20%;">
+        </div>
+        <div class="col-md-4" style="border: 1px solid black;">
+          <div class="description"><h3>Description</h3>
+            <p> <i class="fa-solid fa-check"></i>Le client emballe </p>
+            <p> <i class="fa-solid fa-check"></i>Le demenageur charge du transport </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row border ">
+          <div class="col">
+          <div class="description"><h3>Description</h3>
+          <p> <i class="fa-solid fa-check"></i>Le client emballe </p>
+          <p> <i class="fa-solid fa-check"></i>Le demenageur charge du transport </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="second hero" >
             <img src="/assets/demenageurs.PNG" alt="" style="width: 100%;">
-            <!-- <p class="desc mt-3 ms-5" >Le client prepare et embale</p>
-              <p class="desc mt-2 ms-5">Le demenageur s’occupe de la manutention</p> -->
-            <!-- <img class="hero-profile-img" src="https://i.pinimg.com/originals/9f/b1/ff/9fb1ffb05dd28039d1a06ad8e90cbd75.jpg" alt=""> -->
             <div class="hero-description-bk"></div>
             <div class="hero-logo">
               <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
@@ -325,13 +334,59 @@
             <div  class="hero-date">
               <p>75000f</p>
             </div>
-            <div class="hero-btn">
-              <a href="#">Choisir</a>
+            <div class="hero-btn mt-5">
+              <!-- <a href="#">Choisir</a> -->
+              <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="souscrire" style="color: white; background: none; border: none;">
+                Souscrire
+              </button>
             </div>
           </div>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  >
-            Demande devis
-          </button>
+        </div>
+        </div>
+          <!-- Modal pour souscrire à un formule -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="form-group col-md-5">
+                    <label for="">adresse_actuelle</label>
+                    <input type="text" name="adresse_actuelle"  [(ngModel)]="adresse_actuelle">
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="" >nouvelle_adresse</label>
+                    <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse"><br>
+                    <p>{{nouvelle_adresse}}</p>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="form-group col-md-5">
+                    <label for="">Date_demenagement</label>
+                    <input type="date" name="date_demenagement"  [(ngModel)]="date_demenagement">
+                  </div>
+                  <div class="form-group col-md-5">
+                    <label for="floatingTextarea">Informations_bagage</label>
+                    <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages"></textarea>
+                    <input style="margin-left:-8%;margin-top: 7%;" type="file" (change)="getFile($event)" accept="image/*">
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="Souscriptione()">Envoyer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+        </div>
+
+        
           
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div class="modal-dialog">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestioncompte',
@@ -16,7 +17,8 @@ Current_profile:any;
   localite:string="";
   passwordconfirm: string = "";
   telephone :string="";
-  constructor(private authservice:AuthServiceService){}
+  constructor(private authservice:AuthServiceService, private route:Router,
+    ){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
     console.log (this.userconnect.id, 'demenageur')
@@ -30,21 +32,31 @@ chargerinfo(paramuser:any){
   this.user=paramuser;
   this.Current_profile=paramuser;
 
-  this.name=paramuser.name;
-  this.email=paramuser.email;
-  this.localite=paramuser.localite;
-  this.telephone=paramuser.telephone;
+  this.name=this.userconnect.Nom;
+  this.email=this.userconnect.Email;
+  this.localite=this.userconnect.Localite;
+  this.telephone=this.userconnect.Telephone;
   // this.email =this.Current_profile.email; 
   // this.email =this.Current_profile.email; 
 }
 putProfil(id:number){
-  this.Current_profile.name=this.name,
-  this.Current_profile.email=this.email,
-  this.Current_profile.localité=this.localite,
-  this.Current_profile.telephone=this.telephone
-  this.authservice.putProfil(id, this.Current_profile).subscribe((data)=>{
+  const profil={
+    email:this.userconnect.Email,
+    telephone:this.userconnect.Telephone,
+    name:this.userconnect.Nom,
+    localite:this.userconnect.Telephone,
+  }
+  this.authservice.putProfil(id, profil).subscribe((data)=>{
     console.log(data);
 
 })
 }
+/*****Deconnexion**************/
+logout(){
+  this.authservice.logout().subscribe((response) => {
+    console.log('utilisateur deconnecté', response);
+    this.route.navigate(['/connexion']);
+  
+  })
+  }
 }

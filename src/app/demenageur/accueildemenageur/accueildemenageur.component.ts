@@ -6,7 +6,8 @@ import { info } from 'src/app/models/informations';
 import { DemanderecuService } from 'src/app/services/demanderecu.service';
 import { InfosupService } from 'src/app/services/infosup.service';
 import { UserService } from 'src/app/user.service';
-
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 @Component({
   selector: 'app-accueildemenageur',
   templateUrl: './accueildemenageur.component.html',
@@ -24,7 +25,7 @@ export class AccueildemenageurComponent implements OnInit {
   
 informationssup:info[]=[];
   userconnect: any
-  constructor(private userService: UserService, private info:InfosupService, private demanderecu:DemanderecuService) {}
+  constructor(private userService: UserService, private info:InfosupService, private demanderecu:DemanderecuService, private authservice:AuthServiceService, private route:Router) {}
 
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
@@ -56,6 +57,13 @@ informationssup:info[]=[];
     )
 }
 
-
+/*********Deconnnexion*********/
+logout(){
+  this.authservice.logout().subscribe((response) => {
+    console.log('utilisateur deconnecté', response);
+    this.route.navigate(['/connexion']);
+  
+  })
+  }
 
 }

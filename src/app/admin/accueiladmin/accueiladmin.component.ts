@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { user } from 'src/app/models/user';
-import { ClientService } from 'src/app/services/client.service';
 import { UserService } from 'src/app/user.service';
 import * as ApexCharts from 'apexcharts';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-accueiladmin',
@@ -12,20 +13,12 @@ import * as ApexCharts from 'apexcharts';
 export class AccueiladminComponent implements OnInit, AfterViewInit {
   clients: user[] = [];
 
-  constructor(private client: ClientService, private userService: UserService) { }
+  constructor(private userService: UserService,private authservice:AuthServiceService, private route:Router) { }
 
   ngOnInit(): void {
-    this.getAllClient();
   }
 
-  getAllClient(): void {
-    this.client.getAllClient().subscribe(
-      (response) => {
-        this.clients = response.data;
-        console.log(this.clients);
-      }
-    );
-  }
+ 
 
   ngAfterViewInit(): void {
     const options: ApexCharts.ApexOptions = {
@@ -56,4 +49,12 @@ export class AccueiladminComponent implements OnInit, AfterViewInit {
     const chart = new ApexCharts(document.getElementById('chart'), options);
     chart.render();
   }
+  /***********Deconnexion************/
+  logout(){
+    this.authservice.logout().subscribe((response) => {
+      console.log('utilisateur deconnecté', response);
+      this.route.navigate(['/connexion']);
+    
+    })
+    }
 }

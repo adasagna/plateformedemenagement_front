@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-gestionutilisateur',
@@ -9,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class GestionutilisateurComponent implements OnInit {
   listuser:any
   users:any
-  constructor(private userservice: UserService){}
+  constructor(private userservice: UserService,private authservice:AuthServiceService, private route:Router){}
   ngOnInit(): void {
     if(!localStorage.getItem("infoUserConnect")){
       localStorage.setItem("infoUserConnect", JSON.stringify("token"));
@@ -24,6 +26,14 @@ export class GestionutilisateurComponent implements OnInit {
     }
     )
   }
+  /************Deconnexion*************/
+  logout(){
+    this.authservice.logout().subscribe((response) => {
+      console.log('utilisateur deconnecté', response);
+      this.route.navigate(['/connexion']);
+    
+    })
+    }
 }
 
 

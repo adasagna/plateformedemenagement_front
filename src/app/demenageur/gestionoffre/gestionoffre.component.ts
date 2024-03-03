@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OffreService } from 'src/app/services/offre.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-gestionoffre',
@@ -16,7 +18,7 @@ export class GestionoffreComponent implements OnInit {
   currentoffre:any
   offres:any
   current_id:any
-constructor(private offreservice:OffreService){}
+constructor(private offreservice:OffreService,private authservice:AuthServiceService, private route:Router){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
     this.getOffre()
@@ -70,4 +72,12 @@ postOffre(){
       showConfirmButton: false
     });
   }
+  /*****Deconnexion*********/
+  logout(){
+    this.authservice.logout().subscribe((response) => {
+      console.log('utilisateur deconnecté', response);
+      this.route.navigate(['/connexion']);
+    
+    })
+    }
 }
