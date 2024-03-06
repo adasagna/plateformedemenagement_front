@@ -12,32 +12,32 @@
           <ul>
             <li>
               <a href="#" class="active" >
-                <span class="fas fa-tachometer-alt"></span>
+                <span class="fa-solid fa-bars"></span>
                 <span>Tableau e board</span>
               </a>
             </li>
             <li>
               <a  class="switch"  [routerLink]="['/gestioncompte']" routerLinkActive="router-link-active" >
-                <span class="fas fa-users" ></span>
+                <span class="fa-solid fa-user" ></span>
                 <span >Gestion Compte</span>
               </a>
             </li>
             <li>
               <a [routerLink]="['/gestiondemande']" routerLinkActive="router-link-active" >
-                <span class="bi bi-truck"></span>
+                <span class="bi bi-clipboard-minus"></span>
               <span>Gestion Demande</span>
               </a>
             </li>
          
             <li>
-              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+              <a [routerLink]="['/listedevis']"  >
                 <span class="fas fa-tasks"></span>
                 <span>Liste des devis</span>
               </a>
             </li>
             <li>
               <a [routerLink]="['/prestation']" routerLinkActive="router-link-active" >
-                <span class="fas fa-tasks"></span>
+                <span class="fa-solid fa-person-digging"></span>
                 <span>Prestation</span>
               </a>
             </li>
@@ -58,10 +58,10 @@
        
 
         <div class="search-wrapper">
-          <span class="fas fa-search"> </span>
-          <input type="search" placeholder="Search..." />
-
-        </div>
+          <span class="fas fa-search" (click)="recherche()"> </span>
+          <input type="search" placeholder="Search..." [(ngModel)]="searchTerm" />
+      </div>
+      
 
         <div class="user-wrapper">
          <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
@@ -73,8 +73,8 @@
       </header>
 
       <main>
-        <div class=" mb-3 container w-100" style="margin-top: -10%;" *ngIf="showCard">
-          <div class="row g-0 contenu">
+        <div class=" mb-3 container w-100 " style="margin-top: -5%;" *ngIf="showCard">
+          <div class="row g-0 contenu" >
             <!-- titre -->
             <div class="col-md-4 titre">
               <h2>Trouver votre Demenageur</h2>
@@ -130,7 +130,7 @@
         </div> -->
         <div class="cartes" >
           <div class="row gap-5"  >
-            <div class="card col-lg-3 mb-5 " style="width: 18rem;" *ngFor="let info of listinfos">
+            <div class="card col-lg-3 mb-5 " style="width: 18rem;" *ngFor="let info of getArticlesPage()">
                 <img src="/assets/emballage.avif" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{info.nom_entreprise}}</h5>
@@ -145,6 +145,8 @@
             
           
         </div>
+        <!-- pour la pagination -->
+   
         <!-- <div class="row " >
            
           <div class="card col-lg-3" style="width: 18rem;">
@@ -197,6 +199,18 @@
           
         </div> -->
         </div>
+        <div class="d-flex justify-content-center my-5">
+          <button class="btn btnColore me-2" [disabled]="pageActuelle === 1" (click)="pageActuelle = pageActuelle - 1">
+            Précédent
+          </button>
+          <button class="btn btnColor ms-2" *ngFor="let page of pages" (click)="pageActuelle = page">
+            {{ page }}
+          </button>
+          <button class="btn btnColore ms-2" [disabled]="pageActuelle === totalPages" (click)="pageActuelle = pageActuelle + 1">
+            Suivant
+          </button>
+      </div>
+    
       </div> 
         
         <!-- demenageur -->
@@ -216,15 +230,16 @@
               </p>
             </div>
           </div> -->
-          <div class="container-fluid" style="background-color: #FFF; border: 1px solid rgb(215, 215, 215);">
+          <div class="container-fluid" style="background-color: #02273D; border: 1px solid rgb(215, 215, 215); border-radius: 10px;">
             <div class="container text-center">
               <div class="row">
                 <div class="col-md-2">
                   <img src="/assets/deme-removebg-preview.png" alt="">
                 </div>
-                <div class="col mb-5" style="margin-top: -10%;">
+                <div class="col mb-5 mt-2" style="margin-top: -10%;">
                   <h1 class="demenageur">AGS SENEGAL</h1>
-                  <p style="margin-top: 5%;"> Nous sommes une entreprise spécialisée dans le déménagement. <br>
+                  <p style="margin-top: 5%; color: 
+                  white;"> Nous sommes une entreprise spécialisée dans le déménagement. <br>
                     Nous sommes une entreprise spécialisée dans le déménagement.une entreprise spécialisée dans le<br>
                     Nous sommes une entreprise spécialisée dans le déménagement.une entreprise spécialisée dans le<br>
                     Nous sommes une entreprise spécialisée dans le déménagement.une entreprise spécialisée dans le<br>
@@ -232,47 +247,40 @@
 
                 </div>
                 <div class="col-md-2">
-                  <img src="/assets/camion.PNG" alt="" style="width: 190%;">
+                  <img src="/assets/ags-removebg-preview.png" alt="" style="width: 190%;">
 
                 </div>
               </div>
             </div>
           </div>
           <!-- .....................Offres.............................. -->
-          <h1 class="offre mt-5 text-center">Prestations</h1>
+          <h1 class="offre mt-5 text-center">Avis sur prestations</h1>
          <div class="row">
           <div class="col-md-6"  id="dem"></div>
-          <div class="col-md-6 border" style="box-sizing: border-box; height: 5%;">
-  
-              <p style="font-size: 18px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero repellendus non,
+          <div class="col-md-6" style="box-sizing: border-box; height: 300px;">
+           <div class="row">
+            <div class="notification w-100">
+              <div class="notiglow"></div>
+              <div class="notiborderglow"></div>
+              <div class="notititle">Adama Sagna</div>
+              <div class="notibody">Contribute to Open Source UI Elements</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="notification  w-100">
+              <div class="notiglow"></div>
+              <div class="notiborderglow"></div>
+              <div class="notititle">Adama Sagna</div>
+              <div class="notibody">Contribute to Open Source UI Elements</div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary  mt-3 " data-bs-toggle="modal" data-bs-target="#exampleModal" id="devi" >
+            Demande devis
+          </button>
+              <!-- <p style="font-size: 18px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero repellendus non,
                quam vitae minima quae perspiciatis ratione optio temporibus maxime! Illum debitis
-                odio quisquam nihil accusantium aliquam fugit repudiandae sint?</p>
-                <button type="button" class="btn btn-primary mt-5  " data-bs-toggle="modal" data-bs-target="#exampleModal" id="devi" >
-                  Demande devis
-                </button>
-            <!-- Button trigger modal -->
-            <!-- <button type="button" class="btn btn-primary w-50 mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            voir details
-            </button> -->
-
-<!-- Modal -->
-            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    ...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+                odio quisquam nihil accusantium aliquam fugit repudiandae sint?</p> -->
+                
          </div>
         </div>
           <h1 class="offre mt-5 text-center">Offres</h1>
@@ -317,8 +325,8 @@
       <div class="row border ">
           <div class="col">
           <div class="description"><h3>Description</h3>
-          <p> <i class="fa-solid fa-check"></i>Le client emballe </p>
-          <p> <i class="fa-solid fa-check"></i>Le demenageur charge du transport </p>
+          <p class="desp"> <i class="fa-solid fa-check"></i>Le client emballe </p>
+          <p class="desp"> <i class="fa-solid fa-check"></i>Le demenageur charge du transport </p>
           </div>
         </div>
         <div class="col">
@@ -348,36 +356,36 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <img src="/assets/camio.PNG" alt="" style="width: 20%; margin-top: -3%; margin-left: -3%;" >
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Souscription</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <div class="row">
-                      <div class="form-group col-md-5">
+                      <div class="form-group"><br>
                     <label for="">adresse_actuelle</label>
-                    <input type="text" name="adresse_actuelle"  [(ngModel)]="adresse_actuelle">
+                    <input type="text" name="adresse_actuelle"  [(ngModel)]="adresse_actuelle" class="text col-md-12" id="input">
                   </div>
-                  <div class="form-group col-md-5">
-                    <label for="" >nouvelle_adresse</label>
-                    <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse"><br>
+                  <div class="form-group">
+                    <label for="" >nouvelle_adresse</label><br>
+                    <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse" class="text col-md-12" id="input">
                     <p>{{nouvelle_adresse}}</p>
                   </div>
+                <div class="form-group">
+                    <label for="">Date_demenagement</label><br>
+                    <input type="date" name="date_demenagement"  [(ngModel)]="date_demenagement" [min]="getCurrentDate()"class="text col-md-12" id="input">
+                  </div>
+                  <div class="form-group ">
+                    <label for="floatingTextarea">Informations_bagage</label><br>
+                    <textarea class="form-control" name="informations_bagage" id="floatingTextarea" [(ngModel)]="informations_bagages" class="text col-md-12" id="input"></textarea>
+                  </div>
+                  <div class="form-group ">
+                    <label for="">Image</label><br>
+                  <input  type="file" (change)="getFile($event)" accept="image/*">
+                  </div>
                 </div>
-                <div class="row">
-                <div class="form-group col-md-5">
-                    <label for="">Date_demenagement</label>
-                    <input type="date" name="date_demenagement"  [(ngModel)]="date_demenagement">
-                  </div>
-                  <div class="form-group col-md-5">
-                    <label for="floatingTextarea">Informations_bagage</label>
-                    <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages"></textarea>
-                    <input style="margin-left:-8%;margin-top: 7%;" type="file" (change)="getFile($event)" accept="image/*">
-                  </div>
-                  </div>
-                  </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" (click)="Souscriptione()">Envoyer</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="Souscriptione()" style="background-color: #02273D;">Envoyer</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: white;color: #02273D;border: 1px solid #02273D;">Close</button>
                   </div>
                 </div>
               </div>
@@ -387,38 +395,41 @@
         </div>
 
         
-          
+          <!-- Modal pour faire une demende de devis -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div class="modal-dialog">
               <div class="modal-content" >
                 <div class="modal-header" >
-                  <img src="/assets/logo.png" alt="" style="width: 15%;">
+                  <img src="/assets/camio.PNG" alt="" style="width: 20%; margin-top: -3%; margin-left: -3%;" >
                   <h1 class="modal-title fs-5" id="exampleModalLabel" >Demande de devis</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <div class="row">
-                    <div class="form-group col-md-5">
-                  <label for="">adresse_actuelle</label>
-                  <input type="text" name="adresse_actuelle"  [(ngModel)]="adresse_actuelle">
+                    <div class="form-group ">
+                      <label for="" >Adresse_actuelle*</label><br>
+                      <input type="text" [(ngModel)]="adresse_actuelle" (input)="validateAddress()" name="adresse_actuelle" class="text col-md-12" id="input" >
+                      <p *ngIf="!validateInput(adresse_actuelle)" style="color: red; border: none;">L'adresse ne doit pas commencer par un espace.</p>                      
+                      <span *ngIf="isAddressInvalid" class="error-message"style="color: red;">{{ addressErrorMessage }}</span>
+                    </div>
+                <div class="form-group ">
+                  <label for="" >Nouvelle_adresse*</label><br>
+                  <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse" (input)="validateNouvelle()"class="text col-md-12" id="input">
+                  <p *ngIf="!validateInput(nouvelle_adresse)" style="color: red; border: none;">La nouvelle_adresse ne doit pas commencer par un espace.</p>                      
+                  <span *ngIf="isNouvelleInvalid" class="error-message"style="color: red;">{{ nouvelleErrorMessage }}</span>
                 </div>
-                <div class="form-group col-md-5">
-                  <label for="" >nouvelle_adresse</label>
-                  <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse"><br>
-                  <p>{{nouvelle_adresse}}</p>
-                </div>
+
+                <div class="form-group">
+                  <label for="">Date_demenagement$</label>
+                  <input type="date" name="date_demenagement"  [(ngModel)]="date_demenagement" [min]="getCurrentDate()" class="text col-md-12" id="input">
               </div>
-              <div class="row">
-              <div class="form-group col-md-5">
-                  <label for="">Date_demenagement</label>
-                  <input type="date" name="date_demenagement"  [(ngModel)]="date_demenagement">
+                <div class="form-group mt-3">
+                  <label for="floatingTextarea">Informations_bagage*</label>
+                  <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages" class="text col-md-12" id="input"></textarea>
                 </div>
-                <div class="form-group col-md-5">
-                  <label for="floatingTextarea">Informations_bagage</label>
-                  <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages"></textarea>
-                  <input style="margin-left:-8%;margin-top: 7%;" type="file" (change)="getFile($event)" accept="image/*">
-                </div>
-                </div>
+                <div class="form-group">
+                  <label for="">image*</label><br>
+                <input  type="file" (change)="getFile($event)" accept="image/*" >
+              </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" id="envoi" (click)="postDemandeDevis()">Envoyer</button>

@@ -69,7 +69,7 @@ export class GestiondevisComponent implements OnInit {
     }
  
   }
-
+/***envoie devis****** */
   postDevis(){
     const tabdevis={
       prix_total: this.prix_total, 

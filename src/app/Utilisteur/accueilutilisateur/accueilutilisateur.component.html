@@ -55,13 +55,13 @@
     <h1>Choisissez votre déménageur</h1>
 
     <div class="container-fluid" id="" >
-        <div class="row  border" id="demenageurs" >
+        <div class="row  " id="demenageurs" >
           <!-- card1 -->
-          <div class="col-md-6 col-lg-4 border ">
+          <div class="col-md-6 col-lg-4 ">
             <div class="card">
               <!-- Contenu de la carte 1 -->
               <div class="card-image" id="Illustration"></div>
-              <div class="category"> Illustration jjjjjjjj</div>
+              <div class="category"> Illustration</div>
               <div class="heading">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Maiores laborum reprehenderit facilis ipsam voluptas libero aut atque, 
@@ -75,7 +75,7 @@
           </div>
           <!-- end card1 -->
           <!-- card 2 -->
-          <div class="col-md-6 col-lg-4 border">
+          <div class="col-md-6 col-lg-4 ">
             <div class="card ">
               <!-- Contenu de la carte 2 -->
               <div class="card-image" id="Illustration"></div>
@@ -92,7 +92,7 @@
            </div>
           </div>
            <!--end card 2  -->
-          <div class="col-md-6 col-lg-4 border">
+          <div class="col-md-6 col-lg-4">
             <div class="card">
               <!-- Contenu de la carte 3 -->
               <div class="card-image" id="Illustration"></div>
@@ -358,10 +358,11 @@
 </div>
 </div>
 </div>
-<div class="accueil" *ngIf="!Showservice"></div>
+<div class="container-fluid" *ngIf="!Showservice" style="border: 2px solid black; margin: 0; padding: 0; overflow: hidden;">
+<div class="accueil" style="border: 2px solid black;"></div>
 <h1>Presentation</h1>
-<div class="container-fluid " style=" display: grid; grid-template-columns: auto auto; ">
-  <div class="contain mt-5 ms-5 " style="background-color: #02273D;">
+<div class="container-fluid gap-3 " style=" display: grid; grid-template-columns: auto auto; margin: 0; padding: 0;" id="cont">
+  <div class="container mt-5  ms-3" style="background-color: #02273D;" id="contain">
     <div></div>
     <div></div>
     <div></div>
@@ -377,15 +378,15 @@
     <span>meilleurs pretataires!</span>
    
   </div>
-  <div class="texte mt-5 ms-4"  > <h1>AGS SENEGAL</h1><p style="font-size: 19px; text-align: justify;" >Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  <div class="texte mt-5 ms-2 border"> <h1>AGS SENEGAL</h1><p style="font-size: 17px; text-align: justify; margin-top: 5;" >Lorem ipsum dolor sit amet consectetur adipisicing elit.
     Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
      deserunt unde vel velit quasi
     consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
-    <p style="font-size: 19px; text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <p style="font-size: 17px; text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
        deserunt unde vel velit quasi
       consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
-      <p style="font-size: 19px; text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <p style="font-size: 17px; text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Dolore, aperiam cupiditate aliquid laboriosam a, placeat saepe repellendus
          deserunt unde vel velit quasi
         consequatur repudiandae dicta ad accusamus asperiores. Odit, voluptate.</p>
@@ -406,7 +407,7 @@
   </div>
   
     <h1>Avis des Clients</h1>
-    <div class="containe mt-4 " id="prestation">
+    <div class="containe mt-5 " id="prestation">
       <div class="col">
       <div class="notification ms-5 ">
         <div class="notiglow"></div>
@@ -427,16 +428,16 @@
         <div class="notibody">Contribute to Open Source UI Elements</div>
       </div> 
     </div>
-      <div class="prestation me-4 mb-5"><img src="/assets/deme.PNG" alt="">
+      <div class="prestation  mb-5 me-5 border"><img src="/assets/art.PNG" alt="">
   </div>
-  <h1>Nos Offres</h1>
-  <!-- <div class="btn border">
+  <div class="btn">
     <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
       <i class="fab fa-linkedin"></i>
     </a>
-  </div> -->
+  </div>
+  <h1 class="text-center me-5">Nos Offres</h1>
   
-  <div class="first hero">
+  <div class="first hero mt-5">
     <img class="hero-profile-img" src="/assets/demenageurs.PNG" alt="">
     <div class="hero-description-bk"></div>
     <div class="hero-logo">
@@ -469,6 +470,7 @@
       <a (clicl)="Souscrire()" >Learn More</a>
     </div>
   </div>
+</div>
 </div>
   <!-- <div class="row mt-5 border gap-5 ">
     <div class="col-8 w-50">

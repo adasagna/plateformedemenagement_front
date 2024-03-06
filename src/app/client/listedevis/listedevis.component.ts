@@ -3,6 +3,7 @@ import { DevisService } from 'src/app/services/devis.service';
 import { ValiderService } from 'src/app/services/valider.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { DetaildevisService } from 'src/app/services/detaildevis.service';
 
 
 
@@ -16,9 +17,12 @@ export class ListedevisComponent implements OnInit {
   listedevis:any
   tabdevis:any
   detailsdevis:any
-  dvis:any
+  devis:any
   details_id:any
-  constructor(private devisservice: DevisService, private valider :ValiderService,private authservice:AuthServiceService, private route:Router,){}
+  prix_total=0;
+  description:string=""
+  constructor(private devisservice: DevisService, private valider :ValiderService,private authservice:AuthServiceService, private route:Router,
+    private detailsservice:DetaildevisService){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
     this.getDevis(this.userconnect.id)
@@ -41,13 +45,17 @@ export class ListedevisComponent implements OnInit {
     this.details_id=paramdetails
     this.detailsdevis=paramdetails
     // alert('voir devis')
-    this.devisservice.getDetailsdevis(this.detailsdevis).subscribe((data)=>{
-      console.log('details du devis',data); 
+    this.devisservice.getDetailsdevis(this.devis).subscribe((data)=>{
+      console.log('details du devis dddddddddddd',data); 
       this.listedevis=data.data;
     });
   }
   /**************************valider un devis************************ */
   putValiderDevis(id:number){
+    const  details={
+      prix_total:this.prix_total,
+      description:this.description
+    }
     alert(this.details_id);
     this.valider.putValiderDevis(this.details_id).subscribe((data)=>{
       // this.listedevis=data.data;

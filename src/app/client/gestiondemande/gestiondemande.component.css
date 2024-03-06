@@ -231,11 +231,12 @@
   
   .actions {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-left: 45%;
+    /* align-items: center; */
+    /* justify-content: space-between; */
     margin-top: 1rem;
     -moz-column-gap: 1rem;
-    column-gap: 1rem;
+    /* column-gap: 1rem; */
     flex-shrink: 0;
   }
   
@@ -285,6 +286,19 @@
 
   #demande{
     background-color: #02273D;
+  }
+  #sauvegarder{
+    background-color: #02273D;
+    color: white;
+  }
+  #Annuler{
+    color: #02273D;
+    border: 1px solid #02273D;;
+    background-color: white;
+  }
+  #input{
+    border: 1px solid #02273D;;
+    border-radius: 5px;
   }
   #logo{
     width: 20%;

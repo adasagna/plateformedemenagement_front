@@ -47,6 +47,10 @@ h3{
     border-bottom: 2px solid #02273D;
     border-right:2px solid #02273D ;
 }
+#qualite {
+  font-size: 20px;
+}
+
 .col{
   margin: 0 auto;
 }
@@ -57,6 +61,7 @@ h3{
 }
  
  #row1{
+  margin-left: 10%;
   height: 300px;
   border-radius: 20px;
   width: 50%;
@@ -78,9 +83,10 @@ h3{
   border-left: 1px solid #02273D;
   border-bottom: 1px solid #02273D;
   border-right: 1px solid #02273D ;
+  margin-left: 50%;
  }
  #row3{
-  /* margin-left: 10%; */
+  margin-left: 19%;
   border-left: 1px solid #02273D;
   border-bottom: 1px solid #02273D;
   border-right: 1px solid #02273D ;
@@ -180,7 +186,7 @@ h1{
   #col{
     display: grid;
     grid-template-columns: auto;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 95%;
     /* margin-left: -30%; */
   }
@@ -197,7 +203,7 @@ h1{
     font-size: 16px;
   }
   #row1{
-    margin-left: 5% !important;
+    margin-left: -5% !important;
     width: 100%;  
   }
   .col{
@@ -205,10 +211,11 @@ h1{
     width: 340px;
   }
   #row2,#row3{
-    width: 100%;  
+    width: 100%;
+  
   }
   #row3, #row2{
-    margin-left: 5% !important;
+    margin-left: -5% !important;
   }
   .type{
     display: grid;

@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 const api = 'http://127.0.0.1:8000/api';
 
@@ -15,4 +15,5 @@ export class DemenageurService {
   getAllDemenageur(): Observable<any> {
     return this.http.get<any>(`${api}/allmovers`);
   }
+  
 }

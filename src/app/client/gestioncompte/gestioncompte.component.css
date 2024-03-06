@@ -189,10 +189,14 @@
     justify-content: space-between;
   }
  
-  .row {
+  #row {
     margin-top: 8%;
     gap: 5%;
     margin-left: 3%;
+  }
+  #input{
+    border: 1px solid #02273D;
+    border-radius: 5px;
   }
   #button{
     background-color: #02273D;

@@ -11,41 +11,47 @@
             <a [routerLink]="['/accueilclient']"  >
               <div class="image mt-5"><img src="/assets/camio-removebg-preview.png" alt=""></div>
             </a>         
-               <ul>
-            <li>
-              <a href="#"  [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
-                <span class="fas fa-tachometer-alt mt-3" ></span>
-                <span>Tableau e board</span>
+            <ul>
+              <li>
+                <a [routerLink]="['/accueilclient']" >
+                  <span class="fa-solid fa-bars"></span>
+                  <span>Tableau e board</span>
+                </a>
+              </li>
+              <li>
+                <a    [routerLink]="['/gestioncompte']"  >
+                  <span class="fa-solid fa-user" ></span>
+                  <span >Gestion Compte</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/gestiondemande']"  >
+                  <span class="bi bi-clipboard-minus"></span>
+                <span>Gestion Demande</span>
+                </a>
+              </li>
+           
+              <li>
+                <a [routerLink]="['/listedevis']"  class="active" >
+                  <span class="fas fa-tasks"></span>
+                  <span>Liste des devis</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/prestation']" routerLinkActive="router-link-active" >
+                  <span class="fa-solid fa-person-digging"></span>
+                  <span>Prestation</span>
+                </a>
+              </li>
+              <div class="logout  ms-3" style="margin-top: 50%;">
+                <a [routerLink]="['/connexion']"   class="logout">
+                  <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
               </a>
-            </li>
-            <li>
-              <a  class="switch" href="#">
-                <span class="fas fa-users" ></span>
-                <span >Gestion Compte</span>
-              </a>
-            </li>
-            <li>
-              <a class="switch" [routerLink]="['/gestiondemande']" >
-                <span class="bi bi-truck"></span>
-              <span>Gestion Demande</span>
-              </a>
-            </li>
-         
-            <li>
-              <a class="active" [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
-                <span class="fas fa-tasks"></span>
-                <span>Liste devis</span>
-              </a>
-            </li>
-            <div class="logout  ms-3" style="margin-top: 50%;">
-              <a [routerLink]="['/connexion']"   class="logout">
-                <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
-            </a>
-            </div>
-            <!-- <div class="utilsateur">
-              <span>Tableau client</span>
-            </div> -->
-          </ul>
+              </div>
+              <!-- <div class="utilsateur">
+                <span>Tableau client</span>
+              </div> -->
+            </ul>
         </div>
     </div>    
 
@@ -104,7 +110,7 @@
                                   <p> Descriptions:     <span>{{devis.description}}</span></p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary btn-sm" id="valider" (click)="putValiderDevis(devis.id)">Valider</button>
+                                    <button type="button" class="btn btn-primary btn-sm" id="valider" (click)="putValiderDevis(devis)">Valider</button>
                                     <button type="button" class="btn btn-secondary btn-sm" id="rejet" (click)=" postrefuDevis(devis.id)">Rejetter</button>
                                 </div>
                               </div>

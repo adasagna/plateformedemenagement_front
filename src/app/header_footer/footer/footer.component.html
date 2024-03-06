@@ -25,16 +25,16 @@
                    <div class="row ">
                       <div class="col-md-6">
                          <ul>
-                            <li> <a href="#">Accueil</a> </li>
-                            <li> <a href="#"> A Propos</a> </li>
-                            <li> <a href="#"> Service</a> </li>
-                            <li> <a href="#"> contact</a> </li>
+                            <li> <a [routerLink]="['/accueilutilisateur']">Accueil</a> </li>
+                            <li> <a [routerLink]="['/apropos']" routerLinkActive="router-link-active" > A Propos</a> </li>
+                            <li> <a [routerLink]="['/services']" routerLinkActive="router-link-active" > Service</a> </li>
+                            <li> <a [routerLink]="['/contact']" routerLinkActive="router-link-active" > contact</a> </li>
                          </ul>
                       </div>
                       <div class="col-md-6 px-4">
                          <ul>
-                            <li> <a href="#"> Article</a> </li>
-                            <li> <a href="#"> Politiqe de confidentialite</a> </li>
+                            <li> <a [routerLink]="['/articles']" routerLinkActive="router-link-active" > Article</a> </li>
+                            <li> <a [routerLink]="['/politiqueconfidentialite']" routerLinkActive="router-link-active" > Politiqe de confidentialite</a> </li>
                             <li> <a href="#"> Condition d'utilisation</a> </li>
                          </ul>
                       </div>

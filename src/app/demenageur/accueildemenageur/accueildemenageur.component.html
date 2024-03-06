@@ -9,42 +9,42 @@
         
         <div class="sidebar-menu">
           <a [routerLink]="['/accueildemenageur']">
-            <div class="image"><img src="/assets/camio-removebg-preview.png" alt=""></div>
+            <div class="image mb-3"><img src="/assets/camio-removebg-preview.png" alt=""></div>
           </a>
           <ul>
             <li>
               <a [routerLink]="['/accueildemenageur']"  class="active">
-                <span class="fas fa-tachometer-alt"></span>
+                <span class="fa-solid fa-bars"></span>
                 <span>Tableau de board</span>
               </a>
             </li>
             <li>
               <a [routerLink]="['/gestionprofil']">
-                <span class="fas fa-user-circle"></span>
+                <span class="fa-solid fa-user"></span>
                 <span>Gestion Compte</span>
               </a>
             </li>
             <li>
               <a class="switch" [routerLink]="['/gestiondevis']"  >
-                <span class="fas fa-users" ></span>
+                <span class="bi bi-clipboard-minus" ></span>
                 <span>Gestion devis</span>
               </a>
             </li>
             <li>
               <a [routerLink]="['/devisdemenageur']" routerLinkActive="router-link-active" >
-                <span class="fas fa-user-circle"></span>
+                <span class="fas fa-tasks"></span>
                 <span>Liste devis</span>
               </a>
             </li>
             <li>
               <a [routerLink]="['/gestionoffre']"  >
-                <span class="fas fa-user-circle"></span>
+                <span class="fa-solid fa-book"></span>
                 <span>Gestion offre</span>
               </a>
             </li>
-            <div class="logout mt-5">
-              <a [routerLink]="['/connexion']"  class="logout">
-                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            <div class="logout  ms-3" style="margin-top: 50%;">
+              <a [routerLink]="['/connexion']"   class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
             </a>
             </div>
             <!-- <div class="utilsateur">

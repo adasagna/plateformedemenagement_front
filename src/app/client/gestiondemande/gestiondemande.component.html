@@ -13,28 +13,34 @@
           </a>          
           <ul>
             <li>
-              <a   [routerLink]="['/accueilclient']" routerLinkActive="router-link-active" >
-                <span class="fas fa-tachometer-alt"></span>
+              <a [routerLink]="['/accueilclient']" >
+                <span class="fa-solid fa-bars"></span>
                 <span>Tableau e board</span>
               </a>
             </li>
             <li>
-              <a  class="switch" [routerLink]="['/gestioncompte']">
-                <span class="fas fa-users" ></span>
+              <a    [routerLink]="['/gestioncompte']"  >
+                <span class="fa-solid fa-user" ></span>
                 <span >Gestion Compte</span>
               </a>
             </li>
             <li>
-              <a class="active" [routerLink]="['/gestiondemande']">
-                <span class="bi bi-truck"></span>
+              <a [routerLink]="['/gestiondemande']" class="active"  >
+                <span class="bi bi-clipboard-minus"></span>
               <span>Gestion Demande</span>
               </a>
             </li>
          
             <li>
-              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+              <a [routerLink]="['/listedevis']"  >
                 <span class="fas fa-tasks"></span>
-                <span>Liste devis</span>
+                <span>Liste des devis</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/prestation']" routerLinkActive="router-link-active" >
+                <span class="fa-solid fa-person-digging"></span>
+                <span>Prestation</span>
               </a>
             </li>
             <div class="logout  ms-3" style="margin-top: 50%;">
@@ -42,14 +48,18 @@
                 <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
             </a>
             </div>
-            
+            <!-- <div class="utilsateur">
+              <span>Tableau client</span>
+            </div> -->
           </ul>
         </div>
     </div>    
 
     <div class="main-content">
       <header>
-       
+        <label for="nav-toggle">
+          <span class="fas fa-bars"></span>
+        </label>
 
         <div class="search-wrapper">
           <span class="fas fa-search"> </span>
@@ -70,24 +80,28 @@
        
         <!-- gestion demande -->
 
-       <div class="titre">
-  <h1>Liste des demande de devis</h1>
-</div>
+      
+<div class="table-responsive">
+  <div class="titre">
+    <h1>Liste des demande de devis</h1>
+    </div>
 <div class="row mt-5" >
   <div class="cookie-card col-lg-6 mb-3" *ngFor="let demandedevis of listeDemandedevis">
     <span class="title">{{demandedevis.nom_entreprise}}</span>
     <div class="line"><hr></div>
     <p>{{demandedevis.nouvelle_adresse}}</p>
     <p class="description">{{demandedevis.informations_bagages}}</p>
-    <div class="actions">
-      <button class="pref">{{demandedevis.date_demenagement}}</button>
+    <div class="actions gap-2">
+      <!-- <button class="pref">{{demandedevis.date_demenagement}}</button> -->
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="demande" (click)=" getAlldetailsdemandeclient(demandedevis.id)">
-      voir demande</button>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 30%;" (click)="ChangerDemande(demandedevis)">
+        <i class="fa-solid fa-eye" style="color: #fff;"></i></button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width: 40%; background-color: #fff; color: #02273D; border: 1px solid #02273D;" (click)="ChangerDemande(demandedevis)">
         Modifier
       </button>
-
+      <button type="button" class="btn btn" (click)="putDemande(demandedevis.id)" style="background-color: #E08D14; color: #fff;">
+        Suprimer
+       </button>
 <!-------------------- Modal pour details d'une demande devis---------------->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,16 +114,12 @@
       </div>
       <div class="modal-body">
         <div class="row">
-        <label for="" class="  col-md-4">adresse_actuelle</label>
-        <span>{{annocesfound?.adresse_actuelle}}</span>
-        <label for="" class=" col-md-4">nouvelle_adresse</label>
-      <span>{{annocesfound?.nouvelle_adresse}}</span>
+        <span>Adresse_actuelle: &nbsp;{{annocesfound?.adresse_actuelle}}</span>
+      <span>Nouvelle_adresse:&nbsp;{{annocesfound?.nouvelle_adresse}}</span>
       </div>
       <div class="row">
-        <label for="" class="  col-md-4">date_demennagement</label>
-      <span>{{annocesfound?.date_demennagement}}</span>
-        <label for="" class="col-md-4">information bagages</label>
-      <span>{{annocesfound?.informations_bagages}}</span>
+      <span>Date_demenagement: &nbsp;{{annocesfound?.date_demennagement}}</span>
+      <span>Informations_bagages:&nbsp;{{annocesfound?.informations_bagages}}</span>
 
         <img *ngFor="let item of annocesfound?.images" src="http://localhost:8000/public/images/{{item.url }}" class="card-img-top img-fluid"alt="..."style="max-height: 300px; object-fit: contain"/>
       
@@ -135,43 +145,40 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="form-group col-md-5">
-        <label for="">adresse_actuelle</label>
-        <input type="text" name="adresse_actuelle"  [(ngModel)]="adresse_actuelle">
+          <div class="form-group">
+        <label for="">adresse_actuelle</label><br>
+        <input type="text" name="adresse_actuelle"  [(ngModel)]="adresse_actuelle" class="text col-md-12" id="input">
       </div>
-      <div class="form-group col-md-5">
-        <label for="" >nouvelle_adresse</label>
-        <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse"><br>
-        <p>{{nouvelle_adresse}}</p>
+      <div class="form-group">
+        <label for="" >nouvelle_adresse</label><br>
+        <input type="text" name="nouvelle_adresse" [(ngModel)]="nouvelle_adresse"class="text col-md-12" id="input">
       </div>
-    </div>
-        <div class="row">
-          <div class="form-group col-md-5">
+          <div class="form-group"><br>
               <label for="">Date_demenagement</label>
-              <input type="date" name="date_demenagement" [(ngModel)]="date_demenagement">
+              <input type="date" name="date_demenagement" [(ngModel)]="date_demenagement" class="text col-md-12"id="input">
               <input type="text" [value]="date_demenagement | date:'dd/MM/yyyy'">
             </div>
-            <div class="form-group col-md-5">
+            <div class="form-group"><br>
               <label for="floatingTextarea">Informations_bagage</label>
-              <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages"></textarea>
-              <input style="margin-left:-8%;margin-top: 7%;" type="file" (change)="getFile($event)" accept="image/*">
+              <textarea class="form-control" name="informations_bagage" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="informations_bagages" class="text col-md-12"id="input"></textarea>
             </div>
-            </div>
+            <div class="form-group"><br>
+              <label for="floatingTextarea">Image</label><br>
+              <input type="file" (change)="getFile($event)" accept="image/*">
+
     </div>
+  </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="putDemandeDevis(demandedevis.id)" >Sauvegarder</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-primary" (click)="putDemandeDevis(demandedevis.id)" id="sauvegarder">Sauvegarder</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="Annuler">Annuler</button>
       </div>
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-primary"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" (click)="putDemande(demandedevis.id)">
- Suprimer
-</button>
+
   </div>
   </div>
+</div>
 </div>
 
             <div class="pagination p1">

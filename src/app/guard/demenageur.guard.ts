@@ -12,10 +12,10 @@ export const demenageurGuard: CanActivateFn = (route, state) => {
     return false;
   }
   const userConnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
-  if (userConnect.role == "Admin") {
+  if (userConnect.role == "Demenageur") {
     return true;
   } 
   else {
-    router.navigate(['Demenageur']);
+    router.navigate(['login']);
     return false;
   }};

@@ -11,8 +11,8 @@ const apiUrl = 'http://127.0.0.1:8000/api';
 export class ValiderService {
 
   constructor(private http: HttpClient) { }
-
-  putValiderDevis(id:number): Observable<any> {
+/*******Valider un devis***********/
+  putValiderDevis(id:number,): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
 
     console.log(accessToken);

@@ -14,28 +14,34 @@
           </a>
           <ul>
             <li>
-              <a href="#"  [routerLink]="['/accueilclient']"  >
-                <span class="fas fa-tachometer-alt"></span>
+              <a [routerLink]="['/accueilclient']" >
+                <span class="fa-solid fa-bars"></span>
                 <span>Tableau e board</span>
               </a>
             </li>
             <li>
-              <a  class="switch"class="active">
-                <span class="fas fa-users" ></span>
+              <a    [routerLink]="['/gestioncompte']"  class="active" >
+                <span class="fa-solid fa-user" ></span>
                 <span >Gestion Compte</span>
               </a>
             </li>
             <li>
-              <a class="switch" [routerLink]="['/gestiondemande']" >
-                <span class="bi bi-truck"></span>
+              <a [routerLink]="['/gestiondemande']"  >
+                <span class="bi bi-clipboard-minus"></span>
               <span>Gestion Demande</span>
               </a>
             </li>
          
             <li>
-              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
+              <a [routerLink]="['/listedevis']"  >
                 <span class="fas fa-tasks"></span>
-                <span>Liste devis</span>
+                <span>Liste des devis</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['/prestation']" routerLinkActive="router-link-active" >
+                <span class="fa-solid fa-person-digging"></span>
+                <span>Prestation</span>
               </a>
             </li>
             <div class="logout  ms-3" style="margin-top: 50%;">
@@ -54,9 +60,9 @@
       <header>
        
 
-        <div class="search-wrapper">
-          <span class="fas fa-search"> </span>
-          <input type="search" placeholder="Search..." />
+        <div class="search-wrapper-hidden ">
+          <span class="fas fa-search-hidden"> </span>
+          <!-- <input type="search" class="hidden" /> -->
 
         </div>
 
@@ -73,7 +79,7 @@
         <!-- gestion compte -->
         <div class="compte" >
         <div class="card mb-3" style="max-width: 935px;">
-            <div class="row g-0">
+            <div class="row g-0" id="row">
               <div class="col-md-4 mt-2 w-100%">
                 <img src="/assets/profil-removebg-preview.png" class="img-fluid rounded-start" alt="...">
               </div>
@@ -81,10 +87,10 @@
                 <div class="card-body">
                     <div class="text mt-5">
                         <ul>
-                            <li>Nom complet : &nbsp;<span>{{userconnect.Nom}}</span></li>
-                            <li>Adresse email : &nbsp;<span>{{userconnect.Email}}</span></li>
-                            <li>Telephone : &nbsp;<span>{{userconnect.Telephone}}</span></li>
-                            <li>Localité : &nbsp;<span>{{userconnect.Localite}}</span></li>
+                            <li>Nom complet : <span>{{userconnect.Nom}}</span></li>
+                            <li>Adresse email : <span>{{userconnect.Email}}</span></li>
+                            <li>Telephone : &nbsp; &nbsp;<span>{{userconnect.Telephone}}</span></li>
+                            <li>Localité : &nbsp; &nbsp; &nbsp; &nbsp;<span>{{userconnect.Localite}}</span></li>
                         </ul>
                     </div>
                  
@@ -108,18 +114,27 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <div class="modification col-md-2">
+          <div class="row gap-5">
+          <div class="form-group col-md-5">
             <label for="">Nomcomplet</label>
-          <input type="text" name="name" [(ngModel)]="name">
+          <input type="text" name="name" [(ngModel)]="name" id="input">
         </div>
-          <div class="modification col-md-2">
-          <label for="">Adresse email</label><br>
-          <input type="email" name="email" [(ngModel)]="email">
+          <div class="form-group col-md-5">
+          <label for="">Adresse email</label>
+          <input type="email" name="email" [(ngModel)]="email" id="input">
+        </div>
+      </div>
+      <div class="row gap-5 mt-3">
+        <div class="form-group col-md-5">
           <label for="">Telephone</label><br>
-          <input type="text" name="telephone" [(ngModel)]="telephone">
+          <input type="text" name="telephone" [(ngModel)]="telephone" id="input">
+        </div>
+        <div class="form-group col-md-5">
           <label for="">Localité</label><br>
-          <input type="text" name="localite" [(ngModel)]="localite">
-          </div>
+          <input type="text" name="localite" [(ngModel)]="localite" id="input">
+        </div>
+      </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" id="enregistrer" (click)="putProfil(userconnect.id)">Enregistre</button>

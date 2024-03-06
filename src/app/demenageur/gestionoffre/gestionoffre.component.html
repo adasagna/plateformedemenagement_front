@@ -7,49 +7,50 @@
         </div>
         
         <div class="sidebar-menu">
-          <a [routerLink]="['/accueildemenageur']"    >
-            <div class="image"><img src="/assets/camio-removebg-preview.png" alt=""></div>
+          <a [routerLink]="['/accueildemenageur']">
+            <div class="image mb-3"><img src="/assets/camio-removebg-preview.png" alt=""></div>
           </a>
           <ul>
             <li>
-              <a [routerLink]="['/accueildemenageur']"   >
-                <span class="fas fa-tachometer-alt"></span>
-                <span>Tableau e board</span>
+              <a [routerLink]="['/accueildemenageur']"  >
+                <span class="fa-solid fa-bars"></span>
+                <span>Tableau de board</span>
               </a>
             </li>
             <li>
-              <a  class="switch" [routerLink]="['/gestionprifil']" routerLinkActive="router-link-active" >
-                <span class="fas fa-users" ></span>
-                <span >Gestion Compte</span>
+              <a [routerLink]="['/gestionprofil']">
+                <span class="fa-solid fa-user"></span>
+                <span>Gestion Compte</span>
               </a>
             </li>
             <li>
-              <a class="switch" [routerLink]="['/gestiondevis']"   >
-                <span class="bi bi-truck"></span>
-              <span>Gestion Devis</span>
+              <a class="switch" [routerLink]="['/gestiondevis']"  >
+                <span class="bi bi-clipboard-minus" ></span>
+                <span>Gestion devis</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['/devisdemenageur']"  >
-                <span class="fas fa-user-circle"></span>
+              <a [routerLink]="['/devisdemenageur']" >
+                <span class="fas fa-tasks"></span>
                 <span>Liste devis</span>
               </a>
             </li>
             <li>
-              <a  class="active" [routerLink]="['/gestionoffre']"  >
-                <span class="fas fa-tasks"></span>
-                <span>Gestion Offres</span>
+              <a [routerLink]="['/gestionoffre']"  class="active">
+                <span class="fa-solid fa-book"></span>
+                <span>Gestion offre</span>
               </a>
             </li>
-            <div class="logout mt-5">
-              <a   class="logout">
-                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+            <div class="logout  ms-3" style="margin-top: 50%;">
+              <a [routerLink]="['/connexion']"   class="logout">
+                <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
             </a>
             </div>
             <!-- <div class="utilsateur">
-              <span>Tableau demenageur</span>
+              <span>Tableau Demenageur</span>
             </div> -->
           </ul>
+    
         </div>
     </div>    
 

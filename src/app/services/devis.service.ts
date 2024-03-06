@@ -12,7 +12,7 @@ const apiUrl = 'http://127.0.0.1:8000/api';
 export class DevisService {
 
   constructor(private http: HttpClient) {}
-
+/***envoie devis**********/
   postDevis(id:number, devisdemenageur:any): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
     return accessToken ?

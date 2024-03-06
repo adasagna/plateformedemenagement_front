@@ -32,6 +32,15 @@ postInfo(info:any): Observable<any> {
     of(null);
 
 }  
+/**********recherche demenageurs par localite***********/
+recherche(): Observable<any> {
+  const accessToken = localStorage.getItem('access_token');
+  return accessToken ?
+  this.http.post<any>(`${api}/moversoflocalitysearch`, {
+  headers: new HttpHeaders({ 'Authorization': `Bearer ${accessToken}` })
+}) :
+of(null);
+} 
 }
 
 

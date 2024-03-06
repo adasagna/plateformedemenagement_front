@@ -8,52 +8,59 @@
           </h1>
         </div>
         
-        <div class="sidebar-menu">
-          <a [routerLink]="['/accueildemenageur']"  >
-            <div class="image"><img src="/assets/camio-removebg-preview.png" alt=""></div>
-          </a>
-          <ul>
-            <li>
-              <a href="#"  [routerLink]="['/accueildemenageur']"  >
-                <span class="fas fa-tachometer-alt"></span>
-                <span>Tableau de board</span>
-              </a>
-            </li>
-            <li>
-              <a  class="switch" href="#" class="active">
-                <span class="fas fa-users" ></span>
-                <span >Gestion Compte</span>
-              </a>
-            </li>
-            <li>
-              <a class="switch" [routerLink]="['/gestiondevis']" >
-                <span class="bi bi-truck"></span>
-              <span>Gestion devis</span>
-              </a>
-            </li>
-         
-            <li>
-              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
-                <span class="fas fa-tasks"></span>
-                <span>Liste devis</span>
-              </a>
-            </li>
-            <li>
-              <a [routerLink]="['/listedevis']" routerLinkActive="router-link-active" >
-                <span class="fas fa-tasks"></span>
-                <span>Gestion offre</span>
-              </a>
-            </li>
-            <div class="logout mt-5">
-              <a [routerLink]="['/connexion']" routerLinkActive="router-link-active"  class="logout">
-                <i class="fa-solid fa-right-from-bracket" style="color: #E08D14;"></i>Deconnexion
+        <div class="sidebar">
+          <div class="sidebar-brand">
+            <h1> <span class="fab fa-asymmetrik"> </span> <span>Aizcar</span>
+            </h1>
+          </div>
+          
+          <div class="sidebar-menu">
+            <a [routerLink]="['/accueildemenageur']">
+              <div class="image mb-3"><img src="/assets/camio-removebg-preview.png" alt=""></div>
             </a>
-            </div>
-            <!-- <div class="utilsateur">
-              <span>Tableau Demenageur</span>
-            </div> -->
-          </ul>
-        </div>
+            <ul>
+              <li>
+                <a [routerLink]="['/accueildemenageur']"  >
+                  <span class="fa-solid fa-bars"></span>
+                  <span>Tableau de board</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/gestionprofil']" class="active">
+                  <span class="fa-solid fa-user"></span>
+                  <span>Gestion Compte</span>
+                </a>
+              </li>
+              <li>
+                <a class="switch" [routerLink]="['/gestiondevis']"  >
+                  <span class="bi bi-clipboard-minus" ></span>
+                  <span>Gestion devis</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/devisdemenageur']" >
+                  <span class="fas fa-tasks"></span>
+                  <span>Liste devis</span>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/gestionoffre']"  >
+                  <span class="fa-solid fa-book"></span>
+                  <span>Gestion offre</span>
+                </a>
+              </li>
+              <div class="logout  ms-3" style="margin-top: 50%;">
+                <a [routerLink]="['/connexion']"   class="logout">
+                  <i class="fa-solid fa-right-from-bracket" style="color: #02273D;"></i>&nbsp;Deconnexion
+              </a>
+              </div>
+              <!-- <div class="utilsateur">
+                <span>Tableau Demenageur</span>
+              </div> -->
+            </ul>
+      
+          </div>
+      </div>
     </div>    
 
     <div class="main-content">
