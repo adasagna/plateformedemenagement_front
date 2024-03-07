@@ -120,7 +120,7 @@ export class ConnexionComponent implements OnInit {
     } 
     
     if(this.emailCon == ""){
-      this.verifemailCon = "Veuillez renseigner votre email";
+      this.verifemailCon = "";
     }
     else if (!this.emailCon.match(emailPattern) ){
       this.verifemailCon = "Veuillez donner un email valide";

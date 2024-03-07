@@ -12,7 +12,7 @@ export class ValiderService {
 
   constructor(private http: HttpClient) { }
 /*******Valider un devis***********/
-  putValiderDevis(id:number,): Observable<any> {
+  putValiderDevis(id:number): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
 
     console.log(accessToken);

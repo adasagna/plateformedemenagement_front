@@ -25,8 +25,8 @@ export class ListedevisComponent implements OnInit {
     private detailsservice:DetaildevisService){}
   ngOnInit(): void {
     this.userconnect = JSON.parse(localStorage.getItem('infoUserConnect') || '');
-    this.getDevis(this.userconnect.id)
-    this.getDetailsdevis(this.userconnect.id)
+    this.getDevis(this.userconnect.id);
+    // this.getDetailsdevis(this.userconnect.id)
     
   }
 
@@ -35,31 +35,29 @@ export class ListedevisComponent implements OnInit {
   getDevis(id:number){
     this.devisservice.getDevis(id).subscribe((data) => {
       this.listedevis=data.data;
-      console.log('listedevisdddyyyyuyuuu',data);
+      // console.log('listedevisdddyyyyuyuuu',li);
     }
       )
   }
 /**Details devis d'un client */
-  getDetailsdevis(paramdetails:any){
-    alert(paramdetails)
-    this.details_id=paramdetails
-    this.detailsdevis=paramdetails
+  unDevis: any;
+  getDetailsdevis(paramdetails:number){
+
+    // this.detailsdevis=paramdetails
     // alert('voir devis')
-    this.devisservice.getDetailsdevis(this.devis).subscribe((data)=>{
-      console.log('details du devis dddddddddddd',data); 
-      this.listedevis=data.data;
+    this.devisservice.getDetailsdevis(paramdetails).subscribe((data)=>{
+      // console.log('details du devis dddddddddddd',data.data); 
+      this.unDevis=data.data;
+      console.log(this.unDevis)
     });
   }
   /**************************valider un devis************************ */
   putValiderDevis(id:number){
-    const  details={
-      prix_total:this.prix_total,
-      description:this.description
-    }
-    alert(this.details_id);
-    this.valider.putValiderDevis(this.details_id).subscribe((data)=>{
-      // this.listedevis=data.data;
+    console.log(id)
+
+    this.valider.putValiderDevis(id).subscribe((data)=>{
       console.log('devis validertttyyuuuiiiio',data);
+      // this.listedevis=data.data;
 
     })
   }
