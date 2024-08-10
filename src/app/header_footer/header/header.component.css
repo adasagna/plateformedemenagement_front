@@ -36,7 +36,8 @@ a {
     font-size: 25px;
     text-decoration: none;
 }
-button{
+.navbar-toggler-icon{
+    display: none;
     background-color: #E08D14;
    
 }
@@ -51,8 +52,18 @@ img{
 
 @media screen and (max-width: 768px){
     
-    .navbar-toggler{
+    .navbar-brand img{
+        width: 20%;
     }
+    .collapse {
+        background-color: #02273D;
+    }
+    .navbar-toggler-icon{
+        display: flex;
+        background-color: #E08D14;
+       
+    }  
+    
 }
  
 

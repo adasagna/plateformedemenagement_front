@@ -5,6 +5,7 @@ import { DetaildemandeService } from 'src/app/services/detaildemande.service';
 import { DevisService } from 'src/app/services/devis.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestiondevis',
@@ -70,21 +71,35 @@ export class GestiondevisComponent implements OnInit {
  
   }
 /***envoie devis****** */
-  postDevis(){
-    const tabdevis={
-      prix_total: this.prix_total, 
-      date_demenagement: this.date_demenagement,
-      description: this.description ,
-    }
-    this.devisservice.postDevis(this.demandedevis, tabdevis).subscribe(
-      (data)=>{ 
-      console.log(' devis envoyé avec succès au client:', data); 
-      alert('devis envoyé')
+postDevis() {
+  const tabdevis = {
+    prix_total: this.prix_total,
+    date_demenagement: this.date_demenagement,
+    description: this.description,
+  };
+
+  this.devisservice.postDevis(this.demandedevis, tabdevis).subscribe(
+    (data) => {
+      console.log('Devis envoyé avec succès au client:', data);
+      Swal.fire({
+        title: 'Devis envoyé',
+        text: 'Le devis a été envoyé avec succès.',
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
     },
-    
-    )
-        
+    // (error) => {
+    //   console.error('Erreur lors de l\'envoi du devis:', error);
+    //   Swal.fire({
+    //     title: 'Erreur',
+    //     text: 'Une erreur est survenue lors de l\'envoi du devis. Veuillez réessayer.',
+    //     icon: 'error',
+    //     confirmButtonText: 'OK'
+    //   });
+    // }
+  );
 }
+
 
 getAllDevis(id:number){
   this.devisservice.getAllDevis(id).subscribe((data) => {

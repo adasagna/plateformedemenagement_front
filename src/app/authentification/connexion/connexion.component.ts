@@ -78,32 +78,48 @@ export class ConnexionComponent implements OnInit {
 
  
  
+
   connexion() {
-   const data ={
-     email: this.emailCon,
-     password: this.passwordCon,
-    //  id: this.id
-    }
+    const data = {
+      email: this.emailCon,
+      password: this.passwordCon,
+    };
     this.authservice.connexion(data).subscribe(
-      (response) =>{
-        console.log("affichage du data",response);
-        console.log("affichage du user",response.user.role);
+      (response) => {
+        console.log("affichage du data", response);
+        console.log("affichage du user", response.user.role);
         localStorage.setItem("infoUserConnect", JSON.stringify(response.user));
         localStorage.setItem("access_token", JSON.stringify(response.authorisation.token).replace(/['"]+/g, ''));
-        if (response.user.role==='Admin') {
-          this.route.navigate(['accueiladmin']);        
-        }
-        else if (response.user.role === 'Client' ){
-          this.route.navigate(['/accueilclient']); 
-        }else{
-          this.route.navigate(['/accueildemenageur']);
-        }
-      
-      });
-      
-    
-     
-    }
+  
+        // Afficher SweetAlert après authentification réussie
+        Swal.fire({
+          title: 'Authentification réussie',
+          text: 'Bienvenue, ' + response.user.role + '!',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          // Rediriger l'utilisateur après avoir cliqué sur 'OK'
+          if (response.user.role === 'Admin') {
+            this.route.navigate(['accueiladmin']);
+          } else if (response.user.role === 'Client') {
+            this.route.navigate(['/accueilclient']);
+          } else {
+            this.route.navigate(['/accueildemenageur']);
+          }
+        });
+      },
+      (error) => {
+        console.error('Erreur lors de la connexion :', error);
+        Swal.fire({
+          title: 'Erreur',
+          text: 'Échec de l\'authentification. Veuillez vérifier vos informations de connexion.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+      }
+    );
+  }
+  
     
     viderChampsCon(){
       
@@ -280,34 +296,34 @@ export class ConnexionComponent implements OnInit {
   
 
   veriftelephoneFonction(){
-    const telRegex = /^(77|78|70|76)[0-9]{7}/;
-    const val = this.telephone.length == 9 && telRegex.test(this.telephone);
-    const tel = Number(this.telephone.slice(0, 2)) == 77 || Number(this.telephone.slice(0, 2)) == 78 || Number(this.telephone.slice(0, 2)) == 70 || Number(this.telephone.slice(0, 2)) == 76;
-    this.exacttelephone = false;
-    if (val) {
-      this.veriftelephone = "Format valide!";
-      this.exacttelephone = true;
-    }
-    if (!val) {
-      this.veriftelephone = "Format de téléphone invalide";
-    }
-    if (!tel) {
-      this.veriftelephone = "Commencez par 70 ou 76 ou 77 ou 78";
-    } else if (tel) {
-      this.veriftelephone = "";
-    }
-    if (!Number(this.telephone)) {
-      this.veriftelephone = "Caracteres inacceptable";
-    }
-    if (this.telephone == '') {
-      this.veriftelephone = "";
-    }
-    if(this.telephone == ""){
-      this.veriftelephone = "Veuillez renseigner votre telephone"
-    }
-    else if (this.telephone.length < 9 ){
-      this.veriftelephone = "Le numero est trop court";
-    }
+    // const telRegex = /^(77|78|70|76)[0-9]{7}/;
+    // const val = this.telephone.length == 9 && telRegex.test(this.telephone);
+    // const tel = Number(this.telephone.slice(0, 2)) == 77 || Number(this.telephone.slice(0, 2)) == 78 || Number(this.telephone.slice(0, 2)) == 70 || Number(this.telephone.slice(0, 2)) == 76;
+    // this.exacttelephone = false;
+    // if (val) {
+    //   this.veriftelephone = "Format valide!";
+    //   this.exacttelephone = true;
+    // }
+    // if (!val) {
+    //   this.veriftelephone = "Format de téléphone invalide";
+    // }
+    // if (!tel) {
+    //   this.veriftelephone = "Commencez par 70 ou 76 ou 77 ou 78";
+    // } else if (tel) {
+    //   this.veriftelephone = "";
+    // }
+    // if (!Number(this.telephone)) {
+    //   this.veriftelephone = "Caracteres inacceptable";
+    // }
+    // if (this.telephone == '') {
+    //   this.veriftelephone = "";
+    // }
+    // if(this.telephone == ""){
+    //   this.veriftelephone = "Veuillez renseigner votre telephone"
+    // }
+    // else if (this.telephone.length < 9 ){
+    //   this.veriftelephone = "Le numero est trop court";
+    // }
   }
   
   // Verification du mot de passe pour l'inscription

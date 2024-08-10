@@ -14,7 +14,7 @@
             <li>
               <a [routerLink]="['/accueilclient']" >
                 <span class="fa-solid fa-bars"></span>
-                <span>Tableau e board</span>
+                <span>Tableau de board</span>
               </a>
             </li>
             <li>
@@ -72,7 +72,8 @@
         <div class="user-wrapper">
          <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
          <div class="">
-            <h5>Admin</h5>
+          <h5>{{userconnect.Nom}}</h5>
+          <small>{{userconnect.role}}</small>
          </div>
         </div>
       </header>

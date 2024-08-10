@@ -137,7 +137,7 @@ p{
     left: 0;
     width: 100%;
     padding: 20px;
-    background-color: #fff;
+    background-color:#f0f0ff;
     transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   
@@ -156,7 +156,7 @@ p{
   .card__button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #000;
+    background-color: #02273D;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -165,7 +165,7 @@ p{
   .card__image {
     height: 500px;
     width: 350px;
-    background-color: #02273d78;
+    background-color: #f0f0ff;
   }
   /* **********responsivite********* */
   @media screen and (max-width:1245px){

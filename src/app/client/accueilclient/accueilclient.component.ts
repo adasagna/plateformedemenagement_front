@@ -163,14 +163,14 @@ validateNouvelle() {
             this.informations_bagages = '';
             this.date_demenagement = '';
         },
-        (error) => {
-            console.error('Erreur lors de l\'envoi de la demande de devis:', error);
-            Swal.fire({
-                icon: 'error',
-                title: 'Erreur lors de l\'envoi',
-                text: 'Une erreur s\'est produite lors de l\'envoi de la demande de devis. Veuillez réessayer plus tard.',
-            });
-        }
+        // (error) => {
+        //     console.error('Erreur lors de l\'envoi de la demande de devis:', error);
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Erreur lors de l\'envoi',
+        //         text: 'Une erreur s\'est produite lors de l\'envoi de la demande de devis. Veuillez réessayer plus tard.',
+        //     });
+        // }
     );
 }
 

@@ -69,16 +69,14 @@
           <input type="search" placeholder="Search..." />
           
         </div>
-        <div class="fa-bell">
-          <i class="fa-solid fa-bell"></i>
-        </div>
+       
 
         <div class="user-wrapper">
-         <img src="/assets/photo.PNG" width="40px" height="40px" alt="profile-img">
+          <i class="bi bi-person-circle me-3 mt-0" style="font-size: 35px; color: #02273D;"></i>
          <div class="">
-          <h5>IHGFHG</h5>
-          <small>IJIFJ</small>
-        </div>
+          <h5>{{userconnect.Nom}}</h5>
+          <small>{{userconnect.role}}</small>
+         </div>
         </div>
       </header>
 
@@ -175,6 +173,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
+          <img src="/assets/camio.PNG" alt="" style="width: 20%; margin-top: -3%; margin-left: -3%;" >
           <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Devis</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -182,17 +181,18 @@
             <div class="row">
                 <div class="form-group " >
               <label for="">Prix demenagement</label><br>
-              <input type="text" name="prix_total"  [(ngModel)]="prix_total">
+              <input type="text" name="prix_total"  [(ngModel)]="prix_total" class="text col-md-12">
             </div>
-            <div class="form-group ">
+            <div class="form-group">
               <label for="" >Description</label><br>
-              <textarea name="description" id="" cols="30" rows="10" [(ngModel)]="description"></textarea>
+                    <label for="">adresse_actuelle</label>
+              <textarea name="description" id="" cols="30" rows="10" [(ngModel)]="description" class="text col-md-12"></textarea>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary"  (click)=" putDevis()">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary"  (click)=" putDevis()" style="background-color: #02273D;">Modifier</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  style="border:1px solid #02273D; background-color: #fff; color: #02273D;">Annuler</button>
         </div>
       </div>
     </div>

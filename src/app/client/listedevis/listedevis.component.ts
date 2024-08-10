@@ -4,6 +4,7 @@ import { ValiderService } from 'src/app/services/valider.service';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { DetaildevisService } from 'src/app/services/detaildevis.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -58,6 +59,13 @@ export class ListedevisComponent implements OnInit {
     this.valider.putValiderDevis(id).subscribe((data)=>{
       console.log('devis validertttyyuuuiiiio',data);
       // this.listedevis=data.data;
+      Swal.fire({
+        title: 'Devis validé',
+        text: 'Votre devis est validé avec succès.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        timer: 2000,
+      });
 
     })
   }
@@ -66,6 +74,13 @@ export class ListedevisComponent implements OnInit {
     this.devisservice.postrefuDevis(id).subscribe((data) =>{
       this.detailsdevis=data.data;
       console.log('devis refusé', data);
+      Swal.fire({
+        title: 'Devis refusé',
+        text: 'Votre devis est refusé.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        timer: 2000,
+      });
 
     }
     )
